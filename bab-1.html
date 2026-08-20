@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bahan ajar interaktif Bab 1 — Sejarah Pencemaran Udara: dari api praindustri, episode smog klasik, hingga WHO AQG 2021 dan litigasi udara bersih." />
+  <title>Modul Ajar · Sejarah Pencemaran Udara (Bab 1)</title>
+
+  <!-- Google Fonts: display + body + mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- KaTeX CSS (rumus) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+
+  <!-- Design system & tokens (sumber kebenaran gaya) -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Tailwind via CDN (utility layout, non-kritis) -->
+  <script src="https://cdn.tailwindcss.com/3.4.13"></script>
+</head>
+<body class="air-column-page">
+  <!-- Reading progress bar -->
+  <div id="progress-track" role="presentation" aria-hidden="true"><div id="progress-bar"></div></div>
+
+  <!-- Header / sticky TOC -->
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Ke awal halaman">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Pencemaran <strong>Udara</strong></span>
+      </a>
+      <div class="chapter-nav" id="chapter-nav">
+        <button type="button" class="chapter-btn" id="chapter-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Pilih bab">
+          <span class="icon" data-lucide="book-open"></span>
+          <span class="chapter-btn-label" id="chapter-btn-label">Bab 1</span>
+          <span class="icon chev" data-lucide="chevron-down"></span>
+        </button>
+        <div class="chapter-menu" id="chapter-menu" role="menu" hidden></div>
+      </div>
+      <button type="button" id="air-column-toggle" class="icon-btn air-column-toggle" aria-label="Buka navigasi subbab" aria-controls="air-column" aria-expanded="false">
+        <span class="icon" data-lucide="list-tree"></span>
+      </button>
+      <button type="button" id="theme-toggle" class="icon-btn" aria-label="Alihkan tema terang/gelap" aria-pressed="false">
+        <span class="icon" data-lucide="sun"></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="air-column" id="air-column" aria-label="Navigasi subbab">
+    <div class="air-column-head">
+      <strong>Lapisan materi</strong>
+      <span>Ikuti aliran dari sejarah ke dampak.</span>
+    </div>
+    <nav class="toc" id="toc" aria-label="Navigasi subbab">
+      <button type="button" class="chip" data-scroll="#pra-industri">1.1 Pra-industri</button>
+      <button type="button" class="chip" data-scroll="#revolusi">1.2 Revolusi</button>
+      <button type="button" class="chip" data-scroll="#episode">1.3 Episode</button>
+      <button type="button" class="chip" data-scroll="#fotokimia">1.4 Fotokimia</button>
+      <button type="button" class="chip" data-scroll="#regulasi">1.5 Regulasi</button>
+      <button type="button" class="chip" data-scroll="#indonesia">1.6 Indonesia</button>
+      <button type="button" class="chip" data-scroll="#paradigma">1.7 PM₂.₅</button>
+      <button type="button" class="chip" data-scroll="#terkini">1.8 Terkini</button>
+      <button type="button" class="chip" data-scroll="#pelajaran">Pelajaran</button>
+      <button type="button" class="chip" data-scroll="#rangkuman">Rangkuman</button>
+      <button type="button" class="chip" data-scroll="#quiz">Kuis</button>
+      <button type="button" class="chip" data-scroll="#diskusi">Diskusi</button>
+      <button type="button" class="chip" data-scroll="#latihan">Latihan</button>
+      <button type="button" class="chip" data-scroll="#pustaka">Pustaka</button>
+    </nav>
+  </aside>
+  <button type="button" class="air-column-backdrop" id="air-column-backdrop" aria-label="Tutup navigasi subbab" hidden></button>
+
+  <main id="top" class="content">
+<!-- HERO -->
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Modul Ajar · Pencemaran Udara</p>
+          <h1 id="hero-title">Sejarah Pencemaran Udara<span class="tone">: dari asap peradaban awal hingga era udara bersih</span></h1>
+        </div>
+        <figure class="hero-fig" id="hero-fig">
+          <svg id="hero-svg" viewBox="0 0 480 300" role="img" aria-label="Ilustrasi kabut asap di atas siluet kota: matahari, cerobong pabrik mengeluarkan asap, dan arah angin">
+            <circle cx="386" cy="64" r="30" fill="var(--svg-gas)" opacity="0.5"/>
+            <circle cx="386" cy="64" r="18" fill="var(--svg-soil)"/>
+            <g fill="var(--svg-waste2)">
+              <rect x="40" y="200" width="38" height="100"/>
+              <rect x="86" y="176" width="30" height="124"/>
+              <rect x="122" y="210" width="44" height="90"/>
+              <rect x="182" y="188" width="34" height="112"/>
+              <rect x="226" y="218" width="52" height="82"/>
+              <rect x="300" y="196" width="36" height="104"/>
+              <rect x="346" y="214" width="46" height="86"/>
+              <rect x="402" y="184" width="40" height="116"/>
+            </g>
+            <rect x="286" y="150" width="66" height="50" fill="var(--svg-waste)"/>
+            <rect x="300" y="104" width="10" height="46" fill="var(--svg-liner)"/>
+            <rect x="324" y="112" width="10" height="38" fill="var(--svg-liner)"/>
+            <path class="flow" d="M305 104 C305 86 288 82 300 66 C312 50 296 42 308 28" fill="none" stroke="var(--svg-gas)" stroke-width="8" stroke-linecap="round" opacity="0.7"/>
+            <path class="flow" d="M329 112 C329 96 344 92 332 78 C320 64 336 54 322 40" fill="none" stroke="var(--svg-pipe)" stroke-width="7" stroke-linecap="round" opacity="0.6"/>
+            <rect x="0" y="296" width="480" height="4" fill="var(--svg-liner2)"/>
+            <g stroke="var(--svg-monitor)" stroke-width="2" stroke-linecap="round" fill="none">
+              <path d="M70 84 H120"/>
+              <path d="M112 78 L120 84 L112 90"/>
+              <path d="M250 240 H300"/>
+              <path d="M292 234 L300 240 L292 246"/>
+            </g>
+          </svg>
+          <figcaption><strong>Gbr. pengantar</strong> — pada masa lalu, asap tebal dipandang sebagai simbol kemakmuran; kini asap dipahami sebagai risiko kesehatan masyarakat lintas generasi.</figcaption>
+        </figure>
+      </div>
+      <div class="wrap stat-strip" aria-label="Angka kunci">
+        <div class="stat"><span class="stat-num">12.000</span><span class="stat-lbl">kematian Great Smog London 1952 (estimasi modern)</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-lbl">µg/m³ ambang PM₂.₅ tahunan menurut WHO AQG 2021</span></div>
+        <div class="stat"><span class="stat-num">63</span><span class="stat-lbl">korban jiwa kabut Meuse Valley 1930 — bukti ilmiah awal mortalitas akibat pencemaran udara</span></div>
+      </div>
+    </section>
+<!-- TUJUAN PEMBELAJARAN -->
+    <section class="sec" id="objectives" aria-labelledby="obj-title">
+      <div class="wrap">
+        <div class="panel">
+          <p class="eyebrow">Tujuan pembelajaran</p>
+          <h2 class="h2" id="obj-title">Setelah mempelajari bab ini, mahasiswa mampu…</h2>
+          <ul class="objective-list" id="objectives-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- KATA KUNCI -->
+    <section class="sec sec-kw" id="kata-kunci" aria-labelledby="kw-title">
+      <div class="wrap">
+        <p class="eyebrow center-eyebrow">Kata kunci</p>
+        <h2 class="h2 sr-only" id="kw-title">Kata kunci bab ini</h2>
+        <div class="kw-cloud" id="kw-cloud" aria-label="Daftar kata kunci"></div>
+      </div>
+    </section>
+
+    <!-- 1.1 PRA-INDUSTRI -->
+    <section class="sec" id="pra-industri" aria-labelledby="pra-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">1.1 · Pra-industri</p>
+          <h2 class="h2" id="pra-title">Api, asap, dan keluhan sejak peradaban awal</h2>
+          <p class="sec-desc">Pencemaran udara bukan fenomena modern; persoalan ini telah menyertai sejarah penguasaan api.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Jejak pencemaran udara dapat ditelusuri hingga sekitar 5.000 tahun lalu, ketika manusia membuka lahan untuk pertanian dengan membakar hutan, melepaskan asap kayu, metana dari ternak, dan karbon dioksida. Aktivitas peleburan logam pada peradaban Romawi, Yunani, dan Tiongkok turut menjadi sumber pencemaran berskala regional jauh sebelum era industri.</p>
+          <p>Rekonstruksi inti es (<em>ice core</em>) Arktik menunjukkan lonjakan deposisi timbal atmosferik pada masa Pax Romana (27 SM–180 M) akibat penambangan dan peleburan bijih perak-timbal Romawi. Sebuah studi di <em>PNAS</em> (2025) mengestimasi lebih dari <strong>500 kiloton timbal</strong> terlepas ke atmosfer selama sekitar 200 tahun kejayaan kekaisaran. Emisi tersebut diperkirakan meningkatkan kadar timbal darah penduduk Eropa sekitar 2,4 µg/dL dan menurunkan IQ populasi sekitar 2,5–3 poin menurut model epidemiologi modern.</p>
+          <p>Catatan tekstual mengenai kondisi udara juga tersedia. Filsuf Seneca mencatat perbaikan kesehatannya setelah meninggalkan Roma yang diselimuti asap hitam ("gravioris caeli"). Kaisar Justinianus pada 535 M juga menyatakan udara bersih sebagai hak dasar. Di Inggris, keluhan terhadap asap batu bara terdokumentasi sejak <strong>abad ke-13</strong> pada era Raja Edward I. Tonggak intelektual berikutnya adalah risalah <em>Fumifugium</em> (1661) karya John Evelyn yang mengusulkan pemindahan usaha pembakar batu bara ke hilir Sungai Thames — salah satu usulan zonasi sumber emisi paling awal dalam sejarah.</p>
+          <div class="callout callout-warn">
+            <span class="icon" data-lucide="triangle-alert"></span>
+            <p><strong>Perhatikan jenis bukti.</strong> Data era praindustri umumnya berupa proksi geokimia (inti es, sedimen) dan catatan tekstual kualitatif — bukan pemantauan udara ambien yang terstandar. Oleh karena itu, kuantifikasi konsentrasi maupun dampak kesehatan bersifat estimasi model dengan ketidakpastian tinggi.</p>
+          </div>
+          <p>Pembakaran biomassa untuk memasak dan pemanasan juga menjadikan <strong>pencemaran udara dalam ruang</strong> sebagai salah satu bentuk pencemaran tertua dan hingga kini paling luas. Diperkirakan 2,1 miliar penduduk dunia masih memasak dengan bahan bakar padat, sedangkan WHO memperkirakan polusi udara rumah tangga menyebabkan sekitar 3,8 juta kematian dini pada 2016.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.2 REVOLUSI INDUSTRI -->
+    <section class="sec sec-deep" id="revolusi" aria-labelledby="revolusi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">1.2 · Revolusi Industri</p>
+          <h2 class="h2" id="revolusi-title">Batu bara, smog sulfur, dan kebangkitan smoke abatement</h2>
+          <p class="sec-desc">Ketika asap hitam masih dipandang sebagai simbol kemakmuran dan pencemaran masih dikaitkan dengan pembusukan organik.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Revolusi Industri (abad ke-18–19) menjadikan batu bara sebagai sumber energi dominan. Peningkatan konsumsi batu bara memenuhi kota-kota Inggris dengan <span class="term" data-gloss="smog">smog</span> sulfur yang semakin pekat. Pada sebagian besar abad ke-19, publik Inggris <strong>belum menganggap asap batu bara sebagai pencemaran</strong>. Dalam kerangka teori miasma, asap justru diyakini bersifat desinfektan karena kandungan karbon dan sulfurnya dianggap mampu menetralkan miasma.</p>
+          <p>Pergeseran pemahaman di akhir abad ke-19 — dari "pencemaran = pembusukan organik" menjadi "pencemaran = pembakaran batu bara" — melahirkan gerakan <em>smoke abatement</em> (penanggulangan asap). Dampak kesehatannya telah terkuantifikasi sejak awal: pada kabut musim dingin London 1879–1880 tercatat ribuan kematian di atas normal, dengan kenaikan kematian asma 43%, bronkitis 331%, dan batuk rejan 231%.</p>
+          <p>Meski demikian, hingga dekade 1930-an cerobong pabrik yang mengepulkan asap tebal tetap dipandang sebagai simbol kemakmuran. Bahkan, beberapa lembaga pemerintah memasukkan citra tersebut ke dalam lambang resminya.</p>
+          <div class="callout callout-ok">
+            <span class="icon" data-lucide="lightbulb"></span>
+            <p><strong>Pelajaran kunci.</strong> Penerimaan sosial terhadap emisi berkorelasi dengan persepsi manfaat ekonomi. Perubahan norma sosial sering kali mendahului perubahan regulasi — pola yang akan berulang pada setiap bab selanjutnya.</p>
+          </div>
+          <p class="tbl-title">Tabel 1.1 — Tonggak gerakan smoke abatement di Inggris</p>
+          <div class="tbl-wrap">
+          <table class="tbl" aria-label="Tonggak gerakan smoke abatement di Inggris">
+            <thead><tr><th scope="col">Tahun</th><th scope="col">Peristiwa</th></tr></thead>
+            <tbody>
+              <tr><td>1661</td><td><em>Fumifugium</em> John Evelyn mengkritik asap batu bara London</td></tr>
+              <tr><td>1821</td><td>Smoke Nuisance Abatement Act (Inggris) — regulasi awal gangguan asap</td></tr>
+              <tr><td>1920</td><td>Manchester membentuk Air Pollution Advisory Board; kerugian asap hitam ditaksir £212.705/tahun</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.3 EPISODE SMOG -->
+    <section class="sec" id="episode" aria-labelledby="episode-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">1.3 · Episode smog klasik</p>
+          <h2 class="h2" id="episode-title">Meuse Valley, Donora, dan London (1930–1952)</h2>
+          <p class="sec-desc">Tiga bencana yang memaksa dunia melihat asap bukan lagi sebagai gangguan, melainkan risiko kesehatan.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Ketiga episode tersebut memiliki mekanisme yang sama: <span class="term" data-gloss="inversi">inversi suhu</span> — lapisan udara hangat berada di atas udara dingin — sehingga emisi industri dan/atau pembakaran batu bara rumah tangga tertahan di dekat permukaan selama beberapa hari pada topografi lembah atau cekungan.</p>
+          <p class="tbl-title">Tabel 1.2 — Perbandingan tiga episode smog klasik</p>
+          <div class="tbl-wrap">
+          <table class="tbl" aria-label="Perbandingan tiga episode smog klasik">
+            <thead><tr><th scope="col">Episode</th><th scope="col">Lokasi &amp; tahun</th><th scope="col">Sumber dominan</th><th scope="col">Kematian</th></tr></thead>
+            <tbody>
+              <tr><td>Meuse Valley</td><td>Belgia, 1–5 Des 1930</td><td>Emisi puluhan pabrik (sulfur)</td><td>63 jiwa; ribuan sakit</td></tr>
+              <tr><td>Donora</td><td>Pennsylvania, 27–31 Okt 1948</td><td>HF &amp; SO₂ dari pabrik seng</td><td>20 jiwa; ±6.000 sakit</td></tr>
+              <tr><td>Great Smog London</td><td>London, 5–9 Des 1952</td><td>Batu bara industri + rumah tangga</td><td>±4.000 (resmi) — 10.000–12.000 (modern)</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p class="note">Sumber: Nemery et al. (2001); Jacobs et al. (2018). Untuk London, perbedaan antara estimasi resmi kontemporer (±4.000) dan estimasi retrospektif modern (10.000–12.000) mencerminkan perbedaan definisi dan metode penghitungan.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEPPER -->
+    <section class="sec sec-deep" id="stepper" aria-labelledby="stepper-title">
+      <div class="wrap">
+        <div class="sec-head center">
+          <p class="eyebrow">Telaah kasus</p>
+          <h2 class="h2" id="stepper-title">Anatomi tiga episode smog</h2>
+          <p class="sec-desc">Tinjau secara bertahap mekanisme dan pelajaran dari setiap bencana.</p>
+        </div>
+        <div class="stepper card" role="region" aria-label="Anatomi tiga episode smog" aria-live="polite" id="stepper-box">
+          <div class="stepper-pos" id="stepper-pos">Langkah 1 dari 3</div>
+          <div class="stepper-stage" id="stepper-stage"></div>
+          <div class="stepper-nav">
+            <button type="button" class="btn btn-ghost" id="step-prev"><span class="icon" data-lucide="chevron-left"></span> Sebelumnya</button>
+            <div class="stepper-dots" id="stepper-dots" aria-hidden="true"></div>
+            <button type="button" class="btn btn-primary" id="step-next">Berikutnya <span class="icon" data-lucide="chevron-right"></span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.4 FOTOKIMIA -->
+    <section class="sec" id="fotokimia" aria-labelledby="fotokimia-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">1.4 · Smog fotokimia</p>
+          <h2 class="h2" id="fotokimia-title">Los Angeles dan lahirnya kimia atmosfer</h2>
+          <p class="sec-desc">Anomali kota dengan sumber cerobong relatif sedikit, tetapi mengalami iritasi mata pada musim panas.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Pada dekade 1940-an, Los Angeles menunjukkan anomali: bahan bakar pemanas utamanya adalah gas alam dan sumber cerobong industrinya relatif sedikit, tetapi kota tersebut mengalami pencemaran yang mengiritasi mata dan hidung, terutama pada musim panas. Profesor <strong>Arie Jan Haagen-Smit</strong> (Caltech), yang sebelumnya meneliti aroma tanaman, menjelaskan pada awal 1950-an bahwa pencemar tersebut terbentuk dari emisi kendaraan bermotor.</p>
+          <p>Pada 1950 ia menunjuk ozon (O₃) sebagai agen pengoksidasi utama smog; pada 1952 ia mengumumkan temuan kuncinya — ozon <strong>tidak diemisikan langsung</strong> dari knalpot atau cerobong, melainkan <strong>terbentuk di atmosfer</strong> dari reaksi <span class="term" data-gloss="pencemar-sekunder">pencemar sekunder</span> prekursornya.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="mm-mekanisme" role="img" aria-label="Diagram mekanisme smog fotokimia: VOC dan NOx bereaksi di bawah sinar matahari membentuk ozon dan PAN"></div>
+            <figcaption><strong>Gbr. 1.1</strong> — Mekanisme fotokimia yang dirumuskan Haagen-Smit: dua prekursor, satu matahari, lalu oksidan sekunder.</figcaption>
+          </figure>
+          <p>Industri otomotif pada awalnya menolak temuan tersebut, tetapi bukti ilmiah kemudian diterima secara luas. Penemuan ini melahirkan konsep <span class="term" data-gloss="pencemar-sekunder">pencemar sekunder</span> dan menandai lahirnya <strong>kimia atmosfer</strong> sebagai disiplin ilmu — landasan pengendalian ozon dan PM₂.₅ sekunder hingga saat ini.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.5 REGULASI -->
+    <section class="sec" id="regulasi" aria-labelledby="regulasi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">1.5 · Era regulasi modern</p>
+          <h2 class="h2" id="regulasi-title">Clean Air Act dan pendekatan criteria pollutants</h2>
+          <p class="sec-desc">Dari keluhan lokal menuju pengendalian nasional, di dua sisi Atlantik.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Great Smog 1952 mendorong Parlemen Inggris menerbitkan <strong>Clean Air Act 1956</strong> — tonggak peralihan dari keluhan <em>nuisance</em> ke pengendalian nasional melalui <em>smoke control areas</em> yang melarang emisi asap dari cerobong rumah tangga di zona tertentu. Di Amerika Serikat, regulasi berkembang secara bertahap.</p>
+          <p class="tbl-title">Tabel 1.3 — Linimasa regulasi udara Amerika Serikat</p>
+          <div class="tbl-wrap">
+          <table class="tbl" aria-label="Linimasa regulasi udara Amerika Serikat">
+            <thead><tr><th scope="col">Tahun</th><th scope="col">Instrumen</th><th scope="col">Substansi</th></tr></thead>
+            <tbody>
+              <tr><td>1955</td><td>Air Pollution Control Act</td><td>Legislasi federal pertama; dana riset</td></tr>
+              <tr><td>1963</td><td>Clean Air Act</td><td>Pengendalian federal; California meregulasi emisi kendaraan</td></tr>
+              <tr><td>1967</td><td>Air Quality Act</td><td>Koordinasi federal atas upaya negara bagian</td></tr>
+              <tr><td>1970</td><td>Amendemen CAA; US EPA</td><td>NAAQS; standar <em>technology-forcing</em> kendaraan (90% hingga 1975)</td></tr>
+              <tr><td>1971</td><td>NAAQS pertama</td><td>Standar primer (kesehatan) &amp; sekunder (kesejahteraan)</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p><span class="term" data-gloss="naaqs">NAAQS</span> hingga kini mencakup enam <span class="term" data-gloss="criteria-pollutants">criteria pollutants</span>: partikulat (PM₁₀ dan PM₂.₅), SO₂, NO₂, CO, ozon, dan timbal. Peningkatan perhatian publik pada 1969–1970 dipengaruhi oleh pengalihan aktivisme anti-Perang Vietnam ke isu lingkungan, liputan media yang luas, serta tumpahan minyak Santa Barbara pada 1969. Secara paradoks, perhatian tersebut menguat ketika udara musim dingin di kota-kota Amerika Serikat telah lebih bersih dibandingkan masa sebelumnya yang didominasi jelaga batu bara.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.6 INDONESIA -->
+    <section class="sec sec-deep" id="indonesia" aria-labelledby="indonesia-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">1.6 · Indonesia</p>
+          <h2 class="h2" id="indonesia-title">Dari BAPEDAL hingga kabut asap lintas batas</h2>
+          <p class="sec-desc">Industrialisasi pasca-1970 meningkatkan beban emisi, sedangkan kelembagaan pengendalian baru terbentuk sekitar dua dasawarsa kemudian.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Kelembagaan pengendalian pencemaran udara Indonesia terbentuk secara bertahap, dimulai dengan <strong>BAPEDAL</strong> (Keppres 23/1990), dilanjutkan <strong>Program Langit Biru</strong> (dicanangkan pada 6 Agustus 1996 di Semarang melalui Kepmen LH 15/1996), dan kemudian <strong>PP 41/1999</strong> yang menetapkan baku mutu udara ambien, baku mutu emisi, ambang emisi kendaraan, dan <span class="term" data-gloss="ispu">ISPU</span>. Kerangka tersebut kemudian dilanjutkan melalui UU 32/2009 dan <strong>PP 22/2021</strong>.</p>
+          <div class="timeline" id="timeline" role="list" aria-label="Linimasa kelembagaan dan regulasi udara Indonesia"></div>
+          <p>Salah satu sumber pencemaran udara episodik terbesar di Indonesia adalah <span class="term" data-gloss="karhutla">karhutla</span> yang memicu <span class="term" data-gloss="transboundary">kabut asap lintas batas</span>. Kejadian ini diperparah oleh El Niño dan praktik pembukaan lahan, terutama pada ekosistem gambut.</p>
+          <p class="tbl-title">Tabel 1.4 — Statistik karhutla besar di Indonesia</p>
+          <div class="tbl-wrap">
+          <table class="tbl" aria-label="Statistik kebakaran hutan dan lahan besar di Indonesia">
+            <thead><tr><th scope="col">Tahun</th><th scope="col">Luas terbakar</th><th scope="col">Cakupan &amp; catatan</th></tr></thead>
+            <tbody>
+              <tr><td>1982/83</td><td>3,2 juta ha</td><td>Kalimantan Timur; El Niño, kekeringan ± 10 bulan</td></tr>
+              <tr><td>1997/98</td><td>± 11,7 juta ha</td><td>El Niño kuat; asap lintas batas memengaruhi &gt;200 juta penduduk</td></tr>
+              <tr><td>2015</td><td>2,6 juta ha</td><td>Kerugian ± Rp 220 triliun; darurat bencana asap 6 provinsi</td></tr>
+              <tr><td>2019</td><td>1,6 juta ha</td><td>± 99% dipicu faktor manusia (BNPB)</td></tr>
+              <tr><td>2023</td><td>1,16 juta ha (KLHK)</td><td>El Niño; Greenpeace mengestimasi 2,13 juta ha</td></tr>
+            </tbody>
+          </table>
+          </div>
+           <p class="note">Angka luas karhutla sangat bergantung pada metode. Perbandingan harus membedakan pemantauan resmi (KLHK/SiPongi) dari analisis independen (LSM), serta mencantumkan sumber setiap angka.</p>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-karhutla" aria-label="Batang luas karhutla besar Indonesia" role="img"></canvas></div>
+            <figcaption id="cap-karhutla"></figcaption>
+          </figure>
+          <p>Implikasi kebijakan karhutla antara lain lahirnya <strong>ASEAN Agreement on Transboundary Haze Pollution (AATHP)</strong> yang ditandatangani pada 2002; Indonesia menjadi negara ASEAN terakhir yang meratifikasinya pada 2014. Analisis dispersi untuk Sumatera Selatan memperkirakan bahwa baku mutu CO dan PM₁₀ terlampaui hingga jarak masing-masing 120 km dan 200 km dari sumber kebakaran.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.7 PARADIGMA -->
+    <section class="sec" id="paradigma" aria-labelledby="paradigma-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">1.7 · Pergeseran paradigma</p>
+          <h2 class="h2" id="paradigma-title">Dari polutan konvensional ke PM₂.₅ dan WHO AQG 2021</h2>
+          <p class="sec-desc">Partikel halus yang tak terlihat ternyata paling kuat berasosiasi dengan kematian.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Pada paruh kedua abad ke-20, regulasi terutama berfokus pada pencemar "klasik" yang kasatmata atau berbau. Pergeseran paradigma terjadi ketika studi epidemiologi kohort menunjukkan bahwa <span class="term" data-gloss="pm25">PM₂.₅</span> — partikel halus yang tidak terlihat — memiliki asosiasi kuat dengan mortalitas. Studi prospektif <strong>Harvard Six Cities</strong> dengan masa tindak lanjut 14–16 tahun menemukan bahwa laju kematian tahunan meningkat seiring konsentrasi partikel halus: rasio 1,00 di kota dengan konsentrasi terendah meningkat hingga 1,26 di kota dengan konsentrasi tertinggi. Temuan tersebut menjadi salah satu dasar pengetatan standar partikulat Amerika Serikat pada 1997.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="mm-paradigma" role="img" aria-label="Diagram pergeseran paradigma dari polutan konvensional ke PM2.5 dan WHO AQG 2021"></div>
+            <figcaption><strong>Gbr. 1.2</strong> — Rantai bukti yang menggeser paradigma regulasi kualitas udara.</figcaption>
+          </figure>
+          <p class="tbl-title">Tabel 1.5 — Perbandingan WHO AQG 2005, WHO AQG 2021, dan PP 22/2021</p>
+          <div class="tbl-wrap">
+          <table class="tbl" aria-label="Perbandingan WHO AQG 2005, WHO AQG 2021, dan PP 22 2021">
+            <thead><tr><th scope="col">Parameter (tahunan)</th><th scope="col">WHO 2005</th><th scope="col">WHO 2021</th><th scope="col">PP 22/2021</th></tr></thead>
+            <tbody>
+              <tr><td>PM₂.₅</td><td>10 µg/m³</td><td><strong>5 µg/m³</strong></td><td>15 µg/m³</td></tr>
+              <tr><td>PM₁₀</td><td>20 µg/m³</td><td><strong>15 µg/m³</strong></td><td>40 µg/m³</td></tr>
+              <tr><td>NO₂</td><td>40 µg/m³</td><td><strong>10 µg/m³</strong></td><td>50 µg/m³</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-aqg" aria-label="Batang perbandingan ambang tahunan WHO AQG dan PP 22 2021" role="img"></canvas></div>
+            <figcaption id="cap-aqg"></figcaption>
+          </figure>
+          <p>Secara global, WHO memperkirakan gabungan pencemaran udara ambien dan rumah tangga menyebabkan <strong>sekitar 7 juta kematian dini per tahun</strong>. Pada 2013, IARC mengklasifikasikan pencemaran udara luar ruang sebagai <strong>karsinogen Grup 1</strong>. Pada 2019, lebih dari 90% populasi dunia diperkirakan tinggal di wilayah yang melampaui pedoman PM₂.₅ tahunan WHO 2005.</p>
+          <div class="callout callout-warn">
+            <span class="icon" data-lucide="triangle-alert"></span>
+            <p><strong>Tiga catatan kritis.</strong> (1) Baku mutu PM₂.₅ Indonesia (15 µg/m³) setara <em>Interim Target 3</em> WHO — tiga kali lebih longgar daripada AQG 5 µg/m³. (2) Perbandingan antarstandar hanya sah pada waktu rata-rata yang sama. (3) <span class="term" data-gloss="aqg">WHO AQG</span> merupakan pedoman kesehatan yang tidak mengikat secara hukum, sedangkan baku mutu PP merupakan ambang legal; keduanya memiliki fungsi berbeda.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1.8 TERKINI -->
+    <section class="sec" id="terkini" aria-labelledby="terkini-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">1.8 · Kondisi terkini</p>
+          <h2 class="h2" id="terkini-title">Litigasi, krisis Asia Selatan, dan iklim</h2>
+          <p class="sec-desc">Abad ke-21 ditandai gugatan warga dan penyatuan agenda udara bersih dengan iklim.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Pada 2019, 32 warga Jakarta yang tergabung dalam Koalisi IBUKOTA mengajukan <strong>citizen lawsuit</strong> terkait pencemaran udara. Perkara tersebut menjadi salah satu preseden penting dalam hukum lingkungan di Asia Tenggara.</p>
+          <p class="tbl-title">Tabel 1.6 — Linimasa perkara polusi udara Jakarta</p>
+          <div class="tbl-wrap">
+          <table class="tbl" aria-label="Linimasa perkara polusi udara Jakarta">
+            <thead><tr><th scope="col">Tingkat</th><th scope="col">Nomor perkara</th><th scope="col">Putusan</th></tr></thead>
+            <tbody>
+              <tr><td>PN Jakpus</td><td>374/Pdt.G/LH/2019/PN.Jkt.Pst</td><td>16 Sept 2021 — gugatan dikabulkan</td></tr>
+              <tr><td>PT DKI</td><td>549/PDT.G-LH/2022/PT DKI</td><td>17 Okt 2022 — menguatkan</td></tr>
+              <tr><td>Mahkamah Agung</td><td>(kasasi)</td><td>Nov 2023 — kasasi ditolak, inkracht</td></tr>
+            </tbody>
+          </table>
+          </div>
+          <p>Pada tingkat global, krisis PM₂.₅ Asia Selatan menjadi salah satu episentrum beban pencemaran udara. Rata-rata pemaparan perkotaan pada 2019 mencapai 68,4 µg/m³. Pada 2023, Bangladesh, India, dan Pakistan termasuk negara dengan tingkat pencemaran tertinggi di dunia. Kondisi tersebut menunjukkan pentingnya pendekatan <em>interim target</em> bertahap, alih-alih menerapkan AQG secara langsung tanpa mempertimbangkan kapasitas implementasi.</p>
+          <p>Keterkaitan udara bersih dan iklim kini dirumuskan melalui konsep <span class="term" data-gloss="slcp">short-lived climate pollutants (SLCP)</span> — <span class="term" data-gloss="black-carbon">karbon hitam</span>, metana, ozon troposfer, dan HFC. Pencemar tersebut berumur relatif pendek, memiliki efek pemanasan kuat, dan sebagian besar juga berdampak buruk terhadap kesehatan. Bagi Indonesia, keterkaitan ini tampak jelas: karhutla gambut merupakan krisis PM₂.₅ regional sekaligus sumber emisi gas rumah kaca, sehingga perlindungan gambut dapat menghasilkan dua manfaat (<em>co-benefit</em>).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BENTO PELAJARAN -->
+    <section class="sec sec-deep" id="pelajaran" aria-labelledby="pelajaran-title">
+      <div class="wrap">
+        <div class="sec-head center">
+          <p class="eyebrow">Mengapa sejarah penting</p>
+          <h2 class="h2" id="pelajaran-title">Enam pelajaran dari sejarah pencemaran udara</h2>
+          <p class="sec-desc">Sejarah bukan sekadar latar; sejarah membantu membentuk pola pikir yang digunakan pada bab-bab berikutnya. Pilih kartu untuk membuka detail.</p>
+        </div>
+        <div class="bento-grid" id="bento-grid"></div>
+      </div>
+    </section>
+
+    <!-- RANGKUMAN -->
+    <section class="sec" id="rangkuman" aria-labelledby="rangkuman-title">
+      <div class="wrap">
+        <div class="panel">
+          <p class="eyebrow">Rangkuman</p>
+          <h2 class="h2" id="rangkuman-title">Pokok pembelajaran</h2>
+          <ul class="objective-list" id="rangkuman-list">
+            <li>Pencemaran udara setua penggunaan api; keluhan terdokumentasi sejak abad ke-13 (Edward I) dan kritik ilmiah sejak <em>Fumifugium</em> (1661).</li>
+            <li>Revolusi Industri menjadikan batu bara sumber dominan; gerakan <em>smoke abatement</em> abad ke-19 adalah embrio regulasi modern.</li>
+            <li>Episode Meuse (1930), Donora (1948), dan London (1952) membuktikan korelasi polusi–mortalitas dan melahirkan Clean Air Act 1956.</li>
+            <li>Haagen-Smit (1950–1952) mengungkap mekanisme NOₓ–VOC–O₃, melahirkan konsep pencemar sekunder dan disiplin kimia atmosfer.</li>
+            <li>Clean Air Act AS (1963/1970) memperkenalkan NAAQS dan pendekatan enam <em>criteria pollutants</em> yang menjadi templat dunia.</li>
+            <li>Di Indonesia: BAPEDAL (1990), Program Langit Biru (1996), PP 41/1999 → PP 22/2021, serta siklus karhutla yang mendorong AATHP (ratifikasi 2014).</li>
+            <li>Paradigma bergeser ke PM₂.₅ setelah bukti kohort (Six Cities); WHO AQG 2021 mengencangkan PM₂.₅ tahunan dari 10 menjadi 5 µg/m³.</li>
+            <li>Abad ke-21 ditandai litigasi udara bersih (putusan 374/Pdt.G/LH/2019 yang inkracht 2023) dan penyatuan agenda udara bersih–iklim lewat SLCP.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section class="sec sec-deep" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap">
+        <div class="sec-head center">
+          <p class="eyebrow">Checkpoint</p>
+          <h2 class="h2" id="quiz-title">Uji pemahaman</h2>
+          <p class="sec-desc">Lima soal pilihan ganda berdasarkan materi di atas. Jawab, periksa hasil secara langsung, dan peroleh skor beserta umpan balik.</p>
+        </div>
+        <div class="quiz card" id="quiz-box">
+          <div id="quiz-root"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERTANYAAN DISKUSI -->
+    <section class="sec" id="diskusi" aria-labelledby="diskusi-title">
+      <div class="wrap">
+        <div class="sec-head center">
+          <p class="eyebrow">Diskusi</p>
+          <h2 class="h2" id="diskusi-title">Pertanyaan diskusi</h2>
+          <p class="sec-desc">Enam soal terbuka untuk dibahas bersama. Pilih kartu untuk membuka petunjuk pembahasannya.</p>
+        </div>
+        <div class="acc" id="diskusi-list"></div>
+      </div>
+    </section>
+
+    <!-- LATIHAN -->
+    <section class="sec sec-deep" id="latihan" aria-labelledby="latihan-title">
+      <div class="wrap">
+        <div class="sec-head center">
+          <p class="eyebrow">Latihan</p>
+          <h2 class="h2" id="latihan-title">Latihan mandiri</h2>
+          <p class="sec-desc">Lima tugas penerapan. Tandai tugas yang telah selesai; progres tersimpan otomatis pada perangkat ini.</p>
+        </div>
+        <div class="lat-progress" role="status" aria-live="polite">
+          <div class="lat-bar"><div class="lat-bar-fill" id="lat-fill"></div></div>
+          <span class="lat-count" id="lat-count">0 / 5 selesai</span>
+        </div>
+        <ol class="lat-list" id="latihan-list"></ol>
+      </div>
+    </section>
+
+    <!-- DAFTAR PUSTAKA -->
+    <section class="sec" id="pustaka" aria-labelledby="pustaka-title">
+      <div class="wrap">
+        <div class="panel">
+          <p class="eyebrow">Referensi</p>
+          <h2 class="h2" id="pustaka-title">Daftar pustaka</h2>
+          <div id="pustaka-list"></div>
+        </div>
+      </div>
+    </section>
+
+<!-- MODAL (detail kartu) -->
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <div class="modal-dialog" role="document">
+        <button type="button" class="modal-close" data-close-modal aria-label="Tutup dialog"><span class="icon" data-lucide="x"></span></button>
+        <p class="eyebrow" id="modal-eyebrow"></p>
+        <h3 class="h3" id="modal-title"></h3>
+        <div class="modal-body" id="modal-body"></div>
+      </div>
+    </div>
+
+    <!-- Tooltip glossary -->
+    <span id="tooltip" class="tooltip" role="tooltip" hidden></span>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified></time></p>
+    </div>
+  </footer>
+
+  <button type="button" id="to-top" class="to-top" aria-label="Kembali ke atas" hidden><span class="icon" data-lucide="arrow-up"></span></button>
+
+  <!-- Library via CDN, versi ter-pin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+
+  <!-- Konten (paling awal) lalu logika -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/stepper.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/extras.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>

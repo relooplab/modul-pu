@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bahan ajar interaktif Bab 2 — Konsep Dasar Penyebab Terjadinya Pencemaran Udara: definisi, siklus pencemar, besaran dasar, kimia atmosfer, daya dukung, dan isu lintas batas." />
+  <title>Modul Ajar · Konsep Dasar Pencemaran Udara (Bab 2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="air-column-page">
+  <div id="progress-track" role="presentation" aria-hidden="true"><div id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Ke awal halaman">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Pencemaran <strong>Udara</strong></span>
+      </a>
+      <div class="chapter-nav" id="chapter-nav">
+        <button type="button" class="chapter-btn" id="chapter-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Pilih bab">
+          <span class="icon" data-lucide="book-open"></span>
+          <span class="chapter-btn-label" id="chapter-btn-label">Bab 2</span>
+          <span class="icon chev" data-lucide="chevron-down"></span>
+        </button>
+        <div class="chapter-menu" id="chapter-menu" role="menu" hidden></div>
+      </div>
+      <button type="button" id="air-column-toggle" class="icon-btn air-column-toggle" aria-label="Buka navigasi subbab" aria-controls="air-column" aria-expanded="false">
+        <span class="icon" data-lucide="list-tree"></span>
+      </button>
+      <button type="button" id="theme-toggle" class="icon-btn" aria-label="Alihkan tema terang/gelap" aria-pressed="false">
+        <span class="icon" data-lucide="sun"></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="air-column" id="air-column" aria-label="Navigasi subbab">
+    <div class="air-column-head">
+      <strong>Lapisan materi</strong>
+      <span>Ikuti aliran dari definisi ke kebijakan.</span>
+    </div>
+    <nav class="toc" id="toc" aria-label="Navigasi subbab Bab 2">
+      <button type="button" class="chip" data-scroll="#definisi">2.1 Definisi</button>
+      <button type="button" class="chip" data-scroll="#primer-sekunder">2.2 Primer–sekunder</button>
+      <button type="button" class="chip" data-scroll="#siklus">2.3 Siklus pencemar</button>
+      <button type="button" class="chip" data-scroll="#besaran">2.4 Besaran dasar</button>
+      <button type="button" class="chip" data-scroll="#reaksi">2.5 Kimia atmosfer</button>
+      <button type="button" class="chip" data-scroll="#daya-dukung">2.6 Daya dukung</button>
+      <button type="button" class="chip" data-scroll="#terkini">2.7 One atmosphere</button>
+      <button type="button" class="chip" data-scroll="#rangkuman">Rangkuman</button>
+      <button type="button" class="chip" data-scroll="#quiz">Kuis</button>
+      <button type="button" class="chip" data-scroll="#diskusi">Diskusi</button>
+      <button type="button" class="chip" data-scroll="#latihan">Latihan</button>
+      <button type="button" class="chip" data-scroll="#pustaka">Pustaka</button>
+    </nav>
+  </aside>
+  <button type="button" class="air-column-backdrop" id="air-column-backdrop" aria-label="Tutup navigasi subbab" hidden></button>
+
+  <main id="top" class="content">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Modul Ajar · Pencemaran Udara</p>
+          <h1 id="hero-title">Konsep Dasar Pencemaran Udara<span class="tone">: membaca udara sebagai sistem yang bergerak</span></h1>
+        </div>
+        <figure class="hero-fig" id="hero-fig">
+          <svg id="hero-svg" viewBox="0 0 480 300" role="img" aria-label="Ilustrasi lapisan udara dengan sumber emisi, arah angin, partikel, dan reseptor">
+            <circle cx="382" cy="66" r="34" fill="var(--svg-gas)" opacity=".55"/>
+            <path d="M0 232 C90 214 150 242 238 224 S390 210 480 232 V300 H0 Z" fill="var(--svg-soil)"/>
+            <g fill="var(--svg-waste2)">
+              <rect x="54" y="178" width="34" height="54"/>
+              <rect x="95" y="150" width="28" height="82"/>
+              <rect x="132" y="190" width="44" height="42"/>
+              <rect x="340" y="176" width="42" height="56"/>
+              <rect x="389" y="146" width="30" height="86"/>
+            </g>
+            <rect x="214" y="166" width="62" height="66" fill="var(--svg-waste)"/>
+            <rect x="231" y="112" width="11" height="54" fill="var(--svg-liner)"/>
+            <path d="M237 112 C236 92 210 88 224 70 C238 53 218 43 235 27" fill="none" stroke="var(--svg-gas)" stroke-width="9" stroke-linecap="round" class="flow"/>
+            <g fill="var(--svg-pipe)">
+              <circle cx="275" cy="92" r="5"/><circle cx="301" cy="82" r="4"/><circle cx="330" cy="72" r="6"/>
+              <circle cx="355" cy="88" r="4"/><circle cx="384" cy="78" r="5"/>
+            </g>
+            <g fill="none" stroke="var(--svg-monitor)" stroke-width="2" stroke-linecap="round">
+              <path d="M36 96 H142"/><path d="M132 88 L142 96 L132 104"/>
+              <path d="M276 126 H408"/><path d="M398 118 L408 126 L398 134"/>
+            </g>
+            <g font-family="'IBM Plex Mono', monospace" font-size="11" fill="var(--svg-label)">
+              <text x="30" y="82">emisi</text><text x="314" y="58">transport</text><text x="348" y="146">reseptor</text>
+            </g>
+          </svg>
+          <figcaption><strong>Gbr. pengantar</strong> — pencemaran udara adalah rangkaian sumber, atmosfer, transformasi, deposisi, dan reseptor.</figcaption>
+        </figure>
+      </div>
+      <div class="wrap stat-strip" aria-label="Angka kunci">
+        <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">ranah: ambien, emisi, dan ruangan</span></div>
+        <div class="stat"><span class="stat-num">5</span><span class="stat-lbl">µg/m³ pedoman PM₂.₅ tahunan WHO AQG 2021</span></div>
+        <div class="stat"><span class="stat-num">8,1</span><span class="stat-lbl">juta kematian akibat polusi udara pada 2021 (estimasi HEI)</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="objectives" aria-labelledby="obj-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Tujuan pembelajaran</p>
+        <h2 class="h2" id="obj-title">Setelah mempelajari bab ini, kamu akan mampu…</h2>
+        <ul class="objective-list" id="objectives-list"></ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-kw" id="kata-kunci" aria-labelledby="kw-title">
+      <div class="wrap">
+        <p class="eyebrow center-eyebrow">Kata kunci</p>
+        <h2 class="h2 sr-only" id="kw-title">Kata kunci Bab 2</h2>
+        <div class="kw-cloud" id="kw-cloud" aria-label="Daftar kata kunci"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="definisi" aria-labelledby="definisi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">2.1 · Definisi &amp; ruang lingkup</p>
+          <h2 class="h2" id="definisi-title">Tentukan dulu udara yang sedang dibicarakan</h2>
+          <p class="sec-desc">Ambien, emisi, dan ruangan bukan tiga nama untuk titik ukur yang sama.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Definisi menurut regulasi Indonesia</h3>
+          <p><span class="term" data-gloss="pencemaran-udara">Pencemaran udara</span> menurut Pasal 1 angka 49 PP No. 22/2021 adalah masuk atau dimasukkannya zat, energi, dan/atau komponen lain ke dalam <span class="term" data-gloss="udara-ambien">udara ambien</span> oleh kegiatan manusia sehingga melampaui <span class="term" data-gloss="baku-mutu">baku mutu udara ambien</span> yang ditetapkan. Rumusan umum UU No. 32/2009 menekankan dua unsur: ada masukan zat/energi oleh kegiatan manusia dan ada pelampauan baku mutu.</p>
+          <p>Rumusan PP 41/1999 sebelumnya lebih berorientasi pada fungsi udara yang menurun; PP 22/2021 lebih eksplisit mengaitkan pencemaran dengan ambang kuantitatif yang terukur. Pergeseran ini membuat definisi legal dapat dihubungkan langsung dengan pemantauan, baku mutu, dan penegakan.</p>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Jangan mencampur ranah.</strong> Konsentrasi gas di cerobong tidak otomatis dapat dibandingkan dengan baku mutu udara ambien. Media, lokasi ukur, kondisi acuan, dan tujuan pengendaliannya berbeda.</p></div>
+          <p class="tbl-title">Tabel 2.1 — Perbandingan tiga ranah udara</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Perbandingan udara ambien, emisi, dan ruangan">
+            <thead><tr><th scope="col">Aspek</th><th scope="col">Udara ambien</th><th scope="col">Udara emisi</th><th scope="col">Udara ruangan</th></tr></thead>
+            <tbody>
+              <tr><td>Media</td><td>Udara bebas troposfer, sisi reseptor</td><td>Gas buang pada cerobong/knalpot, sisi sumber</td><td>Udara di dalam bangunan</td></tr>
+              <tr><td>Regulasi utama</td><td>PP 22/2021 Lampiran VII</td><td>Baku mutu emisi sektoral</td><td>Permenkes 1077/2011 dan K3</td></tr>
+              <tr><td>Metode</td><td>SNI seri 7119</td><td>SNI seri 7117</td><td>Standar K3/Permenkes</td></tr>
+              <tr><td>Kondisi acuan</td><td>25 °C, 1 atm, µg/m³</td><td>Basis kering, koreksi O₂, mg/Nm³</td><td>Bervariasi menurut parameter</td></tr>
+              <tr><td>Tujuan</td><td>Melindungi kesehatan dan ekosistem</td><td>Membatasi keluaran sumber</td><td>Melindungi penghuni dan pekerja</td></tr>
+            </tbody>
+          </table></div>
+          <p class="tbl-title">Tabel 2.2 — Baku mutu ambien PP 22/2021 dan WHO AQG 2021</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Perbandingan baku mutu udara ambien PP 22 2021 dan WHO AQG 2021">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">Waktu rata-rata</th><th scope="col">PP 22/2021</th><th scope="col">WHO AQG 2021</th></tr></thead>
+            <tbody>
+              <tr><td>SO₂</td><td>1 jam / 24 jam / tahunan</td><td>150 / 75 / 45</td><td>— / 40 / —</td></tr>
+              <tr><td>CO</td><td>1 jam / 8 jam / 24 jam</td><td>10.000 / 4.000 / —</td><td>— / — / 4.000 (4 mg/m³)</td></tr>
+              <tr><td>NO₂</td><td>1 jam / 24 jam / tahunan</td><td>200 / 65 / 50</td><td>200 / 25 / 10</td></tr>
+              <tr><td>O₃</td><td>1 jam / 8 jam / musim puncak</td><td>150 / 100 / 35 tahunan</td><td>— / 100 / 60</td></tr>
+              <tr><td>PM₁₀</td><td>24 jam / tahunan</td><td>75 / 40</td><td>45 / 15</td></tr>
+              <tr><td>PM₂.₅</td><td>24 jam / tahunan</td><td>55 / 15</td><td>15 / 5</td></tr>
+              <tr><td>Pb</td><td>24 jam</td><td>2</td><td>—</td></tr>
+            </tbody>
+          </table></div>
+          <p class="note">Satuan µg/m³ kecuali dinyatakan lain; kondisi acuan 25 °C, 1 atm. WHO AQG adalah rekomendasi kesehatan, bukan regulasi. Perbedaan angka tidak boleh dipaksakan menjadi satu nilai.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="primer-sekunder" aria-labelledby="primer-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">2.2 · Primer &amp; sekunder</p>
+          <h2 class="h2" id="primer-title">Tidak semua pencemar keluar dari sumber sebagai produk akhir</h2>
+          <p class="sec-desc">Strategi pengendalian bergantung pada apakah yang diukur adalah pencemar langsung atau produk reaksi atmosfer.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><span class="term" data-gloss="primer">Pencemar primer</span> langsung diemisikan dari sumber: CO, SO₂, NOₓ, partikulat primer termasuk karbon hitam, VOC, NH₃, dan Pb. <span class="term" data-gloss="sekunder">Pencemar sekunder</span> terbentuk di atmosfer dari prekursor melalui reaksi kimia, misalnya O₃, PAN, sulfat/nitrat sekunder, dan SOA.</p>
+          <p>Ozon troposfer terbentuk melalui siklus fotokimia NOₓ dan VOC dengan bantuan radiasi matahari. PAN dapat menjadi reservoir NOₓ yang terbawa jauh sebelum terurai kembali. Partikulat sulfat dan nitrat terbentuk melalui oksidasi SO₂ dan NOₓ, baik pada fase gas maupun fase air dalam awan/kabut.</p>
+          <p class="tbl-title">Tabel 2.3 — Contoh pencemar primer dan sekunder</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Contoh pencemar primer dan sekunder">
+            <thead><tr><th scope="col">Pencemar</th><th scope="col">Jenis</th><th scope="col">Prekursor/sumber utama</th></tr></thead>
+            <tbody>
+              <tr><td>CO</td><td>Primer</td><td>Pembakaran tak sempurna kendaraan, biomassa</td></tr>
+              <tr><td>SO₂</td><td>Primer</td><td>Bahan bakar fosil bersulfur, industri, gunung api</td></tr>
+              <tr><td>NOₓ</td><td>Primer</td><td>Pembakaran suhu tinggi: kendaraan, PLTU, industri</td></tr>
+              <tr><td>PM primer</td><td>Primer</td><td>Pembakaran, debu jalan, proses industri</td></tr>
+              <tr><td>VOC / NMHC</td><td>Primer</td><td>Evaporasi bahan bakar, pelarut, proses industri</td></tr>
+              <tr><td>O₃ troposferik</td><td>Sekunder</td><td>NOₓ + VOC + radiasi matahari</td></tr>
+              <tr><td>PAN</td><td>Sekunder</td><td>Produk oksidasi VOC + NO₂</td></tr>
+              <tr><td>Sulfat/nitrat</td><td>Sekunder</td><td>SO₂/NOₓ → asam → bereaksi dengan NH₃</td></tr>
+              <tr><td>SOA</td><td>Sekunder</td><td>Oksidasi VOC antropogenik dan biogenik</td></tr>
+            </tbody>
+          </table></div>
+          <div class="callout callout-ok"><span class="icon" data-lucide="lightbulb"></span><p><strong>Konsekuensi rekayasa.</strong> Mengendalikan debu primer saja tidak cukup bila fraksi besar PM₂.₅ terbentuk dari gas prekursor. Pengendalian pencemar sekunder harus menekan prekursor dan memahami hubungan yang dapat bersifat nonlinier.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="siklus" aria-labelledby="siklus-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">2.3 · Siklus pencemar</p>
+          <h2 class="h2" id="siklus-title">Dari sumber sampai reseptor</h2>
+          <p class="sec-desc">Nasib pencemar adalah rangkaian lima mata rantai yang dipengaruhi sumber, meteorologi, kimia, dan permukaan bumi.</p>
+        </div>
+        <div class="sec-body prose">
+          <figure class="viz">
+            <div class="mermaid-box" id="b2-cycle" role="img" aria-label="Diagram siklus pencemar dari sumber sampai reseptor"></div>
+            <figcaption><strong>Gbr. 2.1</strong> — Siklus pencemar: emisi → transport/dispersi → transformasi → deposisi → reseptor.</figcaption>
+          </figure>
+          <ol>
+            <li><strong>Emisi</strong> — pelepasan dari kendaraan, cerobong, sumber fugitif, atau sumber alami.</li>
+            <li><strong>Transport dan dispersi</strong> — adveksi oleh angin dan pengenceran turbulen; dikendalikan kecepatan angin, stabilitas, dan tinggi lapisan pencampuran.</li>
+            <li><strong>Transformasi fisik-kimia</strong> — fotokimia, oksidasi, kondensasi, dan koagulasi yang dapat mengubah identitas pencemar.</li>
+            <li><strong>Deposisi</strong> — <span class="term" data-gloss="deposisi-kering">deposisi kering</span> melalui sedimentasi/impaksi/serapan dan <span class="term" data-gloss="deposisi-basah">deposisi basah</span> melalui rainout/washout.</li>
+            <li><strong>Reseptor</strong> — manusia, ekosistem, dan material yang menerima paparan.</li>
+          </ol>
+          <p>Model kotak adalah kerangka kuantitatif paling sederhana. Atmosfer di atas wilayah dianggap tercampur sempurna dengan tinggi H, panjang wilayah L, kecepatan angin u, dan konsentrasi latar:</p>
+          <div class="formula" data-tex="C = \frac{qL}{uH} + C_{\text{latar}}">C = qL/(uH) + C_latar</div>
+          <p class="note">q = laju emisi per satuan luas (µg m⁻² s⁻¹), L = panjang wilayah (m), u = kecepatan angin (m/s), H = tinggi pencampuran (m). Model ini menjadi dasar interaktif pada Subbab 2.6.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="besaran" aria-labelledby="besaran-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">2.4 · Besaran dasar</p>
+          <h2 class="h2" id="besaran-title">Angka harus dibaca bersama kondisi acuannya</h2>
+          <p class="sec-desc">Konsentrasi, emisi, beban, dan waktu tinggal menjembatani teori dengan perhitungan rekayasa.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Konsentrasi dan konversi satuan</h3>
+          <p>Konsentrasi dapat dilaporkan sebagai massa per volume (µg/m³ atau mg/Nm³) atau rasio volume (ppm/ppb). Satuan massa per volume bergantung pada temperatur dan tekanan; kondisi acuan wajib dicantumkan.</p>
+          <div class="formula" data-tex="C_{(\mu g/m^3)} = C_{(ppm)} \times \frac{BM}{24{,}45} \times 1000">C (µg/m³) = C (ppm) × BM/24,45 × 1000</div>
+          <p>Dengan BM dalam g/mol, volume molar gas ideal pada 25 °C dan 1 atm adalah 24,45 L/mol. Gunakan kalkulator di bawah untuk melihat konversi secara langsung.</p>
+          <div class="b2-tool-card" id="b2-converter">
+            <div class="b2-tool-head"><div><p class="eyebrow">Kalkulator 2.1</p><h3 class="h3">ppm ↔ µg/m³</h3><p class="sec-desc">Pilih gas dan geser konsentrasinya. Hasil berlaku untuk 25 °C dan 1 atm.</p></div><div class="b2-formula-mini">C = ppm × BM / 24,45 × 1000</div></div>
+          </div>
+          <h3>Laju emisi, faktor emisi, dan beban</h3>
+          <p><span class="term" data-gloss="faktor-emisi">Faktor emisi</span> menghubungkan massa pencemar dengan unit aktivitas, misalnya kg per ton bahan bakar, g/kWh, atau g per kendaraan-kilometer. AP-42 US EPA dan metodologi EMEP/EEA adalah rujukan umum, tetapi faktor emisi merupakan estimasi empiris rata-rata, bukan konstanta universal.</p>
+          <div class="formula" data-tex="B = C \times Q">B = C × Q</div>
+          <p>Beban pencemaran B adalah massa per waktu; C adalah konsentrasi pada kondisi acuan yang sesuai dan Q adalah laju alir gas. Hindari praktik mengencerkan gas buang untuk memenuhi angka konsentrasi tanpa mengurangi massa pencemar.</p>
+          <h3>Waktu tinggal</h3>
+          <div class="formula" data-tex="\tau = \frac{M}{F_{\text{keluar}}}">τ = M/F keluar</div>
+          <p class="tbl-title">Tabel 2.4 — Orde waktu tinggal atmosferik dan implikasi skalanya</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Waktu tinggal atmosferik beberapa zat">
+            <thead><tr><th scope="col">Zat</th><th scope="col">Waktu tinggal</th><th scope="col">Implikasi skala</th></tr></thead>
+            <tbody>
+              <tr><td>NOₓ</td><td>± 1 hari</td><td>Lokal–urban</td></tr>
+              <tr><td>SO₂</td><td>± 1–4 hari</td><td>Lokal–regional</td></tr>
+              <tr><td>PM₂.₅/black carbon</td><td>Hari–1 minggu</td><td>Regional; dapat lintas batas</td></tr>
+              <tr><td>O₃ troposferik</td><td>± 1–4 minggu</td><td>Regional–hemisferik</td></tr>
+              <tr><td>CO</td><td>± 1–3 bulan</td><td>Hemisferik</td></tr>
+              <tr><td>CH₄</td><td>± 12 tahun</td><td>Global; SLCP/GRK</td></tr>
+              <tr><td>CO₂</td><td>Sebagian berabad-abad</td><td>Global; GRK utama</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="reaksi" aria-labelledby="reaksi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">2.5 · Kimia atmosfer</p>
+          <h2 class="h2" id="reaksi-title">NO₂–O₃, radikal OH, dan aerosol sekunder</h2>
+          <p class="sec-desc">Reaksi cepat menentukan apakah prekursor hilang, berubah, atau menghasilkan pencemar baru.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Siklus fotostasioner NO₂–O₃</h3>
+          <figure class="viz">
+            <div class="mermaid-box" id="b2-chemistry" role="img" aria-label="Diagram siklus fotostasioner NO2 dan O3 serta produksi bersih ozon oleh radikal peroksi"></div>
+            <figcaption><strong>Gbr. 2.2</strong> — Pada siklus murni O₃ hanya berputar; VOC dan radikal peroksi memotong jalur konsumsi O₃ sehingga terjadi produksi bersih.</figcaption>
+          </figure>
+          <p>Tiga reaksi dasar adalah fotolisis NO₂, pembentukan O₃ dari atom oksigen dan O₂, serta reaksi O₃ dengan NO. Hubungan Leighton menyatakan:</p>
+          <div class="formula" data-tex="[O_3] = \frac{j_{R1}[NO_2]}{k_{R3}[NO]}">[O₃] = jR1[NO₂] / kR3[NO]</div>
+          <p>Dengan VOC dan radikal peroksi (HO₂•/RO₂•), NO dapat berubah menjadi NO₂ tanpa mengonsumsi O₃. Karena itu pengendalian ozon harus mempertimbangkan NOₓ dan VOC bersama-sama serta rezim sensitivitas VOC-limited atau NOₓ-limited.</p>
+          <h3>Radikal OH sebagai deterjen atmosfer</h3>
+          <p><span class="term" data-gloss="radikal-oh">Radikal OH</span> adalah oksidator utama troposfer siang hari. Produksinya didorong fotolisis O₃ lalu reaksi O(¹D) dengan uap air. OH mengendalikan waktu tinggal CO, CH₄, VOC, SO₂, dan NO₂, sehingga menentukan nasib banyak gas di atmosfer.</p>
+          <ul>
+            <li>OH mengoksidasi CO dan dapat teregenerasi melalui reaksi HO₂ dengan NO.</li>
+            <li>OH mengoksidasi SO₂ menjadi H₂SO₄, prekursor partikulat sulfat.</li>
+            <li>OH mengoksidasi NO₂ menjadi HNO₃, prekursor partikulat nitrat.</li>
+            <li>OH menginisiasi oksidasi CH₄ dan VOC yang dapat menghasilkan O₃ serta SOA.</li>
+          </ul>
+          <h3>Aerosol sekunder dan PAN</h3>
+          <p>Produk oksidasi gas ber-volatilitas rendah dapat mengembun menjadi sulfat, nitrat, atau <span class="term" data-gloss="soa">SOA</span>. <span class="term" data-gloss="pan">PAN</span> terbentuk dari radikal peroksiasetil dan NO₂; stabil pada suhu rendah, kemudian terurai dan melepaskan NO₂ kembali. Sifat reservoir ini membuat PAN relevan untuk transport pencemar jarak jauh.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="daya-dukung" aria-labelledby="daya-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">2.6 · Daya dukung</p>
+          <h2 class="h2" id="daya-title">Kapasitas asimilatif berubah dari jam ke jam</h2>
+          <p class="sec-desc">Udara bukan wadah dengan kapasitas tetap; angin dan tinggi pencampuran menentukan seberapa cepat pencemar diencerkan.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><span class="term" data-gloss="kapasitas-asimilatif">Kapasitas asimilatif</span> adalah beban maksimum yang dapat dilepaskan tanpa melampaui baku mutu ambien. Koefisien ventilasi menjadi indikator praktis:</p>
+          <div class="formula" data-tex="VC = u \times H">VC = u × H</div>
+          <p>VC rendah, misalnya malam–pagi hari saat inversi, menandakan potensi akumulasi tinggi. PP 22/2021 melembagakan konsep daya dukung dan daya tampung lingkungan sebagai dasar perencanaan dan alokasi beban pencemaran.</p>
+          <div class="b2-tool-card" id="b2-box-model">
+            <div class="b2-tool-head"><div><p class="eyebrow">Simulator 2.2</p><h3 class="h3">Model kotak dan kapasitas ventilasi</h3><p class="sec-desc">Bandingkan siang berventilasi baik dengan malam berinversi. Emisi dibuat tetap.</p></div><div class="b2-formula-mini">C = qL/(uH) + C<sub>latar</sub></div></div>
+          </div>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Kapasitas asimilatif bukan izin mencemari.</strong> Dalam pengelolaan modern, konsep ini digunakan untuk menentukan alokasi penurunan emisi dan target bertahap — bukan untuk membenarkan emisi sampai batas maksimum.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="terkini" aria-labelledby="terkini-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">2.7 · Kondisi terkini</p>
+          <h2 class="h2" id="terkini-title">Satu atmosfer, satu nexus udara–iklim–kesehatan</h2>
+          <p class="sec-desc">Pencemaran kota, perubahan iklim, dan kesehatan berbagi sumber serta mekanisme atmosfer yang sama.</p>
+        </div>
+        <div class="sec-body prose">
+          <figure class="viz">
+            <div class="mermaid-box" id="b2-one-atmosphere" role="img" aria-label="Diagram hubungan pencemaran udara, perubahan iklim, dan kesehatan dalam paradigma one atmosphere"></div>
+            <figcaption><strong>Gbr. 2.3</strong> — Paradigma one atmosphere menghubungkan sumber, pencemaran, iklim, dan kesehatan dalam satu sistem.</figcaption>
+          </figure>
+          <h3>Short-lived climate pollutants</h3>
+          <p><span class="term" data-gloss="slcp">SLCP</span> berumur relatif singkat dibanding CO₂ tetapi memiliki daya pemanasan tinggi. Pengurangannya memberi respons iklim lebih cepat sekaligus manfaat kesehatan.</p>
+          <p class="tbl-title">Tabel 2.5 — SLCP utama dan co-benefit pengendaliannya</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="SLCP utama dan manfaat ganda pengendaliannya">
+            <thead><tr><th scope="col">SLCP</th><th scope="col">Waktu tinggal</th><th scope="col">Sumber utama</th><th scope="col">Co-benefit</th></tr></thead>
+            <tbody>
+              <tr><td>Black carbon</td><td>Hari–1 minggu</td><td>Diesel, biomassa, pembakaran terbuka</td><td>PM₂.₅ turun; kesehatan dan pemanasan membaik</td></tr>
+              <tr><td>CH₄</td><td>± 12 tahun</td><td>TPA, migas, peternakan, sawah</td><td>O₃ troposfer dan pemanasan turun</td></tr>
+              <tr><td>O₃ troposferik</td><td>1–4 minggu</td><td>Sekunder dari NOₓ + VOC + CH₄</td><td>Kesehatan, pertanian, dan pemanasan membaik</td></tr>
+              <tr><td>HFC</td><td>Tahun–dekade</td><td>Refrigeran, busa, aerosol</td><td>Pemanasan turun; GWP tinggi</td></tr>
+            </tbody>
+          </table></div>
+          <h3>Pencemaran lintas batas</h3>
+          <p>Pencemar berumur hari hingga minggu dapat menempuh ratusan–ribuan kilometer. ASEAN Agreement on Transboundary Haze Pollution (AATHP) ditandatangani 2002 dan diratifikasi Indonesia melalui UU No. 26/2014. Kabut asap karhutla menjadi contoh utama, tetapi pencemaran lintas batas juga dapat melibatkan aerosol dan prekursor kimia yang berubah selama transport.</p>
+          <p>Kasus ini menunjukkan keterbatasan tata kelola berbasis batas administratif. Ia juga terhubung dengan citizen lawsuit polusi udara Jakarta (Putusan 374/Pdt.G/LH/2019/PN.Jkt.Pst), yang menunjukkan kewajiban melindungi udara ambien dapat diuji secara hukum.</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="sparkles"></span><p><strong>Posisi Indonesia.</strong> SPKUA KLHK melaporkan kondisi melalui ISPU; deret waktu nasional dan rata-rata tahunan PM₂.₅ harus diambil dari sumber resmi KLHK/BPS untuk analisis final. Agregator komersial boleh menjadi ilustrasi, bukan satu-satunya dasar klaim.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="rangkuman" aria-labelledby="rangkuman-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Rangkuman</p>
+        <h2 class="h2" id="rangkuman-title">Poin yang seharusnya kamu bawa pulang</h2>
+        <ul class="objective-list">
+          <li>Pencemaran udara secara regulasi adalah masuknya zat/energi ke udara ambien oleh kegiatan manusia hingga melampaui baku mutu; udara ambien, emisi, dan ruangan memiliki ranah berbeda.</li>
+          <li>Pencemar primer diemisikan langsung, sedangkan O₃, PAN, sulfat/nitrat, dan SOA terbentuk sekunder melalui reaksi atmosfer.</li>
+          <li>Siklus pencemar terdiri atas emisi → transport/dispersi → transformasi → deposisi → reseptor.</li>
+          <li>Besaran utama mencakup konsentrasi, laju emisi, faktor emisi, beban B = C × Q, dan waktu tinggal τ = M/F.</li>
+          <li>Kimia kunci meliputi siklus fotostasioner NO₂–O₃, radikal OH, aerosol sekunder, dan PAN.</li>
+          <li>Kapasitas asimilatif bergantung pada ventilasi dan menjadi jembatan antara kualitas udara, alokasi beban, dan perencanaan.</li>
+          <li>Paradigma one atmosphere menghubungkan pencemaran udara, iklim, kesehatan, SLCP, dan transboundary haze.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-deep" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Checkpoint</p><h2 class="h2" id="quiz-title">Uji pemahamanmu</h2><p class="sec-desc">Enam soal tentang definisi, siklus, konversi, kimia, dan SLCP.</p></div><div class="quiz card" id="quiz-box"><div id="quiz-root"></div></div></div>
+    </section>
+
+    <section class="sec" id="diskusi" aria-labelledby="diskusi-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Diskusi</p><h2 class="h2" id="diskusi-title">Pertanyaan diskusi</h2><p class="sec-desc">Buka petunjuk setiap pertanyaan untuk memulai pembahasan.</p></div><div class="acc" id="diskusi-list"></div></div>
+    </section>
+
+    <section class="sec sec-deep" id="latihan" aria-labelledby="latihan-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Latihan</p><h2 class="h2" id="latihan-title">Latihan mandiri</h2><p class="sec-desc">Enam tugas penerapan; progres tersimpan otomatis di perangkat ini.</p></div><div class="lat-progress" role="status" aria-live="polite"><div class="lat-bar"><div class="lat-bar-fill" id="lat-fill"></div></div><span class="lat-count" id="lat-count">0 / 6 selesai</span></div><ol class="lat-list" id="latihan-list"></ol></div>
+    </section>
+
+    <section class="sec" id="pustaka" aria-labelledby="pustaka-title">
+      <div class="wrap"><div class="panel"><p class="eyebrow">Referensi</p><h2 class="h2" id="pustaka-title">Daftar pustaka</h2><div id="pustaka-list"></div></div></div>
+    </section>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-dialog" role="document"><button type="button" class="modal-close" data-close-modal aria-label="Tutup dialog"><span class="icon" data-lucide="x"></span></button><p class="eyebrow" id="modal-eyebrow"></p><h3 class="h3" id="modal-title"></h3><div class="modal-body" id="modal-body"></div></div></div>
+    <span id="tooltip" class="tooltip" role="tooltip" hidden></span>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified></time></p>
+    </div>
+  </footer>
+
+  <button type="button" id="to-top" class="to-top" aria-label="Kembali ke atas" hidden><span class="icon" data-lucide="arrow-up"></span></button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+
+  <script src="assets/js/data-bab2.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/extras.js"></script>
+  <script src="assets/js/bab2.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>
