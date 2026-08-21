@@ -6,8 +6,8 @@
  * Jika file belum pernah di-commit / di luar git → pakai tanggal hari ini (hanya fallback) atau biarkan.
  *
  * Pemakaian:
- *   node tools/stamp-last-modified.js                 # update semua HTML yang punya [data-last-modified]
- *   node tools/stamp-last-modified.js bab-1.html      # hanya file tertentu
+ *   node tools/stamp-last-modified.js                 # update semua HTML di public/ yang punya [data-last-modified]
+ *   node tools/stamp-last-modified.js bab-1.html      # hanya file tertentu (bab-1.html atau public/bab-1.html)
  *   node tools/stamp-last-modified.js --check         # exit 1 jika ada HTML tanpa atribut / tidak sinkron
  *   node tools/stamp-last-modified.js --set 2026-08-19 -- bab-1.html index.html  # set manual
  *
@@ -20,17 +20,22 @@ const path = require("path");
 const { execSync } = require("child_process");
 
 const ROOT = path.resolve(__dirname, "..");
+const PUBLIC = path.join(ROOT, "public");
 
 function gitDateForFile(relPath) {
   try {
-    const out = execSync(`git log -1 --format=%cs -- "${relPath}"`, { cwd: ROOT, encoding: "utf8" }).trim();
+    const out = execSync(`git log -1 --follow --format=%cs -- "${relPath}"`, { cwd: ROOT, encoding: "utf8" }).trim();
     if (/^\d{4}-\d{2}-\d{2}$/.test(out)) return out;
   } catch (_) {}
   return null;
 }
 
 function listHtmlFiles() {
-  return fs.readdirSync(ROOT).filter((f) => f.endsWith(".html"));
+  // Semua HTML kini diletakkan di subfolder public/ (deploy Cloudflare Workers assets)
+  return fs
+    .readdirSync(PUBLIC)
+    .filter((f) => f.endsWith(".html"))
+    .map((f) => path.posix.join("public", f));
 }
 
 function stampFile(absPath, dateStr) {
@@ -54,6 +59,16 @@ function stampFile(absPath, dateStr) {
   return true;
 }
 
+function resolveTarget(rel) {
+  // Terima "bab-1.html" maupun "public/bab-1.html" (post-restrukturisasi)
+  if (fs.existsSync(path.join(ROOT, rel))) return rel;
+  if (!rel.startsWith("public")) {
+    const alt = path.posix.join("public", rel);
+    if (fs.existsSync(path.join(ROOT, alt))) return alt;
+  }
+  return rel;
+}
+
 function main() {
   const args = process.argv.slice(2);
   const check = args.includes("--check");
@@ -67,7 +82,7 @@ function main() {
     }
   }
 
-  const fileArgs = args.filter((a) => a.endsWith(".html"));
+  const fileArgs = args.filter((a) => a.endsWith(".html")).map(resolveTarget);
   const targets = fileArgs.length ? fileArgs : listHtmlFiles();
   let dirty = 0;
   let missing = 0;
