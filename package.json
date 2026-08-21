@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "stamp": "node tools/stamp-last-modified.js",
+    "stamp:check": "node tools/stamp-last-modified.js --check"
+  }
+}
