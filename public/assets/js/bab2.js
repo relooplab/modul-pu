@@ -30,6 +30,7 @@
       startOnLoad: false,
       theme: "base",
       securityLevel: "strict",
+      useMaxWidth: false,
       fontFamily: "'DM Sans', sans-serif",
       themeVariables: {
         primaryColor: c.sageBg,
@@ -42,7 +43,7 @@
     });
     var sources = {
       "b2-cycle": [
-        "flowchart LR",
+        "flowchart TB",
         'A["Sumber dan emisi"] --> B["Transport dan dispersi"]',
         'B --> C["Transformasi fisik-kimia"]',
         'C --> D["Deposisi kering/basah"]',

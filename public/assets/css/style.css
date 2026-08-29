@@ -150,7 +150,7 @@ h1, .h2, .h3 { font-family: "Bricolage Grotesque", "DM Sans", system-ui, sans-se
 .prose strong { font-weight: 700; color: var(--text); }
 .prose em { font-style: italic; }
 .mt { margin-top: 1.5rem; }
-.note { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--muted-2); margin: .4rem 0 0; }
+.note { font-family: "IBM Plex Mono", monospace; font-size: 0.84rem; color: var(--muted-2); background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); padding: .6rem .85rem; margin: .6rem 0 1rem; line-height: 1.5; }
 
 /* ---------- Buttons & icons ---------- */
 .btn {
@@ -392,9 +392,10 @@ button.chapter-item { cursor: pointer; font-family: inherit; }
 
 /* ---------- Formula ---------- */
 .formula { font-family: "IBM Plex Mono", monospace; background: var(--surface); border: 1px solid var(--border);
-  border-radius: var(--radius); padding: 1.15rem 1.3rem; text-align: center; margin: 1.2rem 0; box-shadow: var(--shadow-sm);
-  color: var(--text); font-size: 1rem; }
+  border-radius: var(--radius); padding: 1.15rem 1.3rem; text-align: center; margin: 1.2rem 0 0; box-shadow: var(--shadow-sm);
+  color: var(--text); font-size: 1rem; overflow-x: auto; }
 .formula.small { font-size: .95rem; margin: .4rem 0 1.2rem; }
+.formula + .note { margin-top: 0; border-top: none; border-top-left-radius: 0; border-top-right-radius: 0; }
 
 /* ---------- Table ---------- */
 .tbl-title { font-family: "IBM Plex Mono", monospace; font-size: .78rem; font-weight: 600; color: var(--muted-2); margin: 1.2rem 0 .5rem; text-wrap: balance; }
@@ -561,7 +562,7 @@ code { font-family: "IBM Plex Mono", monospace; font-size: .85em; background: va
 .viz { margin: 1.4rem 0; }
 .mermaid-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
   padding: 1rem 1.2rem; overflow-x: auto; }
-.mermaid-box svg { max-width: 100%; height: auto; }
+.mermaid-box svg { width: auto; max-width: none; height: auto; margin: 0 auto; }
 .viz figcaption, .chart-card figcaption { font-size: .82rem; color: var(--muted); line-height: 1.5; margin-top: .6rem; }
 .chart-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.4rem 0; }
 .chart-card { margin: 0; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.1rem 1.2rem; }

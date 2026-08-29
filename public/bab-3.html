@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bahan ajar interaktif Bab 3 — Sumber Pencemaran Udara: klasifikasi sumber, PLTU dan industri, transportasi dan cold-start, sumber area-difus, inventarisasi emisi E=A×EF, karhutla gambut, dan kondisi terkini." />
+  <title>Modul Ajar · Sumber Pencemaran Udara (Bab 3)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="air-column-page">
+  <div id="progress-track" role="presentation" aria-hidden="true"><div id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Beranda Modul Pencemaran Udara">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Pencemaran <strong>Udara</strong></span>
+      </a>
+      <div class="chapter-nav" id="chapter-nav">
+        <button type="button" class="chapter-btn" id="chapter-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Pilih bab">
+          <span class="icon" data-lucide="book-open"></span>
+          <span class="chapter-btn-label" id="chapter-btn-label">Bab 3</span>
+          <span class="icon chev" data-lucide="chevron-down"></span>
+        </button>
+        <div class="chapter-menu" id="chapter-menu" role="menu" hidden></div>
+      </div>
+      <button type="button" id="air-column-toggle" class="icon-btn air-column-toggle" aria-label="Buka navigasi subbab" aria-controls="air-column" aria-expanded="false">
+        <span class="icon" data-lucide="list-tree"></span>
+      </button>
+      <button type="button" id="theme-toggle" class="icon-btn" aria-label="Alihkan tema terang/gelap" aria-pressed="false">
+        <span class="icon" data-lucide="sun"></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="air-column" id="air-column" aria-label="Navigasi subbab">
+    <div class="air-column-head">
+      <strong>Lapisan materi</strong>
+      <span>Dari klasifikasi ke inventarisasi dan dinamika terkini.</span>
+    </div>
+    <nav class="toc" id="toc" aria-label="Navigasi subbab Bab 3">
+      <button type="button" class="chip" data-scroll="#klasifikasi">3.1 Klasifikasi</button>
+      <button type="button" class="chip" data-scroll="#tidak-bergerak">3.2 Tidak bergerak</button>
+      <button type="button" class="chip" data-scroll="#bergerak">3.3 Bergerak</button>
+      <button type="button" class="chip" data-scroll="#area-alami">3.4 Area & alami</button>
+      <button type="button" class="chip" data-scroll="#inventarisasi">3.5 Inventarisasi</button>
+      <button type="button" class="chip" data-scroll="#khas">3.6 Khas Indonesia</button>
+      <button type="button" class="chip" data-scroll="#indoor">3.7 Indoor</button>
+      <button type="button" class="chip" data-scroll="#terkini">3.8 Terkini</button>
+      <button type="button" class="chip" data-scroll="#rangkuman">Rangkuman</button>
+      <button type="button" class="chip" data-scroll="#quiz">Kuis</button>
+      <button type="button" class="chip" data-scroll="#diskusi">Diskusi</button>
+      <button type="button" class="chip" data-scroll="#latihan">Latihan</button>
+      <button type="button" class="chip" data-scroll="#pustaka">Pustaka</button>
+    </nav>
+  </aside>
+  <button type="button" class="air-column-backdrop" id="air-column-backdrop" aria-label="Tutup navigasi subbab" hidden></button>
+
+  <main id="top" class="content">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Modul Ajar · Pencemaran Udara</p>
+          <h1 id="hero-title">Sumber Pencemaran Udara<span class="tone">: dari cerobong hingga pembakaran terbuka</span></h1>
+        </div>
+        <figure class="hero-fig" id="hero-fig">
+          <svg id="hero-svg" viewBox="0 0 480 300" role="img" aria-label="Ilustrasi sumber emisi: PLTU titik, koridor jalan garis, kawasan permukiman area, dan konstruksi volume">
+            <circle cx="392" cy="56" r="30" fill="var(--svg-gas)" opacity=".45"/>
+            <path d="M0 226 C90 208 152 238 236 220 S390 206 480 226 V300 H0 Z" fill="var(--svg-soil)"/>
+            <g fill="var(--svg-waste2)">
+              <rect x="34" y="158" width="30" height="68"/><rect x="69" y="132" width="28" height="94"/>
+              <rect x="108" y="168" width="42" height="58"/><rect x="318" y="148" width="40" height="78"/>
+              <rect x="368" y="132" width="30" height="94"/>
+            </g>
+            <rect x="192" y="146" width="56" height="80" fill="var(--svg-waste)"/>
+            <rect x="210" y="98" width="10" height="48" fill="var(--svg-liner)"/><rect x="228" y="106" width="10" height="40" fill="var(--svg-liner)"/>
+            <path d="M215 98 C214 78 190 74 204 56 C218 38 198 28 216 14" fill="none" stroke="var(--svg-gas)" stroke-width="8" stroke-linecap="round" class="flow"/>
+            <path d="M233 106 C233 88 252 84 240 66 C228 48 248 36 232 20" fill="none" stroke="var(--svg-pipe)" stroke-width="7" stroke-linecap="round" class="flow"/>
+            <g fill="var(--svg-pipe)">
+              <circle cx="82" cy="102" r="5"/><circle cx="118" cy="90" r="4"/><circle cx="150" cy="106" r="5"/>
+              <circle cx="300" cy="82" r="4"/><circle cx="334" cy="92" r="5"/>
+            </g>
+            <!-- area source: diffuse dots -->
+            <g fill="var(--svg-gas)" opacity=".38">
+              <circle cx="130" cy="190" r="3"/><circle cx="142" cy="186" r="2.5"/><circle cx="336" cy="172" r="3"/><circle cx="350" cy="180" r="2.2"/>
+            </g>
+            <g fill="none" stroke="var(--svg-monitor)" stroke-width="2" stroke-linecap="round">
+              <path d="M36 88 H118"/><path d="M110 80 L118 88 L110 96"/>
+              <path d="M270 122 H376"/><path d="M368 114 L376 122 L368 130"/>
+            </g>
+            <g font-family="'IBM Plex Mono', monospace" font-size="10.5" fill="var(--svg-label)">
+              <text x="18" y="76">titik</text><text x="84" y="76">garis</text><text x="118" y="154">area</text><text x="310" y="130">volume</text>
+            </g>
+          </svg>
+          <figcaption><strong>Gbr. pengantar</strong> — geometri sumber (titik, garis, area, volume) menentukan model dispersi yang dipakai pada Bab 7.</figcaption>
+        </figure>
+      </div>
+      <div class="wrap stat-strip" aria-label="Angka kunci">
+        <div class="stat"><span class="stat-num">166 jt</span><span class="stat-lbl">kendaraan terdaftar 2024 — 84% sepeda motor (BPS/Korlantas)</span></div>
+        <div class="stat"><span class="stat-num">17,1 GW</span><span class="stat-lbl">PLTU captive smelter akhir 2024 (CREA/GEM, Model)</span></div>
+        <div class="stat"><span class="stat-num">48–50 %</span><span class="stat-lbl">rumah tangga bakar sampah terbuka (Riskesdas 2013; World Bank 2024, Fakta)</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="objectives" aria-labelledby="obj-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Tujuan pembelajaran</p>
+        <h2 class="h2" id="obj-title">Setelah mempelajari bab ini, mahasiswa mampu…</h2>
+        <ul class="objective-list" id="objectives-list"></ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-kw" id="kata-kunci" aria-labelledby="kw-title">
+      <div class="wrap">
+        <p class="eyebrow center-eyebrow">Kata kunci</p>
+        <h2 class="h2 sr-only" id="kw-title">Kata kunci Bab 3</h2>
+        <div class="kw-cloud" id="kw-cloud" aria-label="Daftar kata kunci"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="klasifikasi" aria-labelledby="klasifikasi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">3.1 · Klasifikasi</p>
+          <h2 class="h2" id="klasifikasi-title">Tiga cara memilah sumber: asal, geometri, dan waktu</h2>
+          <p class="sec-desc">Klasifikasi yang tepat menentukan regulasi yang berlaku dan model dispersi yang dipakai.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Alami vs antropogenik — batas yang tidak selalu tegas</h3>
+          <p><span class="term" data-gloss="antropogenik">Antropogenik</span> mencakup pembangkit energi, industri, transportasi, dan pembakaran sampah, sedangkan sumber alami meliputi letusan gunung api, semprotan garam laut, debu mineral, dan emisi biogenik vegetasi. Untuk <span class="term" data-gloss="karhutla">karhutla gambut</span> Indonesia, El Niño adalah pemicu meteorologis alami, tetapi drainase dan pembukaan lahan menjadikannya emisi terkelola manusia — dalam GFED dan EDGAR diklasifikasikan sebagai <span class="term" data-gloss="antropogenik">antropogenik</span>. Basis data EDGAR (JRC, 2025) mencatat Indonesia mengemisikan 1.323,78 Mt CO₂eq <span class="term" data-gloss="antropogenik">antropogenik</span> pada 2024 (2,49% global), belum termasuk fluktuasi ekstrem karhutla yang pada tahun El Niño kuat dapat menyaingi ekonomi besar.</p>
+          <h3>Geometri: titik, garis, area, volume</h3>
+          <p class="tbl-title">Tabel 3.1 — Klasifikasi geometri sumber dan model tipikal (jembatan ke Bab 7)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Klasifikasi geometri sumber">
+            <thead><tr><th scope="col">Geometri</th><th scope="col">Definisi operasional</th><th scope="col">Contoh Indonesia</th><th scope="col">Model tipikal</th></tr></thead>
+            <tbody>
+              <tr><td><span class="term" data-gloss="sumber-titik">Titik</span></td><td>Emisi dari satu cerobong dengan tinggi/diameter tertentu</td><td>Cerobong PLTU Suralaya, kiln semen</td><td>Plume Gaussian (AERMOD)</td></tr>
+              <tr><td><span class="term" data-gloss="sumber-garis">Garis</span></td><td>Rangkaian sumber berjajar diidealkan sebagai garis</td><td>Tol Jakarta–Cikampek, arteri perkotaan</td><td>Sumber garis (CALINE)</td></tr>
+              <tr><td><span class="term" data-gloss="sumber-area">Area</span></td><td>Emisi per satuan luas tanpa titik tunggal</td><td>Permukiman dengan <span class="term" data-gloss="open-burning">open burning</span>, TPA</td><td>Model area/box · grid inventarisasi</td></tr>
+              <tr><td><span class="term" data-gloss="sumber-volume">Volume</span></td><td>Emisi dari volume 3-D tanpa cerobong</td><td>Debu resuspensi terminal, konstruksi, pelabuhan</td><td>Volume source AERMOD</td></tr>
+            </tbody>
+          </table></div>
+          <h3>Kontinu vs episodik</h3>
+          <p><strong>Kontinu</strong> (PLTU <em>base load</em>, kiln semen, lalu lintas harian) beremisi relatif stabil sepanjang waktu; <strong>episodik</strong> (karhutla musiman, letusan, <em>flaring</em> gangguan proses) beremisi intens dalam periode terbatas. Perbedaan ini menentukan instrumen pengendalian: BME cerobong dan <span class="term" data-gloss="cems">CEMS</span> untuk kontinu, larangan membakar dan pemantauan satelit titik api untuk episodik.</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="lightbulb"></span><p><strong>Konteks regulasi Indonesia.</strong> UU 32/2009 dan PP 22/2021 membedakan <strong>sumber bergerak</strong> (kendaraan, kapal, pesawat) dan <strong>sumber tidak bergerak</strong> (industri, pembangkit, boiler) serta kategori <strong>gangguan</strong>. Tipe sumber menentukan Permen teknis yang berlaku (mis. P.15/2019 untuk pembangkit termal vs P.20/2017 untuk kendaraan tipe baru).</p></div>
+          <figure class="viz">
+            <div class="mermaid-box" id="b3-klasifikasi" role="img" aria-label="Diagram klasifikasi sumber: asal, geometri, dan pola waktu menuju regulasi dan model"></div>
+            <figcaption><strong>Gbr. 3.1</strong> — Klasifikasi sumber menentukan rezim regulasi dan pilihan model dispersi pada Bab 7.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="tidak-bergerak" aria-labelledby="tidak-bergerak-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">3.2 · Sumber tidak bergerak</p>
+          <h2 class="h2" id="tidak-bergerak-title">Cerobong yang diukur: PLTU, industri proses, dan insinerator</h2>
+          <p class="sec-desc">Sumber titik dengan BME sektoral; besar secara individual dan dapat dipantau per unit.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>PLTU batu bara — titik terbesar dan paling diatur</h3>
+          <p><span class="term" data-gloss="pltu">PLTU batu bara</span> adalah sumber titik terbesar SO₂, NOₓ, PM, dan merkuri. SO₂ berasal dari sulfur bahan bakar (batu bara Indonesia tipikal 0,1–0,8% massa), NOₓ dari tiga jalur thermal–prompt–fuel NO (dasar strategi pengendalian Bab 9.5), dan PM berupa abu terbang yang dikendalikan ESP/fabric filter.</p>
+          <p class="tbl-title">Tabel 3.2 — BME pembangkit termal Permen LHK P.15/2019 (mg/Nm³, basis kering terkoreksi O₂)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="BME PLTU P15 2019">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">PLTU eksisting (lama)</th><th scope="col">PLTU baru (&gt;2019)</th></tr></thead>
+            <tbody>
+              <tr><td>Partikulat total</td><td>100</td><td>50</td></tr>
+              <tr><td>SO₂</td><td>550</td><td>200</td></tr>
+              <tr><td>NOₓ (sebagai NO₂)</td><td>550</td><td>200</td></tr>
+              <tr><td>Hg</td><td>—</td><td>0,03</td></tr>
+            </tbody>
+          </table></div>
+          <p class="note">Kapasitas <span class="term" data-gloss="captive">PLTU captive</span> smelter naik dari 5,7 GW ke 17,1 GW (Juli–Des 2024, CREA/GEM, Model); RUKN 2024–2060 menambah 26,8 GW, sementara draf RUPTL tidak memuat PLTU baru on-grid (Ember, 2024) — kontradiksi yang menahan beban emisi sebelum menurun. Batas eksisting 550/550 dinilai 3–15 kali lebih longgar dari Tiongkok/Jepang/Korsel; model Myllyvirta (CREA) memperkirakan ±5.900 kematian dini/tahun di sekitar Jakarta dapat dihindari dengan BME 100/100/10 (Model, bukan pengukuran).</p>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Bedakan jenis bukti.</strong> Kepatuhan PLTU Suralaya yang dilaporkan (PM &lt;60 mg/Nm³ terhadap ambang 100, SO₂/NOx ~200 mg/Nm³, Kementerian ESDM 2023) adalah self-reporting uji cerobong/<span class="term" data-gloss="cems">CEMS</span> armada PLN IP (&lt;550/100), bukan verifikasi independen pihak ketiga. Bandingkan selalu pada basis pengukuran yang sama.</p></div>
+          <h3>Industri proses, insinerator, dan boiler</h3>
+          <p><strong>Semen</strong> mengemisikan PM kiln dan NOx suhu ±1.450 °C; <strong>smelter</strong> nikel/tembaga melepas SO₂ sulfida (dipulihkan sebagai asam sulfat pada pabrik modern) — ekspansi Morowali/Weda Bay menggeser titik SO₂/PM ke luar Jawa. <strong>Petrokimia</strong> mengemisikan VOC fugitif dan flare episodik. <strong>Insinerator</strong> berpotensi melepas dioksin/furan dan logam berat bila prinsip “3T” (suhu–waktu tinggal–turbulensi) tidak terpenuhi. <strong>Boiler industri</strong> kecil-menengah berbahan bakar batu bara/biomassa/minyak adalah sumber titik tersebar yang sering ditangani sebagai <span class="term" data-gloss="sumber-area">area</span> dalam inventarisasi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="bergerak" aria-labelledby="bergerak-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">3.3 · Sumber bergerak</p>
+          <h2 class="h2" id="bergerak-title">Jalan, udara, dan laut yang bergerak</h2>
+          <p class="sec-desc">Tersebar sebagai garis di koridor; karakteristiknya berbeda dari cerobong yang menetap.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Armada Indonesia dan standar Euro 4</h3>
+          <p class="tbl-title">Tabel 3.3 — Armada kendaraan bermotor Indonesia (Fakta, registrasi)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Armada kendaraan Indonesia">
+            <thead><tr><th scope="col">Tahun</th><th scope="col">Sepeda motor</th><th scope="col">Total kendaraan</th><th scope="col">Sumber</th></tr></thead>
+            <tbody>
+              <tr><td>2012</td><td>76,4 juta</td><td>—</td><td>Regident Polri</td></tr>
+              <tr><td>2021</td><td>111,3 juta (80,5%)</td><td>138,3 juta</td><td>Regident Polri</td></tr>
+              <tr><td>2022</td><td>125,3 juta</td><td>—</td><td>BPS</td></tr>
+              <tr><td>2024</td><td>139,45 juta (84%)</td><td>166,47 juta</td><td>BPS 2024; Korlantas 160,65 juta</td></tr>
+              <tr><td>2025 (est.)</td><td>146,5 juta</td><td>172,9 juta</td><td>BPS est. akhir 2025</td></tr>
+            </tbody>
+          </table></div>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-armada" aria-label="Batang jumlah sepeda motor Indonesia" role="img"></canvas></div>
+            <figcaption id="cap-armada"></figcaption>
+          </figure>
+          <p><span class="term" data-gloss="bme">BME</span> Euro 4 tipe baru ditetapkan P.20/2017: bensin/CNG/LPG berlaku Oktober 2018, diesel 2021; syarat sulfur bahan bakar ≤50 ppm (bensin RON ≥91, diesel CN ≥51). Sepeda motor masih Euro 3 bertahap. Karakteristik mesin: bensin (spark ignition) dominan CO/HC dengan catalyst tiga arah stoikiometri; diesel (compression ignition) dominan NOx/soot sehingga butuh DPF/SCR — catalyst tiga arah tidak efektif pada lean burn.</p>
+          <h3>Cold-start dan evaporatif — mengapa emisi riil melebihi lab</h3>
+          <p><strong>Cold-start:</strong> katalis baru efektif setelah light-off ±250–300 °C; menit awal campuran kaya menyebabkan CO/HC beberapa kali lipat. Pada FTP-75, 55 detik pertama dapat menyumbang ~40% HC dan ~30% CO total siklus; iklim tropis dengan perjalanan pendek repetitif (ojek/angkot) memperbesar beban per km tempuh. <strong>Evaporatif</strong> (hanya bensin): rugi diurnal (siklus panas harian), hot soak, running losses, dan pengisian — ditahan EVAP canister karbon aktif; diesel volatilitas rendah sehingga tidak signifikan. Iklim tropis panas memperbesar diurnal — argumen teknis untuk vapor recovery SPBU dan RVP bensin terkendali.</p>
+          <h3>Penerbangan dan pelayaran</h3>
+          <p>Penerbangan: LTO di sekitar bandara + jelajah ketinggian (NOx, contrail); penerbangan internasional global 622,33 Mt CO₂ pada 2024 (1,17% global, EDGAR 2025, Model). Pelayaran: top-down dari penjualan bunker vs bottom-up berbasis AIS + beban mesin (AIS lebih akurat namun tidak pasti pada beban); IMO MARPOL Annex VI membatasi sulfur HFO ≤0,50% sejak 1 Jan 2020. Untuk kepulauan dengan Tanjung Priok/Perak/Makassar, emisi kapal layak sebagai <span class="term" data-gloss="sumber-area">area</span> tersendiri — inventarisasi pelabuhan Indonesia yang terbuka belum tersedia.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="area-alami" aria-labelledby="area-alami-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">3.4 · Area &amp; alami</p>
+          <h2 class="h2" id="area-alami-title">Difus yang tak bercerobong dan alam sebagai latar</h2>
+          <p class="sec-desc">Tanpa titik tunggal — diestimasi per luas, per kapita, atau per aktivitas; alam menjadi baseline yang tidak dapat dikendalikan.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Sumber area/difus — mengapa sulit diukur langsung</h3>
+          <ul>
+            <li><strong><span class="term" data-gloss="open-burning">Pembakaran sampah terbuka</span>:</strong> 48–50% rumah tangga Indonesia membakar sampah (Riskesdas 2013; World Bank/LRF 2024) padahal dilarang UU 18/2008; studi Semarang 2020–2021: 58,8 Gg/tahun = 9,7% timbulan kota (Ramadan et al. 2022) melepas PM₂.₅, CO, PAH, dioksin pada suhu rendah; kontributor black carbon global.</li>
+            <li><strong>Debu jalan (resuspensi):</strong> abrasi ban/rem/aspal terangkat turbulensi kendaraan; studi apportionment Jakarta (CCAC 2022–2025) menempatkan kendaraan, <span class="term" data-gloss="open-burning">open burning</span>, konstruksi, dan debu tanah/jalan sebagai sumber utama PM₂.₅.</li>
+            <li><strong>Domestik</strong> (biomassa/LPG, genset) dan <strong>konstruksi</strong> (volume source urugan/bor) — diatur UKL-UPL (water spraying, penutupan truk).</li>
+          </ul>
+          <h3>Sumber alami — latar belakang yang episodik</h3>
+          <p><strong>Gunung api</strong> (>120 aktif, PVMBG): urutan gas H₂O, CO₂, SO₂, HCl, HF, H₂S; Merapi 3 Mar 2020 kolom abu ±6.000 m (BMKG); Semeru 2020/2021/2023 kolom SO₂ satelit (jurnal ITS 2025). Satu hari letusan dapat melampaui akumulasi antropogenik lokal, tetapi rata-rata tahunan nasional lebih kecil dari energi/karhutla — harus dipisahkan saat analisis tren. <strong>Sea spray</strong> (NaCl) terdeteksi sebagai fraksi pesisir; <strong>debu mineral</strong> lokal (NTT, pasca-karhutla) kecil vs Sahara tetapi relevan setempat. <strong><span class="term" data-gloss="bvoc">BVOC</span></strong> (isoprena C₅H₈, terpena seperti α-pinena) dari hutan tropis: global BVOC diperkirakan melampaui VOC antropogenik (MEGAN); di lanskap Indonesia interaksi BVOC–NOₓ perkotaan/industri berpotensi menghasilkan ozon dan SOA regional — mekanisme smog fotokimia dengan prekursor alami.</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="sparkles"></span><p><strong>Kesenjangan data (jujur dicatat).</strong> Inventarisasi nasional <span class="term" data-gloss="bvoc">BVOC</span>/MEGAN, emisi pelabuhan, dan agregasi CEMS industri per sektor yang terbuka belum tersedia; sumber yang seharusnya ada: KLHK, Kementerian Perhubungan/otoritas pelabuhan, flux tower Kalimantan/Sumatra, dan tuple BIG–KLHK.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="inventarisasi" aria-labelledby="inventarisasi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">3.5 · Inventarisasi emisi</p>
+          <h2 class="h2" id="inventarisasi-title">Menghitung yang tak selalu terlihat: E = A × EF</h2>
+          <p class="sec-desc">Fondasi kuantitatif Bab 7 (model) dan Bab 8 (kebijakan); tanpa inventarisasi, dispersi tidak dapat dijalankan.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Persamaan dasar dan perluasan dengan kontrol</h3>
+          <div class="formula" data-tex="E = A \times EF">E = A × EF</div>
+          <p class="note">Keterangan: E = emisi (mis. ton/tahun); A = data aktivitas (mis. ton bahan bakar, kend-km, ton produk); EF = faktor emisi (massa per unit aktivitas, mis. kg/ton, g/kend-km).</p>
+          <div class="formula" data-tex="E = A \times EF \times \left(1 - \frac{ER}{100}\right)">E = A × EF × (1 − ER/100)</div>
+          <p class="note">Keterangan: ER = efisiensi reduksi peralatan pengendali (%); suku (1−ER/100) adalah fraksi yang lolos. Jika tanpa kontrol, ER = 0 sehingga E = A × EF.</p>
+          <h3>Bottom-up vs top-down</h3>
+          <p class="tbl-title">Tabel 3.4 — Dua pendekatan inventarisasi</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Bottom-up vs top-down">
+            <thead><tr><th scope="col">Aspek</th><th scope="col">Bottom-up</th><th scope="col">Top-down</th></tr></thead>
+            <tbody>
+              <tr><td>Prinsip</td><td>Agregasi A × EF per sumber</td><td>Inferensi dari kolom satelit / inversi transport</td></tr>
+              <tr><td>Kekuatan</td><td>Resolusi sektor/sumber tinggi; terkait kebijakan</td><td>Independen pelaporan; tangkap sumber tak tercatat</td></tr>
+              <tr><td>Kelemahan</td><td>Bias jika aktivitas tak lengkap (informal)</td><td>Kasar; butuh model transport; tak pisah sektor langsung</td></tr>
+              <tr><td>Contoh</td><td>EDGAR, KLHK, MOVES/COPERT</td><td>TROPOMI NO₂, GFAS fire radiative power</td></tr>
+            </tbody>
+          </table></div>
+          <p>Ilustrasi kontras pada karhutla 2015 (Model): konsumsi dry matter Sep–Okt 2015 — GFED 461 Tg, GFAS 541 Tg, Wooster et al. 358 Tg ±30% — rentang ±20–35% antar inventarisasi menunjukkan inventarisasi kebakaran bukan angka pasti.</p>
+          <h3>AP-42, EMEP/EEA, dan sistem tier</h3>
+          <p><span class="term" data-gloss="aps">AP-42</span> Vol. I (stasioner) &amp; Vol. II (bergerak) sejak edisi 4 (1985 → WebFIRE) untuk >200 kategori; rating kualitas A (sangat baik, banyak uji acak) hingga E (buruk, sedikit data tak representatif) dan U (tanpa rating). <span class="term" data-gloss="tier">EMEP/EEA Guidebook 2023</span> (pelaporan CLRTAP/EU NEC): Tier 1 faktor default global/Eropa × aktivitas nasional, Tier 2 faktor teknologi/nasional, Tier 3 model rinci (COPERT). Untuk Indonesia Tier 1 layak sebagai awal kabupaten/kota, tetapi motor tua, sampah campuran, dan gambut menuntut Tier 2/3 lokal — faktor gambut terukur CO₂ 1.779 ±55 g/kg, CO 238 ±36 g/kg, CH₄ 7,8 ±2,3 g/kg (±30% total).</p>
+
+          <div class="b2-tool-card" id="b3-inventory">
+            <!-- rendered by bab3.js -->
+          </div>
+
+          <h3>Ketidakpastian — kaidah pelaporan</h3>
+          <p>Determinan: data aktivitas (sensus vs estimasi; informal tak tercatat), transfer EF lintas negara, alokasi spasial-temporal (proxy populasi), dan sumber episodik antar-tahun. Contoh skala: emisi karbon kebakaran 2015 GFED 188 ±67 Tg C sebagai CO₂ (Sep–Okt saja) — ±36% pada puncak episode — dan 71% PM₂.₅ primer dari gambut (Kiely et al. 2019). <strong>Kaidah:</strong> selalu laporkan tahun dasar, metode, tier, dan rentang ketidakpastian.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b3-inventarisasi" role="img" aria-label="Diagram alur inventarisasi bottom-up vs top-down"></div>
+            <figcaption><strong>Gbr. 3.2</strong> — Dua jalur menuju inventarisasi: agregasi aktivitas–faktor emisi vs inferensi pengukuran atmosfer.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="khas" aria-labelledby="khas-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">3.6 · Sumber khas Indonesia</p>
+          <h2 class="h2" id="khas-title">Empat beban yang mendominasi</h2>
+          <p class="sec-desc">Karhutla gambut, armada motor, PLTU batu bara, dan sampah terbuka — kombinasi yang tidak dijumpai dalam porsi sama di negara lain.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Karhutla gambut — episodik yang menyamai ekonomi besar</h3>
+          <p>Tren KLHK/SiPongi: 2,6 juta ha (2015; ±120 ribu titik api), 1,65 juta ha (2019), 1,1 juta ha (2023); Jan–Jun 2026 kembali +120% vs 2019 (indikatif, perlu verifikasi akhir tahun). Emisi kumulatif 2015 per 14 Okt: ±1.043 Mt CO₂eq (WRI/GFED, Model); 26 dari 44 hari puncak emisi harian > ekonomi AS (15,95 Mt/hari). Kerugian World Bank: USD 16 miliar; gambut menyumbang 55% CO₂ dan 71% PM₂.₅ primer Sep–Okt 2015 (Kiely et al. 2019) — alasan dominasi partikel halus pada asap. Greenpeace memetakan total 2015–2019 4,4 juta ha (metode mandiri,68beda dari KLHK — selalu bedakan sumber).</p>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-karhutla-gambut" aria-label="Batang luas gambut terbakar" role="img"></canvas></div>
+            <figcaption id="cap-karhutla-gambut"></figcaption>
+          </figure>
+          <h3>Armada, PLTU, dan sampah — benang merah perkotaan</h3>
+          <p><strong>Armada:</strong> 166 juta kendaraan 2024 (84% motor) terkonsentrasi ±60% di Jawa — transportasi jalan sumber utama NO₂/CO/PM perkotaan; CCAC menempatkannya bersama <span class="term" data-gloss="open-burning">open burning</span> dan debu jalan sebagai puncak PM₂.₅ Jakarta. Euro 4 baru menyentuh tipe baru; armada tua berumur belasan tahun dengan katalis menurun/dilepas membuat penurunan riil lebih lambat (tampering, de Nevers 13.5). <strong>PLTU:</strong> kombinasi BME longgar + captive 17,1 GW + batu bara muda lignit-berair yang menurunkan efisiensi per kWh (lihat 3.2). <strong>Sampah:</strong> layanan pengumpulan tak merata → <span class="term" data-gloss="open-burning">open burning</span> menjadi “sistem de facto” ±½ rumah tangga — sumber <span class="term" data-gloss="sumber-area">area</span> sekaligus masalah layanan publik.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="indoor" aria-labelledby="indoor-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">3.7 · Udara dalam ruangan</p>
+          <h2 class="h2" id="indoor-title">Rezim yang berbeda: ventilasi, bukan dispersi</h2>
+          <p class="sec-desc">Konsentrasi ditentukan laju emisi dalam ruang × air exchange × waktu tinggal penghuni.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>Biomassa dan memasak.</strong> WHO 2025: 2,1 miliar penduduk (±¼ global) masih memasak dengan api terbuka/tungku tak efisien (kayu, arang, kotoran hewan, batu bara, minyak tanah) — 2,9 juta kematian/tahun (2021) termasuk >309 ribu balita; State of Global Air 2,6 miliar (33%) bergantung bahan bakar padat (2023) dengan 2,8 juta kematian. Perempuan dan anak menanggung paparan terbesar. Data Indonesia terkini pada Susenas BPS dan Riskesdas Kemenkes — angka konsolidasi tahunan belum dikompilasi di bab ini dan perlu diambil langsung dari kedua seri. <strong>Asap rokok (ETS):</strong> PM₂.₅, CO, nikotin, PAH dari sidestream + mainstream; prevalensi perokok dewasa Indonesia termasuk tertinggi dunia — seri kuantifikasi beban indoor nasional belum tersedia. <strong>VOC material bangunan:</strong> formaldehida (plywood/partikel), BTX cat/pelarut, SVOC — terkait sick building syndrome; standar mutu ruangan Indonesia belum padu dengan PP 22/2021 dan pemantauan rutin nasional belum tersedia.</p>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Batas rezim.</strong> Baku mutu udara ambien PP 22/2021 tidak otomatis berlaku untuk dalam ruangan; acuan WHO indoor dan pedoman Kemenkes adalah ranah berbeda dengan tujuan pengendalian yang berbeda.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="terkini" aria-labelledby="terkini-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">3.8 · Kondisi terkini</p>
+          <h2 class="h2" id="terkini-title">Pergeseran beban dan pelajaran dari pandemi</h2>
+          <p class="sec-desc">Elektrifikasi, co-firing, informal, dan eksperimen alam yang memvalidasi inventarisasi.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>Elektrifikasi transportasi.</strong> Target 2 juta mobil + 13 juta motor listrik 2030 (ESDM/DEN 2024) → hemat 29,79 MBOE dan reduksi 7,23 Mt CO₂; EV menghapus tailpipe/evaporatif di jalan tetapi memindahkan beban ke pembangkit. Dengan batu bara dominan dan BME 550 mg/Nm³, manfaat kota (hilangnya <span class="term" data-gloss="sumber-garis">sumber garis</span> di ruas padat) nyata, tetapi total sistem bergantung pensiun PLTU dan pengetatan BME; non-exhaust (ban/rem/resuspensi) tetap dan proporsional meningkat.</p>
+          <p><strong>Co-firing biomassa 1–5%</strong> di puluhan PLTU (uji PLN 2020: 17.470 ton/hari per 1% nasional ≈5 Mt wood pellet/tahun); kebutuhan 2025 10,2 juta ton di 52 PLTU — menurunkan CO₂ netto (biogenik) dan sedikit SO₂, tetapi PM/NOx tergantung kualitas biomassa dan ESP existing; verifikasi via <span class="term" data-gloss="cems">CEMS</span>, bukan asumsi.</p>
+          <p><strong>Sektor informal:</strong> <span class="term" data-gloss="open-burning">open burning</span> 48–50%, industri rumahan, batu bata tradisional — tak tercatat pada bottom-up sehingga inventarisasi cenderung underestimate; koreksi top-down (ambien + apportionment) menjadi penting.</p>
+          <p><strong>Pandemi sebagai natural experiment.</strong> PSBB 2020 menurunkan mobilitas masif: Anugerah et al. (2021; lima kota DKI) CO −39,9%, NO₂ −7,5%, SO₂ −5,7%; CREA (2020) NO₂ turun di Jakarta–Banten–Jabar, tetapi PM₂.₅ justru naik Mar–Jun 2020 (Kedubes AS) — PLTU tetap operasi + meteorologi. Pelajaran: (1) CO/NO₂ (transport) paling responsif, (2) PM₂.₅ multi-sumber + sekunder sehingga kebijakan satu sektor tak cukup, (3) eksperimen alam adalah cara empiris memvalidasi inventarisasi. Pasca-pandemi PM₂.₅ tertimbang populasi Indonesia 2024 35,5 µg/m³ (peringkat 15 dunia, IQAir ilustrasi tren) 6–11× pedoman WHO 5 µg/m³.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b3-shifting" role="img" aria-label="Diagram pergeseran beban elektrifikasi, co-firing, dan informal"></div>
+            <figcaption><strong>Gbr. 3.3</strong> — Elektrifikasi dan co-firing menggeser, bukan menghapus, beban — validasinya melalui pengukuran dan eksperimen alam.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="rangkuman" aria-labelledby="rangkuman-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Rangkuman</p>
+        <h2 class="h2" id="rangkuman-title">Pokok pembelajaran</h2>
+        <ul class="objective-list">
+          <li>Sumber dipilah menurut asal (alami/antropogenik — batas karhutla gambut tidak tegas), geometri (titik/garis/area/volume → model AERMOD/CALINE/box), dan waktu (kontinu/episodik) yang menentukan regulasi bergerak vs tidak bergerak (PP 22/2021).</li>
+          <li>PLTU batu bara adalah titik terbesar dengan BME P.15/2019 (lama 550/550/100 vs baru 200/200/50; Hg baru 0,03 mg/Nm³) dan captive 17,1 GW yang mengunci beban; kepatuhan dilaporkan adalah <span class="term" data-gloss="cems">CEMS</span> self-reporting.</li>
+          <li>Transportasi jalan sebagai <span class="term" data-gloss="sumber-garis">sumber garis</span> 166 juta kendaraan (84% motor), Euro 4 (2018/2021), dengan cold-start dan evaporatif yang memperbesar emisi tropis jalan nyata.</li>
+          <li>Sumber <span class="term" data-gloss="sumber-area">area</span>/difus (open burning 48–50% KK, resuspensi, domestik, konstruksi) dan alami (<span class="term" data-gloss="bvoc">BVOC</span>, gunung api, sea spray) adalah baseline/latar yang sering luput dari BME cerobong.</li>
+          <li>Inventarisasi E = A × EF × (1−ER/100) adalah fondasi kuantitatif; AP-42 rating A–E dan EMEP Tier 1–3 menentukan ketidakpastian; contoh karhutla 358–541 Tg menunjukkan rentang ±20–35%.</li>
+          <li>Empat beban khas Indonesia (karhutla, armada, PLTU, sampah) plus indoor (biomassa, ETS, VOC) membentuk profil unik; terkini ditandai elektrifikasi/co-firing yang menggeser beban ke grid dan pelajaran PSBB sebagai validasi sektor.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-deep" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Checkpoint</p><h2 class="h2" id="quiz-title">Uji pemahaman</h2><p class="sec-desc">Enam soal tentang klasifikasi, PLTU, cold-start, inventarisasi, dan elektrifikasi.</p></div><div class="quiz card" id="quiz-box"><div id="quiz-root"></div></div></div>
+    </section>
+
+    <section class="sec" id="diskusi" aria-labelledby="diskusi-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Diskusi</p><h2 class="h2" id="diskusi-title">Pertanyaan diskusi</h2><p class="sec-desc">Buka petunjuk setiap pertanyaan untuk memulai pembahasan.</p></div><div class="acc" id="diskusi-list"></div></div>
+    </section>
+
+    <section class="sec sec-deep" id="latihan" aria-labelledby="latihan-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Latihan</p><h2 class="h2" id="latihan-title">Latihan mandiri</h2><p class="sec-desc">Enam tugas penerapan; progres tersimpan otomatis di perangkat ini.</p></div><div class="lat-progress" role="status" aria-live="polite"><div class="lat-bar"><div class="lat-bar-fill" id="lat-fill"></div></div><span class="lat-count" id="lat-count">0 / 6 selesai</span></div><ol class="lat-list" id="latihan-list"></ol></div>
+    </section>
+
+    <section class="sec" id="pustaka" aria-labelledby="pustaka-title">
+      <div class="wrap"><div class="panel"><p class="eyebrow">Referensi</p><h2 class="h2" id="pustaka-title">Daftar pustaka</h2><div id="pustaka-list"></div></div></div>
+    </section>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-dialog" role="document"><button type="button" class="modal-close" data-close-modal aria-label="Tutup dialog"><span class="icon" data-lucide="x"></span></button><p class="eyebrow" id="modal-eyebrow"></p><h3 class="h3" id="modal-title"></h3><div class="modal-body" id="modal-body"></div></div></div>
+    <span id="tooltip" class="tooltip" role="tooltip" hidden></span>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-08-29"></time></p>
+    </div>
+  </footer>
+
+  <button type="button" id="to-top" class="to-top" aria-label="Kembali ke atas" hidden><span class="icon" data-lucide="arrow-up"></span></button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+
+  <script src="assets/js/data-bab3.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/extras.js"></script>
+  <script src="assets/js/bab3.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>

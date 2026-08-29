@@ -104,14 +104,14 @@ APP_DATA.GLOSSARY = {
 
 APP_DATA.CHAPTERS = [
   { n: 1, title: "Sejarah Pencemaran Udara", href: "bab-1.html", current: false },
-  { n: 2, title: "Konsep Dasar Penyebab Pencemaran Udara", href: "#top", current: true },
-  { n: 3, title: "Termodinamika Atmosfer", href: null },
-  { n: 4, title: "Sumber Pencemaran Udara", href: null },
-  { n: 5, title: "Parameter Pencemaran Udara", href: null },
-  { n: 6, title: "Dampak Pencemaran Udara", href: null },
-  { n: 7, title: "Meteorologi Pencemaran Udara", href: null },
-  { n: 8, title: "Pemodelan Pencemaran Udara", href: null },
-  { n: 9, title: "Peraturan dan Standar Pencemaran Udara", href: null },
+  { n: 2, title: "Konsep Dasar Penyebab Terjadinya Pencemaran Udara", href: "#top", current: true },
+  { n: 3, title: "Sumber Pencemaran Udara", href: "bab-3.html" },
+  { n: 4, title: "Parameter Pencemaran Udara dan Pemantauan", href: "bab-4.html" },
+  { n: 5, title: "Dampak Pencemaran Udara", href: "bab-5.html" },
+  { n: 6, title: "Meteorologi dan Termodinamika Atmosfer", href: null },
+  { n: 7, title: "Pemodelan Pencemaran Udara", href: null },
+  { n: 8, title: "Peraturan dan Standar Pencemaran Udara", href: null },
+  { n: 9, title: "Teknologi Pengendalian Pencemaran Udara", href: null },
   { n: 10, title: "Studi Kasus Pencemaran Udara", href: null }
 ];
 

@@ -16,7 +16,7 @@
 
   <header class="site-header" id="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="Ke awal halaman">
+      <a class="brand" href="index.html" aria-label="Beranda Modul Pencemaran Udara">
         <span class="brand-mark" aria-hidden="true"></span>
         <span class="brand-text">Pencemaran <strong>Udara</strong></span>
       </a>
@@ -210,7 +210,7 @@
           </ol>
           <p>Model kotak adalah kerangka kuantitatif paling sederhana. Atmosfer di atas wilayah dianggap tercampur sempurna dengan tinggi H, panjang wilayah L, kecepatan angin u, dan konsentrasi latar:</p>
           <div class="formula" data-tex="C = \frac{qL}{uH} + C_{\text{latar}}">C = qL/(uH) + C_latar</div>
-          <p class="note">q = laju emisi per satuan luas (µg m⁻² s⁻¹), L = panjang wilayah (m), u = kecepatan angin (m/s), H = tinggi pencampuran (m). Model ini menjadi dasar interaktif pada Subbab 2.6.</p>
+          <p class="note">Keterangan: C = konsentrasi pencemar di wilayah (µg/m³); C_latar = konsentrasi latar (µg/m³); q = laju emisi per satuan luas (µg m⁻² s⁻¹); L = panjang wilayah (m); u = kecepatan angin (m/s); H = tinggi lapisan pencampuran (m). Model ini menjadi dasar interaktif pada Subbab 2.6.</p>
         </div>
       </div>
     </section>
@@ -226,16 +226,17 @@
           <h3>Konsentrasi dan konversi satuan</h3>
           <p>Konsentrasi dapat dilaporkan sebagai massa per volume (µg/m³ atau mg/Nm³) atau rasio volume (ppm/ppb). Satuan massa per volume bergantung pada temperatur dan tekanan; kondisi acuan wajib dicantumkan.</p>
           <div class="formula" data-tex="C_{(\mu g/m^3)} = C_{(ppm)} \times \frac{BM}{24{,}45} \times 1000">C (µg/m³) = C (ppm) × BM/24,45 × 1000</div>
-          <p>Dengan BM dalam g/mol, volume molar gas ideal pada 25 °C dan 1 atm adalah 24,45 L/mol. Gunakan kalkulator di bawah untuk melihat konversi secara langsung.</p>
+          <p class="note">Keterangan: C = konsentrasi (µg/m³ atau ppm); BM = berat molekul gas (g/mol); 24,45 = volume molar gas ideal pada 25 °C, 1 atm (L/mol); faktor 1000 mengonversi g → µg. Gunakan kalkulator di bawah untuk melihat konversi secara langsung.</p>
           <div class="b2-tool-card" id="b2-converter">
             <div class="b2-tool-head"><div><p class="eyebrow">Kalkulator 2.1</p><h3 class="h3">ppm ↔ µg/m³</h3><p class="sec-desc">Pilih gas dan geser konsentrasinya. Hasil berlaku untuk 25 °C dan 1 atm.</p></div><div class="b2-formula-mini">C = ppm × BM / 24,45 × 1000</div></div>
           </div>
           <h3>Laju emisi, faktor emisi, dan beban</h3>
           <p><span class="term" data-gloss="faktor-emisi">Faktor emisi</span> menghubungkan massa pencemar dengan unit aktivitas, misalnya kg per ton bahan bakar, g/kWh, atau g per kendaraan-kilometer. AP-42 US EPA dan metodologi EMEP/EEA adalah rujukan umum, tetapi faktor emisi merupakan estimasi empiris rata-rata, bukan konstanta universal.</p>
           <div class="formula" data-tex="B = C \times Q">B = C × Q</div>
-          <p>Beban pencemaran B adalah massa per waktu; C adalah konsentrasi pada kondisi acuan yang sesuai dan Q adalah laju alir gas. Hindari praktik mengencerkan gas buang untuk memenuhi angka konsentrasi tanpa mengurangi massa pencemar.</p>
+          <p class="note">Keterangan: B = beban pencemaran (massa/waktu, mis. mg/s); C = konsentrasi pada kondisi acuan yang sesuai (mg/m³ atau mg/Nm³); Q = laju alir gas buang (m³/s). Hindari mengencerkan gas buang untuk memenuhi angka konsentrasi tanpa mengurangi massa pencemar.</p>
           <h3>Waktu tinggal</h3>
           <div class="formula" data-tex="\tau = \frac{M}{F_{\text{keluar}}}">τ = M/F keluar</div>
+          <p class="note">Keterangan: τ = waktu tinggal atmosferik (s); M = massa pencemar dalam reservoir (kg); F_keluar = laju keluarnya pencemar dari reservoir (kg/s).</p>
           <p class="tbl-title">Tabel 2.4 — Orde waktu tinggal atmosferik dan implikasi skalanya</p>
           <div class="tbl-wrap"><table class="tbl" aria-label="Waktu tinggal atmosferik beberapa zat">
             <thead><tr><th scope="col">Zat</th><th scope="col">Waktu tinggal</th><th scope="col">Implikasi skala</th></tr></thead>
@@ -268,7 +269,7 @@
           </figure>
           <p>Tiga reaksi dasar adalah fotolisis NO₂, pembentukan O₃ dari atom oksigen dan O₂, serta reaksi O₃ dengan NO. Hubungan Leighton menyatakan:</p>
           <div class="formula" data-tex="[O_3] = \frac{j_{R1}[NO_2]}{k_{R3}[NO]}">[O₃] = jR1[NO₂] / kR3[NO]</div>
-          <p>Dengan VOC dan radikal peroksi (HO₂•/RO₂•), NO dapat berubah menjadi NO₂ tanpa mengonsumsi O₃. Karena itu pengendalian ozon harus mempertimbangkan NOₓ dan VOC bersama-sama serta rezim sensitivitas VOC-limited atau NOₓ-limited.</p>
+          <p class="note">Keterangan: [O₃], [NO₂], [NO] = konsentrasi masing-masing (mol/m³ atau ppb); jR1 = konstanta laju fotolisis NO₂ (s⁻¹); kR3 = konstanta laju reaksi O₃ + NO (m³ mol⁻¹ s⁻¹). Hubungan Leighton; berlaku asumsi fase gas stationer. Dengan VOC dan radikal peroksi (HO₂•/RO₂•), NO dapat berubah menjadi NO₂ tanpa mengonsumsi O₃, sehingga pengendalian ozon mempertimbangkan NOₓ dan VOC bersama serta rezim VOC-limited/NOₓ-limited.</p>
           <h3>Radikal OH sebagai deterjen atmosfer</h3>
           <p><span class="term" data-gloss="radikal-oh">Radikal OH</span> adalah oksidator utama troposfer siang hari. Produksinya didorong fotolisis O₃ lalu reaksi O(¹D) dengan uap air. OH mengendalikan waktu tinggal CO, CH₄, VOC, SO₂, dan NO₂, sehingga menentukan nasib banyak gas di atmosfer.</p>
           <ul>
@@ -293,7 +294,7 @@
         <div class="sec-body prose">
           <p><span class="term" data-gloss="kapasitas-asimilatif">Kapasitas asimilatif</span> adalah beban maksimum yang dapat dilepaskan tanpa melampaui baku mutu ambien. Koefisien ventilasi menjadi indikator praktis:</p>
           <div class="formula" data-tex="VC = u \times H">VC = u × H</div>
-          <p>VC rendah, misalnya malam–pagi hari saat inversi, menandakan potensi akumulasi tinggi. PP 22/2021 melembagakan konsep daya dukung dan daya tampung lingkungan sebagai dasar perencanaan dan alokasi beban pencemaran.</p>
+          <p class="note">Keterangan: VC = koefisien ventilasi (m²/s); u = kecepatan angin (m/s); H = tinggi lapisan pencampuran (m). VC rendah, misalnya malam–pagi hari saat inversi, menandakan potensi akumulasi tinggi. PP 22/2021 melembagakan konsep daya dukung dan daya tampung lingkungan sebagai dasar perencanaan dan alokasi beban pencemaran.</p>
           <div class="b2-tool-card" id="b2-box-model">
             <div class="b2-tool-head"><div><p class="eyebrow">Simulator 2.2</p><h3 class="h3">Model kotak dan kapasitas ventilasi</h3><p class="sec-desc">Bandingkan siang berventilasi baik dengan malam berinversi. Emisi dibuat tetap.</p></div><div class="b2-formula-mini">C = qL/(uH) + C<sub>latar</sub></div></div>
           </div>
@@ -373,7 +374,7 @@
   <footer class="site-footer">
     <div class="wrap foot-inner">
       <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
-      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-08-21"></time></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-08-29"></time></p>
     </div>
   </footer>
 

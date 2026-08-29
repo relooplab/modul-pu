@@ -231,7 +231,7 @@
   function mmSources(c) {
     return {
       "mm-mekanisme": [
-        "flowchart LR",
+        "flowchart TB",
         'V["VOC / hidrokarbon"] --> UV["Sinar matahari (UV)"]',
         'N["NOx (oksida nitrogen)"] --> UV',
         'UV --> O["Oksidan fotokimia: O3 dan PAN"]',
@@ -255,6 +255,7 @@
       startOnLoad: false,
       theme: "base",
       securityLevel: "strict",
+      useMaxWidth: false,
       fontFamily: "'DM Sans', sans-serif",
       themeVariables: {
         primaryColor: c.mmFill,

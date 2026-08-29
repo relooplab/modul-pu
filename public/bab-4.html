@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bahan ajar interaktif Bab 4 — Parameter Pencemaran Udara dan Pemantauan: partikulat, gas kriteria, NMHC/PAH, HAP, emerging, SNI 7119, analizer kontinu, sensor murah, TROPOMI, konversi ppm–µg/m³, dan ISPU." />
+  <title>Modul Ajar · Parameter Pencemaran Udara dan Pemantauan (Bab 4)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="air-column-page">
+  <div id="progress-track" role="presentation" aria-hidden="true"><div id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Beranda Modul Pencemaran Udara">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Pencemaran <strong>Udara</strong></span>
+      </a>
+      <div class="chapter-nav" id="chapter-nav">
+        <button type="button" class="chapter-btn" id="chapter-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Pilih bab">
+          <span class="icon" data-lucide="book-open"></span>
+          <span class="chapter-btn-label" id="chapter-btn-label">Bab 4</span>
+          <span class="icon chev" data-lucide="chevron-down"></span>
+        </button>
+        <div class="chapter-menu" id="chapter-menu" role="menu" hidden></div>
+      </div>
+      <button type="button" id="air-column-toggle" class="icon-btn air-column-toggle" aria-label="Buka navigasi subbab" aria-controls="air-column" aria-expanded="false">
+        <span class="icon" data-lucide="list-tree"></span>
+      </button>
+      <button type="button" id="theme-toggle" class="icon-btn" aria-label="Alihkan tema terang/gelap" aria-pressed="false">
+        <span class="icon" data-lucide="sun"></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="air-column" id="air-column" aria-label="Navigasi subbab">
+    <div class="air-column-head">
+      <strong>Lapisan materi</strong>
+      <span>Dari fraksi ukuran hingga jejaring data real-time.</span>
+    </div>
+    <nav class="toc" id="toc" aria-label="Navigasi subbab Bab 4">
+      <button type="button" class="chip" data-scroll="#partikulat">4.1 Partikulat</button>
+      <button type="button" class="chip" data-scroll="#gas-kriteria">4.2 Gas kriteria</button>
+      <button type="button" class="chip" data-scroll="#hidrokarbon">4.3 HC & PAH</button>
+      <button type="button" class="chip" data-scroll="#hap">4.4 HAP</button>
+      <button type="button" class="chip" data-scroll="#emerging">4.5 Emerging</button>
+      <button type="button" class="chip" data-scroll="#manual">4.6 Manual</button>
+      <button type="button" class="chip" data-scroll="#modern">4.7 Modern</button>
+      <button type="button" class="chip" data-scroll="#konversi">4.8 Satuan & ISPU</button>
+      <button type="button" class="chip" data-scroll="#terkini">4.9 Terkini</button>
+      <button type="button" class="chip" data-scroll="#rangkuman">Rangkuman</button>
+      <button type="button" class="chip" data-scroll="#quiz">Kuis</button>
+      <button type="button" class="chip" data-scroll="#diskusi">Diskusi</button>
+      <button type="button" class="chip" data-scroll="#latihan">Latihan</button>
+      <button type="button" class="chip" data-scroll="#pustaka">Pustaka</button>
+    </nav>
+  </aside>
+  <button type="button" class="air-column-backdrop" id="air-column-backdrop" aria-label="Tutup navigasi subbab" hidden></button>
+
+  <main id="top" class="content">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Modul Ajar · Pencemaran Udara</p>
+          <h1 id="hero-title">Parameter Pencemaran Udara dan Pemantauan<span class="tone">: mengukur yang tak selalu terlihat</span></h1>
+        </div>
+        <figure class="hero-fig" id="hero-fig">
+          <svg id="hero-svg" viewBox="0 0 480 300" role="img" aria-label="Ilustrasi pemantauan: HVAS, analizer kontinu, sensor IoT, dan satelit TROPOMI">
+            <circle cx="388" cy="52" r="28" fill="var(--svg-gas)" opacity=".45"/>
+            <circle cx="388" cy="52" r="8" fill="var(--svg-soil)"/>
+            <path d="M0 236 C90 218 152 248 236 230 S390 216 480 236 V300 H0 Z" fill="var(--svg-soil)"/>
+            <!-- HVAS -->
+            <rect x="34" y="168" width="52" height="48" fill="var(--svg-waste)" rx="6"/><rect x="46" y="148" width="28" height="20" fill="var(--svg-liner)"/>
+            <!-- AQMS shelter -->
+            <rect x="168" y="152" width="64" height="64" fill="var(--svg-waste2)" rx="4"/><rect x="176" y="162" width="48" height="28" fill="var(--surface)"/><rect x="190" y="122" width="22" height="30" fill="var(--svg-liner)"/>
+            <!-- sensor nodes -->
+            <g fill="var(--svg-pipe)">
+              <circle cx="310" cy="92" r="5"/><circle cx="338" cy="72" r="4"/><circle cx="362" cy="88" r="5"/><circle cx="322" cy="118" r="4"/>
+            </g>
+            <!-- satellite track -->
+            <g fill="none" stroke="var(--svg-pipe)" stroke-width="2" stroke-dasharray="6 5" opacity=".7"><path d="M300 32 C340 46 368 38 400 18"/></g>
+            <g fill="none" stroke="var(--svg-monitor)" stroke-width="2" stroke-linecap="round">
+              <path d="M36 98 H118"/><path d="M110 90 L118 98 L110 106"/>
+              <path d="M232 128 H298"/><path d="M290 120 L298 128 L290 136"/>
+            </g>
+            <g font-family="'IBM Plex Mono', monospace" font-size="10.2" fill="var(--svg-label)">
+              <text x="18" y="86">HVAS</text><text x="156" y="138">SPKU</text><text x="286" y="62">LCS</text>
+            </g>
+          </svg>
+          <figcaption><strong>Gbr. pengantar</strong> — dari filter gravimetri HVAS hingga kolom satelit TROPOMI, setiap metode menjawab pertanyaan soal lokasi, waktu, dan tingkat ketelitian yang berbeda.</figcaption>
+        </figure>
+      </div>
+      <div class="wrap stat-strip" aria-label="Angka kunci">
+        <div class="stat"><span class="stat-num">9</span><span class="stat-lbl">parameter baku mutu ambien PP 22/2021 (25 °C, 1 atm)</span></div>
+        <div class="stat"><span class="stat-num">111</span><span class="stat-lbl">SPKU aktif DKI Jakarta Okt 2025 (11 DLH + 12 KLHK)</span></div>
+        <div class="stat"><span class="stat-num">7 × 3,5 km</span><span class="stat-lbl">resolusi TROPOMI/Sentinel-5P (5,5×3,5 km nadir)</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="objectives" aria-labelledby="obj-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Tujuan pembelajaran</p>
+        <h2 class="h2" id="obj-title">Setelah mempelajari bab ini, mahasiswa mampu…</h2>
+        <ul class="objective-list" id="objectives-list"></ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-kw" id="kata-kunci" aria-labelledby="kw-title">
+      <div class="wrap">
+        <p class="eyebrow center-eyebrow">Kata kunci</p>
+        <h2 class="h2 sr-only" id="kw-title">Kata kunci Bab 4</h2>
+        <div class="kw-cloud" id="kw-cloud" aria-label="Daftar kata kunci"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="partikulat" aria-labelledby="partikulat-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.1 · Partikulat</p>
+          <h2 class="h2" id="partikulat-title">TSP, PM₁₀, PM₂.₅, PM₁, dan partikel ultrahalus</h2>
+          <p class="sec-desc">Diameter aerodinamik menentukan nasib melayang, deposisi, dan penetrasi ke paru — bukan sekadar besar massa.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Partikulat (aerosol) adalah padatan/droplet cair yang melayang. Pencirinya adalah <strong>diameter aerodinamik</strong> — diameter bola berapatan 1 g/cm³ yang kecepatan endapnya sama dengan partikel nyata — karena inilah yang mengatur pengendapan dan penetrasi ke pernapasan. Pada perkotaan berlalu-lintas padat, PM₁ dapat menyumbang ~80% massa PM₂.₅, PM₂.₅ ~70% massa PM₁₀, dan fraksi kasar PM₁₀-₂,₅ ~30% sisanya — proporsi spesifik lokasi, bukan universal.</p>
+          <p class="tbl-title">Tabel 4.1 — Fraksi partikulat yang dipantau (PP 22/2021, SNI 7119)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Fraksi partikulat">
+            <thead><tr><th scope="col">Fraksi</th><th scope="col">Definisi operasional</th><th scope="col">Baku mutu Indonesia</th><th scope="col">Metode rujukan</th></tr></thead>
+            <tbody>
+              <tr><td><span class="term" data-gloss="tsp">TSP</span></td><td>Inlet HVAS hingga ±100 µm</td><td>230 µg/m³ (24 jam)</td><td>Gravimetri HVAS SNI 7119-3:2017</td></tr>
+              <tr><td><span class="term" data-gloss="pm10">PM₁₀</span></td><td>≤10 µm (cut 50% 10 µm)</td><td>75 (24 jam) / 40 (tahunan)</td><td>Gravimetri SNI 7119-15:2016; BAM/TEOM</td></tr>
+              <tr><td><span class="term" data-gloss="pm25">PM₂.₅</span></td><td>≤2,5 µm</td><td>55 / 15</td><td>Gravimetri SNI 7119-14:2016; BAM/TEOM</td></tr>
+              <tr><td>PM₁</td><td>≤1 µm</td><td>Belum ada</td><td>Optis/gravimetri khusus</td></tr>
+              <tr><td><span class="term" data-gloss="ufp">UFP</span></td><td>≤0,1 µm (jumlah/cm³)</td><td>Belum ada (WHO: good practice)</td><td>CNC/SMPS</td></tr>
+            </tbody>
+          </table></div>
+          <p>PM₂.₅ adalah subset PM₁₀ yang adalah subset <span class="term" data-gloss="tsp">TSP</span>; rasio PM₂.₅/PM₁₀ 0,6–0,8 menandakan dominasi pembakaran (kendaraan/PLTU/open burning), rasio rendah = debu jalan. TSP tidak dapat menggantikan PM₁₀/PM₂.₅.</p>
+          <h3>Distribusi ukuran dan morfologi</h3>
+          <p>Distribusi menurut jumlah didominasi sangat halus, menurut massa didominasi partikel lebih besar — keduanya berbeda. Tiga mode klasik: <strong>nukleasi (&lt;0,1 µm)</strong> dari gas-ke-partikel (knapot/H₂SO₄), <strong>akumulasi (0,1–2 µm)</strong> via koagulasi/kondensasi yang sulir hilang (dominan PM₂.₅, visibilitas), dan <strong>kasar (&gt;2 µm)</strong> mekanis yang cepat mengendap. Morfologi SEM: agregat rantai <em>soot</em>, mineral tak beraturan, sulfat/nitrat droplet/kristal. Komposisi PM₂.₅ tipikal: OC, sulfat, nitrat, amonium, EC/<span class="term" data-gloss="black-carbon">black carbon</span>, garam laut — basis <em>source apportionment</em> CMB/PMF (Bab 7).</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="sparkles"></span><p><strong>Fakta Indonesia.</strong> <em>Stacked filter unit</em> Gent pada 17 kota (Jawa–Papua) menunjukkan variasi besar antar-kota dan dominasi halus di kota berlalu-lintas padat (Santoso et al. 2019) — basis data PM nasional terlengkap sebelum era sensor murah.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="gas-kriteria" aria-labelledby="gas-kriteria-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.2 · Gas kriteria</p>
+          <h2 class="h2" id="gas-kriteria-title">SO₂, NOx/NO₂, CO, O₃, dan Pb</h2>
+          <p class="sec-desc">Lima gas (bersama partikulat) adalah pencemar kriteria — dasar hampir semua rezim baku mutu.</p>
+        </div>
+        <div class="sec-body prose">
+          <p class="tbl-title">Tabel 4.2 — Sifat, sumber, dan waktu tinggal gas kriteria (orde literatur)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Gas kriteria">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">Sifat kunci</th><th scope="col">Sumber antropogenik utama</th><th scope="col">Waktu tinggal</th></tr></thead>
+            <tbody>
+              <tr><td>SO₂</td><td>Tak berwarna, tajam; → sulfat sekunder</td><td>PLTU batu bara, minyak residu, smelter; alami gunung api</td><td>±2–4 hari</td></tr>
+              <tr><td>NO/NO₂ (NOx)</td><td>NO tak berwarna; NO₂ cokelat; siklus fotostasioner</td><td>Thermal NOx: kendaraan, PLTU, industri</td><td>±1 hari</td></tr>
+              <tr><td>CO</td><td>Tak warna/bau; COHb 200–250× O₂</td><td>Tidak sempurna: bensin, biomassa</td><td>±1–3 bulan (via OH)</td></tr>
+              <tr><td>O₃ (troposferik)</td><td>Sekunder; NOx+VOC+sun</td><td>Tidak diemisikan langsung; puncak siang</td><td>Hari–minggu</td></tr>
+              <tr><td>Pb</td><td>Logam pada partikulat</td><td>Historis bensin bertimbal (hapus 2006); kini smelter/baterai</td><td>Hari–minggu</td></tr>
+            </tbody>
+          </table></div>
+          <p><strong>Pola diurnal primer–sekunder.</strong> Los Angeles klasik: CO/NO memuncak jam sibuk pagi → NO₂ → O₃ siang — rantai konversi langsung. Data SPKU perkotaan Indonesia serupa; pembentukan O₃ memerlukan radiasi kuat sehingga PP 22/2021 menetapkan jendela waktu ukur khusus oksidan (sub-bab 4.8).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="hidrokarbon" aria-labelledby="hidrokarbon-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.3 · Hidrokarbon</p>
+          <h2 class="h2" id="hidrokarbon-title">NMHC, VOC, dan PAH</h2>
+          <p class="sec-desc">Dariprekursor ozon yang diatur hingga karsinogen yang melekat pada partikel halus.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>NMHC dan VOC</h3>
+          <p><span class="term" data-gloss="nmhc">NMHC</span> diatur PP 22/2021: 160 µg/m³ (3 jam, 06.00–10.00) dengan <em>hydrocarbon analyzer</em> FID (SNI 7119-13:2009). Metana dikecualikan karena reaktivitas rendah. <strong>VOC</strong> lebih luas (bensin, pelarut, aldehida, terpena <span class="term" data-gloss="black-carbon">biogenik</span>); bersama NOx menentukan laju O₃ (rezim VOC-limited vs NOx-limited, Bab 7) dan merupakan parameter HC pada ISPU (Permen P.14/2020). Pengendalian VOC (Bab 9): substitusi, recovery, oksidasi, biofiltrasi.</p>
+          <h3>PAH</h3>
+          <p>PAH (≥2 cincin benzena) dari tidak sempurna: diesel, biomassa/sampah, rokok. Ringan (2–3 cincin, naftalena) di fase gas; berat (≥4, benzo[a]piren/BaP) pada PM₂.₅ — IARC Grup 1. UE: target BaP 1 ng/m³ (tahun, Direktif 2004/107/EC). <strong>Indonesia belum punya baku mutu ambien PAH</strong>; pengendaliannya via emisi sektoral (Bab 8).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="hap" aria-labelledby="hap-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.4 · HAP</p>
+          <h2 class="h2" id="hap-title">Logam berat, dioksin/furan, benzena, dan formaldehida</h2>
+          <p class="sec-desc">Ratusan toksik udara di luar kriteria — di AS 187 HAP; di Indonesia belum punya baku mutu ambien.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>Logam berat (Hg, As, Cd, Cr).</strong> Hg terdapat sebagai Hg⁰ (gas, ~1 tahun, global) dan Hg²⁺/partikulat (lokal); metilmerkuri terakumulasi — subjek <strong>Konvensi Minamata (diratifikasi UU 11/2017)</strong>. As/Cd/Cr(VI) IARC Grup 1; sumber PLTU, smelter, semen, insinerator. Emisi Hg pembangkit mulai dikendalikan sektoral (Bab 9.9).</p>
+          <p><strong>Dioksin/furan (PCDD/F)</strong> dari pembakaran berklorin dan metalurgi; POPs Konvensi Stockholm; toksisitas sebagai <span class="term" data-gloss="teq">TEQ</span> terhadap 2,3,7,8-TCDD via faktor WHO. Kendali: suhu 3T, quench cepat, karbon aktif.</p>
+          <p><strong>Benzena</strong> (bensin, petrokimia) leukemia Grup 1 — WHO: tidak ada aman, dinyatakan sebagai unit risk. <strong>Formaldehida</strong> (tidak sempurna, sekunder VOC, dalam ruang) Grup 1; kolomnya terpantau satelit Sentinel-5P/TROPOMI sebagai proksi VOC reaktif.</p>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Status Indonesia.</strong> Lampiran VII PP 22/2021 <strong>belum</strong> menetapkan ambien untuk HAP (selain Pb) — pengendalian via <span class="term" data-gloss="baku-mutu">baku mutu emisi</span> sektoral. Data ambien rutin HAP belum tersedia; hanya kajian AMDAL/riset khusus.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="emerging" aria-labelledby="emerging-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.5 · Emerging</p>
+          <h2 class="h2" id="emerging-title">Black carbon, amonia, dan mikroplastik atmosferik</h2>
+          <p class="sec-desc">Belum masuk baku mutu, tetapi makin relevan secara ilmiah dan kebijakan.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong><span class="term" data-gloss="black-carbon">Black carbon</span> (BC)</strong> — fraksi EC dari tak sempurna (diesel, biomassa, lahan). Ganda: PM₂.₅ kesehatan + SLCP (hari–minggu). Alat: aethalometer/MAAP/EC-OC termal-optik. Data rutin BC Indonesia belum ada; inventarisasi EDGAR/CCAC (model).</p>
+          <p><strong>NH₃</strong> — satu-satunya basa penting (peternakan, pupuk) yang menetralkan asam sulfat/nitrat menjadi amonium — komponen PM₂.₅ sekunder. Waktu tinggal jam–hari; NH₃ kolom dipantau satelit IASI/CrIS.</p>
+          <p><strong><span class="term" data-gloss="microplastik">Mikroplastik atmosferik</span> (&lt;5 mm)</strong> — serat/fragmen dari abrasi ban/rem, tekstil sintetis, sampah plastik, terbawa lintas wilayah, berpotensi inti kondensasi. Metode: deposisi pasif/aktif pada filter → µ-FTIR/Raman. Belum ada STM/baku mutu.</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="microscope"></span><p><strong>Kotak 4.1 — Bukti lokal (ilustratif).</strong> BRIN 2025: hujan pesisir Jakarta ±15 mikroplastik/m²/hari (poliester, nilon). ECOTON–SIEJ (Mei–Juli 2025): 18 kota/kab tertinggi Jakpus 37/2 jam → Malang 2. Teluk Jakarta: 3,68×10⁹ partikel/hari. AS: ~1.000 ton/tahun “hujan plastik”. Semua semi-kuantitatif; bukan klaim nasional.</p></div>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-micro" aria-label="Batang mikroplastik 6 kota ECOTON 2025" role="img"></canvas></div>
+            <figcaption id="cap-micro"></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="manual" aria-labelledby="manual-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.6 · Teknik manual</p>
+          <h2 class="h2" id="manual-title">SNI 7119, analizer kontinu, dan passive sampler</h2>
+          <p class="sec-desc">Pertanyaan desain pengukuran: representativitas lokasi, transfer tanpa loss, dan waktu rata-rata.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Tujuan menentukan desain: kepatuhan, karakterisasi sumber, epidemiologi, atau pemetaan spasial. Untuk cerobong berlaku <span class="term" data-gloss="isokinetik">sampling isokinetik</span> (SNI 7117).</p>
+          <p class="tbl-title">Tabel 4.3 — Metode manual udara ambien SNI 7119</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="SNI 7119">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">SNI</th><th scope="col">Prinsip</th><th scope="col">Media &amp; analisis</th></tr></thead>
+            <tbody>
+              <tr><td>Lokasi</td><td>SNI 19-7119.6-2005</td><td>Kriteria titik pantau</td><td>Jarak sumber, tinggi inlet, akses</td></tr>
+              <tr><td><span class="term" data-gloss="tsp">TSP</span></td><td>SNI 7119-3:2017</td><td>Filtrasi HVAS</td><td>Filter 20×25 cm, 1,1–1,7 m³/menit, 24 jam → gravimetri</td></tr>
+              <tr><td><span class="term" data-gloss="pm10">PM₁₀</span></td><td>SNI 7119-15:2016</td><td>Inlet cut 10 µm</td><td>HVAS-PM₁₀ / rendah, 24 jam → gravimetri</td></tr>
+              <tr><td><span class="term" data-gloss="pm25">PM₂.₅</span></td><td>SNI 7119-14:2016</td><td>Cut 2,5 µm (VSCC)</td><td>Filter membran, 24 jam → gravimetri</td></tr>
+              <tr><td>Pb</td><td>SNI 7119-4:2017</td><td>Pb pada <span class="term" data-gloss="tsp">TSP</span></td><td>Filter HVAS → AAS</td></tr>
+              <tr><td>NO₂</td><td>SNI 7119-2:2017</td><td>Impinger Griess–Saltzman</td><td>Midget impinger → UV-Vis</td></tr>
+              <tr><td>SO₂</td><td>SNI 7119-7:2017</td><td>Impinger penyerap</td><td>Impinger → UV-Vis</td></tr>
+              <tr><td>O₃</td><td>SNI 7119-8:2017</td><td>NBKI, I₂ bebas</td><td>Impinger → 352 nm</td></tr>
+              <tr><td>CO</td><td>SNI 7119-10:2011</td><td>Instrumental</td><td>Analizer langsung</td></tr>
+              <tr><td>HC</td><td>SNI 7119-13:2009</td><td>FID</td><td>Hydrocarbon analyzer</td></tr>
+            </tbody>
+          </table></div>
+          <p class="tbl-title">Tabel 4.4 — Analizer kontinu SPKU (FRM/FEM US EPA)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Analizer kontinu">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">Prinsip</th><th scope="col">Cara kerja ringkas</th><th scope="col">Rujukan</th></tr></thead>
+            <tbody>
+              <tr><td>SO₂</td><td>Fluoresensi UV</td><td>Eksitasi ±214 nm → fluoresensi</td><td>FRM App. A-1</td></tr>
+              <tr><td>NO/NO₂</td><td>Kemiluminesens</td><td>NO+O₃→hν; NO₂→NO via Mo</td><td>FRM App. F</td></tr>
+              <tr><td>CO</td><td>NDIR</td><td>Serapan ±4,6 µm</td><td>FRM App. C</td></tr>
+              <tr><td>O₃</td><td>Fotometri UV</td><td>Serapan 254 nm</td><td>FRM App. D</td></tr>
+              <tr><td>PM</td><td>BAM / TEOM</td><td>Beta/ frekuensi meruncing</td><td>BAM-1022 FEM</td></tr>
+              <tr><td>HC</td><td>FID</td><td>Arus ion ∝ karbon</td><td>SNI 13:2009</td></tr>
+            </tbody>
+          </table></div>
+          <p><strong>Passive sampler</strong> (tabung Palmes NO₂; Ogawa NO₂/NOx/SO₂/O₃) menangkap via difusi tanpa pompa — murah untuk pemetaan banyak titik; pajanan hari–minggu, presisi di bawah analizer. Permen 14/2025: pasif ≥1×/musim kemarau+hujan (14 hari), aktif ≥24 data harian/tahun (2×/bulan, 24 jam). QA wajib: kalibrasi zero/span, blanko lapangan, duplikat, LOD/LOQ (NO₂ LOQ ±10,5 µg/m³ pada verifikasi), dan kelengkapan ≥75%.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b4-param" role="img" aria-label="Diagram parameter ke metode pemantauan"></div>
+            <figcaption><strong>Gbr. 4.1</strong> — Setiap parameter menuntut metode yang sesuai; tidak ada satu alat untuk semua.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="modern" aria-labelledby="modern-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.7 · Teknologi modern</p>
+          <h2 class="h2" id="modern-title">Sensor murah, jejaring komunitas, satelit, dan LIDAR</h2>
+          <p class="sec-desc">Dari padat-ruang IoT hingga kolom orbit: melengkapi, bukan menggantikan, rujukan.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Sensor biaya rendah (LCS) berbasis IoT</h3>
+          <p>PM optis (Plantower/Sensirion) dan elektrokimia gas harganya 2–3 orde di bawah rujukan. Evaluasi R² 1 jam mentah 0,2–0,58 → ±0,72 setelah perataan; RMSE dapat &gt;7 µg/m³ (ambang EPA). Kolokasi 7–12 hari dengan rujukan plus koreksi suhu–kelembapan meningkatkan kinerja. Peran: pemetaan spasial, tren, edukasi — bukan kepatuhan.</p>
+          <h3>Jejaring komunitas</h3>
+          <p><strong>Nafas</strong> &gt;200 sensor, 6 tahun, dipakai studi kesehatan PM₂.₅ Jabodetabek 2020–2022; Maret 2026 mengecil karena dana dan menjadi yayasan — pelajaran keberlanjutan kelembagaan. IQAir &gt;500.000 lokasi (agregator ilustrasi tren).</p>
+          <h3>Satelit TROPOMI/Sentinel-5P &amp; LIDAR</h3>
+          <p>TROPOMI (13 Okt 2017): sapuan 2.600 km, resolusi ≈7×3,5 km (O₃ profil 28×21, CO/CH₄ 7×7), pita UV 270–495 / NIR 675–775 / SWIR 2.305–2.385 nm. Produk: kolom NO₂ troposferik, SO₂, HCHO (proksi VOC), CO, O₃, CH₄, aerosol. Kelebihan: harian nasional, keterbatasan: yang diukur kolom (bukan permukaan), terpengaruh awan, lintas ±13.30. Aplikasi Jakarta: variasi NO₂ COVID (ITS 2020; AAQR 2021). LIDAR (MPLNET/NASA, AD-Net) untuk profil vertikal PBL/asap; di Indonesia riset (BRIN), belum rutin.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b4-modern" role="img" aria-label="Diagram data fusion rujukan-LCS-satelit-LIDAR"></div>
+            <figcaption><strong>Gbr. 4.2</strong> — Referensi jarang-akurat + LCS padat + satelit luas + LIDAR vertikal menuju data fusion resolusi km.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="konversi" aria-labelledby="konversi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.8 · Satuan &amp; ISPU</p>
+          <h2 class="h2" id="konversi-title">Dari ppm ke µg/m³ dan dari konsentrasi ke ISPU</h2>
+          <p class="sec-desc">Konversi bergantung kondisi acuan; ISPU mengubah angka menjadi kategori kesehatan.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>Hubungan ppm ↔ µg/m³</h3>
+          <div class="formula" data-tex="V_m = \frac{R\,T}{P} = \frac{0{,}08206 \times T}{P}">V_m = RT/P = 0,08206 × T / P</div>
+          <p class="note">Keterangan: V_m = volume molar gas (L/mol); R = 0,08206 L·atm·K⁻¹·mol⁻¹; T = suhu absolut (K); P = tekanan (atm). Pada 25 °C/1 atm, V_m ≈ 24,45 L/mol; pada 0 °C (Nm³) V_m = 22,4 L/mol.</p>
+          <div class="formula" data-tex="C\,(\mu g/m^3) = C\,(ppm) \times \frac{BM}{V_m} \times 10^3">C(µg/m³) = C(ppm) × BM / V_m × 10³</div>
+          <p class="note">Keterangan: C = konsentrasi (µg/m³ atau ppm); BM = berat molekul (g/mol); V_m = volume molar (L/mol); 10³ mg→µg. Pada 25 °C dipakai faktor 40,9×BM.</p>
+          <div class="formula" data-tex="\boxed{C\,(\mu g/m^3) = C\,(ppm) \times BM \times 40{,}9}">C(µg/m³) = C(ppm) × BM × 40,9</div>
+          <p class="note">Keterangan: Kotak = bentuk ringkas pada kondisi acuan PP 22/2021 (25 °C = 298,15 K; 1 atm). Contoh: CO 10.000 µg/m³ (BM 28) → 8,7 ppm; O₃ 100 µg/m³ (BM 48) → 0,051 ppm = 51 ppb.</p>
+          <h3>Koreksi kondisi acuan</h3>
+          <div class="formula" data-tex="C_{\text{acuan}} = C_{\text{aktual}} \times \frac{T_{\text{aktual}}\,(K)}{298{,}15} \times \frac{1}{P_{\text{aktual}}}">C_acuan = C_aktual × T(K)/298,15 × 1/P_aktual</div>
+          <p class="note">Keterangan: C_acuan = konsentrasi pada 25 °C/1 atm; C_aktual = hasil ukur pada T,P lapangan. Untuk emisi, laporkan mg/Nm³ basis kering dengan koreksi O₂ sektoral.</p>
+          <h3>Waktu rata-rata</h3>
+          <p>Oksidan 1 jam: rerata 2×30 menit antara 11.00–14.00; O₃ 8 jam: 06.00–18.00; NMHC 3 jam: 06.00–10.00. Hasil pada waktu rata-rata berbeda <strong>tidak boleh</strong> dibandingkan silang.</p>
+
+          <div class="b2-tool-card" id="b4-converter"></div>
+
+          <p class="tbl-title">Tabel 4.5 — Baku mutu ambien PP 22/2021 vs WHO AQG 2021 (25 °C, 1 atm)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Baku mutu vs WHO">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">Waktu</th><th scope="col">PP 22/2021</th><th scope="col">WHO AQG 2021</th><th scope="col">Catatan</th></tr></thead>
+            <tbody>
+              <tr><td>SO₂</td><td>1 j / 24 j / thn</td><td>150 / 75 / 45</td><td>— / 40 / —</td><td>WHO 24 j naik 20→40 (satu-satunya naik)</td></tr>
+              <tr><td>CO</td><td>1 j / 8 j</td><td>10.000 / 4.000</td><td>— / 4.000 (24 j)</td><td>Beda waktu; jangan langsung bandingkan</td></tr>
+              <tr><td>NO₂</td><td>1 j / 24 j / thn</td><td>200 / 65 / 50</td><td>200 / 25 / 10</td><td>Tahunan 40→10</td></tr>
+              <tr><td>O₃</td><td>1 j / 8 j / puncak*</td><td>150 / 100 / 35</td><td>— / 100 / 60*</td><td>*Maksimum 8 j 6 bln terburuk</td></tr>
+              <tr><td>NMHC</td><td>3 j</td><td>160</td><td>—</td><td>Tidak ada WHO</td></tr>
+              <tr><td><span class="term" data-gloss="tsp">TSP</span></td><td>24 j</td><td>230</td><td>—</td><td>WHO tidak pakai TSP</td></tr>
+              <tr><td><span class="term" data-gloss="pm10">PM₁₀</span></td><td>24 j / thn</td><td>75 / 40</td><td>45 / 15</td><td>Tahunan 20→15</td></tr>
+              <tr><td><span class="term" data-gloss="pm25">PM₂.₅</span></td><td>24 j / thn</td><td>55 / 15</td><td>15 / 5</td><td>3× gap thn; IT 35/25/15/10</td></tr>
+              <tr><td>Pb</td><td>24 j</td><td>2</td><td>—</td><td>Tidak diperbarui WHO</td></tr>
+            </tbody>
+          </table></div>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-baku" aria-label="Batang baku mutu vs WHO" role="img"></canvas></div>
+            <figcaption id="cap-baku"></figcaption>
+          </figure>
+
+          <div class="b2-tool-card" id="b4-ispu"></div>
+
+          <figure class="viz">
+            <div class="mermaid-box" id="b4-satuan" role="img" aria-label="Alur konversi satuan ke ISPU"></div>
+            <figcaption><strong>Gbr. 4.3</strong> — Koreksi acuan → konversi satuan → pemilihan waktu rata-rata → ISPU.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="terkini" aria-labelledby="terkini-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">4.9 · Kondisi terkini</p>
+          <h2 class="h2" id="terkini-title">Ledakan data real-time dan tantangan kalibrasi</h2>
+          <p class="sec-desc">Dari SPKU rujukan hingga peta sensor padat dan kolom satelit.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>Jejaring pemerintah.</strong> SPKU KLHK/DLH dengan ISPU real-time (ispu.menlhk.go.id; 7 parameter P.14/2020: 0–50 Baik … ≥300 Berbahaya). Nasional 39 lokasi (2021)+14 rencana →46 (2022, 37 KLHK) → DKI 21 (2023)→111 (Okt 2025, 11 DLH +12 KLHK) + portal udara.jakarta.go.id; BMKG near real-time PM₂.₅ + early warning 3 hari.</p>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-spku" aria-label="Batang jumlah SPKU" role="img"></canvas></div>
+            <figcaption id="cap-spku"></figcaption>
+          </figure>
+          <p><strong>Non-pemerintah.</strong> Nafas &gt;200 sensor → studi kesehatan Jabodetabek 2020–2022; Maret 2026 mengecil menjadi yayasan (isu keberlanjutan). IQAir &gt;500.000 lokasi (agregator). Variasi intra-kota yang dulu tak terlihat kini terukur, tetapi mutu sensor perlu kurasi (R², drift).</p>
+          <p><strong>Satelit &amp; model.</strong> Kolom TROPOMI ~7×3,5 km + AOD→PM₂.₅ + asimilasi LCS menghasilkan peta km meski di wilayah tanpa stasiun. Ilustrasi tren (agregator, bukan pemerintah): PM₂.₅ pop-weighted Indonesia 2024 ~35 µg/m³ (~7× WHO 5; ±peringkat 15) dan nasional ~6× WHO (IQAir 2025) — baca dengan keterbatasan (bias kota besar, koreksi bervariasi). Tantangan: kalibrasi 7–12 hari + T/RH, keberlanjutan dana, ketimpangan Jawa vs Sumatera/Kalimantan karhutla, data fusion, dan perluasan parameter BC/NH₃/UFP/mikroplastik yang belum masuk baku mutu.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="rangkuman" aria-labelledby="rangkuman-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Rangkuman</p>
+        <h2 class="h2" id="rangkuman-title">Pokok pembelajaran</h2>
+        <ul class="objective-list">
+          <li>Partikulat TSP/PM₁₀/PM₂.₅/PM₁/UFP dibedakan oleh diameter aerodinamik dan mode log-normal; rasio PM₂.₅/PM₁₀ menandakan dominasi pembakaran vs debu.</li>
+          <li>Gas kriteria SO₂/NOx/CO/O₃/Pb memiliki waktu tinggal jam–bulan dan pola diurnal primer→sekunder; NMHC (160 µg/m³ 3 jam) dan VOC menentukan laju O₃.</li>
+          <li>HAP (Hg, As, Cd, Cr, dioksin TEQ, benzena, HCHO) belum punya baku mutu ambien Indonesia — dikendalikan via emisi dan konvensi Minamata/Stockholm.</li>
+          <li>Emerging: <span class="term" data-gloss="black-carbon">BC</span> (aethalometer, SLCP), NH₃ (endapan amonium), mikroplastik (&lt;5 mm, µ-FTIR) belum ada baku mutu.</li>
+          <li>SNI 7119/7117 + analizer kontinu (fluoresensi UV, kemiluminesens, NDIR, BAM/TEOM) + passive sampler (Tabung Palmes 14 hari/musim) dengan QA ≥75%.</li>
+          <li>Teknologi modern: LCS (R² 0,2→0,72), nafas &gt;200 sensor, TROPOMI kolom 2600 km, LIDAR vertikal — menuju data fusion.</li>
+          <li>Konversi ppm↔µg/m³ via V_m=RT/P (40,9×BM pada 25 °C); waktu rata-rata harus sama; ISPU PM₂.₅ via interpolasi breakpoint 0–500.</li>
+          <li>Ekosistem real-time: SPKU 39→46→111, BMKG early warning, dan tantangan kalibrasi/ketimpangan spasial.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <section class="sec" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Checkpoint</p><h2 class="h2" id="quiz-title">Uji pemahaman</h2><p class="sec-desc">Enam soal tentang fraksi partikulat, analizer, baku mutu, konversi, LCS, dan satelit.</p></div><div class="quiz card" id="quiz-box"><div id="quiz-root"></div></div></div>
+    </section>
+
+    <section class="sec sec-deep" id="diskusi" aria-labelledby="diskusi-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Diskusi</p><h2 class="h2" id="diskusi-title">Pertanyaan diskusi</h2><p class="sec-desc">Buka petunjuk setiap pertanyaan untuk memulai pembahasan.</p></div><div class="acc" id="diskusi-list"></div></div>
+    </section>
+
+    <section class="sec sec-deep" id="latihan" aria-labelledby="latihan-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Latihan</p><h2 class="h2" id="latihan-title">Latihan mandiri</h2><p class="sec-desc">Enam tugas penerapan; progres tersimpan otomatis di perangkat ini.</p></div><div class="lat-progress" role="status" aria-live="polite"><div class="lat-bar"><div class="lat-bar-fill" id="lat-fill"></div></div><span class="lat-count" id="lat-count">0 / 6 selesai</span></div><ol class="lat-list" id="latihan-list"></ol></div>
+    </section>
+
+    <section class="sec" id="pustaka" aria-labelledby="pustaka-title">
+      <div class="wrap"><div class="panel"><p class="eyebrow">Referensi</p><h2 class="h2" id="pustaka-title">Daftar pustaka</h2><div id="pustaka-list"></div></div></div>
+    </section>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-dialog" role="document"><button type="button" class="modal-close" data-close-modal aria-label="Tutup dialog"><span class="icon" data-lucide="x"></span></button><p class="eyebrow" id="modal-eyebrow"></p><h3 class="h3" id="modal-title"></h3><div class="modal-body" id="modal-body"></div></div></div>
+    <span id="tooltip" class="tooltip" role="tooltip" hidden></span>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-08-29"></time></p>
+    </div>
+  </footer>
+
+  <button type="button" id="to-top" class="to-top" aria-label="Kembali ke atas" hidden><span class="icon" data-lucide="arrow-up"></span></button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+
+  <script src="assets/js/data-bab4.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/extras.js"></script>
+  <script src="assets/js/bab4.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>
