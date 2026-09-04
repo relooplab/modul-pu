@@ -7,12 +7,12 @@
 window.APP_DATA = {};
 
 APP_DATA.OBJECTIVES = [
-  "Menjelaskan rantai emisi→dosis dan menduga fraksi deposisi inhalasi (ET, TB, AI) sebagai fungsi diameter aerodinamik berdasar model ICRP HRTM (kurva U, mekanisme impaksi–sedimentasi–difusi).",
+  "Menjelaskan rantai dari emisi hingga dosis dan memperkirakan fraksi deposisi inhalasi (ET, TB, dan AI) berdasarkan diameter aerodinamik dengan model ICRP HRTM.",
   "Membedakan dampak kesehatan akut (jam–hari) dan kronis (tahun–dekade) serta dasar klasifikasi karsinogenisitas IARC Grup 1 untuk polusi udara/PM.",
-  "Menginterpretasikan estimasi beban penyakit global dan nasional (WHO 6,7 juta, SoGA 2025 7,9 juta, Jakarta >10.000/tahun) beserta sumber ketidakpastiannya.",
+  "Menginterpretasikan estimasi beban penyakit global dan nasional beserta sumber ketidakpastiannya.",
   "Mengidentifikasi kelompok rentan (anak, ibu hamil/janin, lansia, pekerja luar ruang, komorbid) dan implikasi dosimetrinya.",
-  "Menjelaskan dampak terhadap ekosistem (deposisi asam pH<5,6, eutrofikasi N/critical load, merkuri metilasi), material/visibilitas, dan interaksi iklim (ERF aerosol −1,1, ozon 0,47, BC 0,11, unmasking, co-benefit SLCP).",
-  "Menghubungkan besaran dampak sosial-ekonomi (US$8,1 triliun 6,1% PDB global, triple jeopardy) dan kondisi terkini (no-threshold PM2,5, WHO AQG 2021 5 µg/m³, mikroplastik inhalasi, karhutla 100.300 vs 51.377) dengan kebutuhan pengelolaan kualitas udara."
+  "Menjelaskan dampak pencemaran udara terhadap ekosistem, material, jarak pandang, serta interaksinya dengan perubahan iklim.",
+  "Menghubungkan dampak sosial-ekonomi dan perkembangan ilmiah terkini dengan kebutuhan pengelolaan kualitas udara yang adil dan berbasis bukti."
 ];
 
 APP_DATA.GLOSSARY = {

@@ -7,14 +7,14 @@
 window.APP_DATA = {};
 
 APP_DATA.OBJECTIVES = [
-  "Membedakan fraksi partikulat (TSP, PM₁₀, PM₂.₅, PM₁, UFP) serta karakteristik fisik–kimia, distribusi ukuran, dan implikasi penetrasinya ke saluran pernapasan.",
+  "Membedakan fraksi partikulat (TSP, PM₁₀, PM₂.₅, PM₁, dan UFP), karakteristik fisik-kimianya, distribusi ukuran, serta implikasinya terhadap saluran pernapasan.",
   "Menjelaskan sifat, sumber, dan waktu tinggal gas kriteria (SO₂, NOx/NO₂, CO, O₃, Pb) serta keterkaitan primer–sekunder pada pola diurnalnya.",
-  "Menggolongkan hidrokarbon (NMHC/VOC/PAH) dan polutan udara berbahaya (HAP: logam berat, dioksin/furan, benzena, formaldehida) beserta status regulasinya di Indonesia.",
+  "Menggolongkan hidrokarbon (NMHC, VOC, dan PAH) serta polutan udara berbahaya, termasuk logam berat, dioksin/furan, benzena, dan formaldehida, beserta status pengaturannya di Indonesia.",
   "Mengidentifikasi parameter emerging (black carbon, NH₃, mikroplastik atmosferik) dan metode pengukurannya.",
-  "Memilih teknik pengambilan contoh dan analisis yang sesuai — manual SNI 7119, analizer kontinu (FRM/FEM), dan passive sampler — beserta QA/QC-nya.",
+  "Memilih teknik pengambilan contoh dan analisis yang sesuai—manual SNI 7119, analizer kontinu, atau passive sampler—beserta langkah jaminan dan pengendalian mutunya.",
   "Menjelaskan teknologi pemantauan modern (sensor biaya rendah IoT, jejaring komunitas, satelit Sentinel-5P/TROPOMI, LIDAR) dengan kekuatan dan keterbatasannya.",
   "Melakukan konversi satuan ppm ↔ µg/m³ dengan koreksi kondisi acuan dan menghitung ISPU untuk PM₂.₅, serta menerapkan aturan waktu rata-rata yang benar.",
-  "Menilai kekuatan dan keterbatasan ekosistem data kualitas udara real-time di Indonesia (SPKU KLHK/DLH, BMKG, agregator) dan sintesis tantangan harmonisasi data."
+  "Menilai kekuatan dan keterbatasan ekosistem data kualitas udara waktu nyata di Indonesia, termasuk SPKU KLHK/DLH, BMKG, dan agregator, serta tantangan harmonisasi datanya."
 ];
 
 APP_DATA.GLOSSARY = {

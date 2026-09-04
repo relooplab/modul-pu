@@ -7,10 +7,10 @@
 window.APP_DATA = {};
 
 APP_DATA.OBJECTIVES = [
-  "Mengklasifikasikan sumber pencemaran udara menurut asal (alami/antropogenik), geometri (titik, garis, area, volume), dan pola waktu (kontinu/episodik), serta mengaitkannya dengan pilihan model dispersi.",
+  "Mengklasifikasikan sumber pencemaran udara menurut asal, geometri, dan pola waktunya, lalu mengaitkannya dengan pilihan model dispersi yang sesuai.",
   "Mengidentifikasi sumber tidak bergerak, sumber bergerak, sumber area/difus, dan sumber alami yang dominan di Indonesia beserta karakteristik emisinya.",
-  "Menyusun inventarisasi emisi sederhana dengan persamaan dasar E = A × EF menggunakan faktor emisi AP-42 atau EMEP/EEA, dan menjelaskan sumber ketidakpastiannya (rating A–E, Tier 1–3).",
-  "Menganalisis dinamika sumber terkini: elektrifikasi transportasi, co-firing biomassa di PLTU, emisi sektor informal, dan pelajaran dari penurunan aktivitas masa pandemi COVID-19 sebagai natural experiment."
+  "Menyusun inventarisasi emisi sederhana dengan persamaan E = A × EF menggunakan faktor emisi AP-42 atau EMEP/EEA, serta menjelaskan sumber ketidakpastiannya.",
+  "Menganalisis perkembangan sumber emisi terkini, termasuk elektrifikasi transportasi, co-firing biomassa di PLTU, emisi sektor informal, dan pelajaran dari perubahan aktivitas selama pandemi COVID-19."
 ];
 
 APP_DATA.GLOSSARY = {
