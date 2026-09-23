@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bahan ajar interaktif Bab 10 — Studi Kasus Pencemaran Udara: London 1952, Los Angeles, Beijing, karhutla Indonesia, krisis Jakarta 2023, AERMOD industri, NO₂ koridor jalan, Delhi, mikroplastik, dan mini riset lokal." />
+  <title>Modul Ajar · Studi Kasus Pencemaran Udara (Bab 10)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="air-column-page">
+  <div id="progress-track" role="presentation" aria-hidden="true"><div id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Beranda Modul Pencemaran Udara">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Pencemaran <strong>Udara</strong></span>
+      </a>
+      <div class="chapter-nav" id="chapter-nav">
+        <button type="button" class="chapter-btn" id="chapter-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Pilih bab">
+          <span class="icon" data-lucide="book-open"></span>
+          <span class="chapter-btn-label" id="chapter-btn-label">Bab 10</span>
+          <span class="icon chev" data-lucide="chevron-down"></span>
+        </button>
+        <div class="chapter-menu" id="chapter-menu" role="menu" hidden></div>
+      </div>
+      <button type="button" id="air-column-toggle" class="icon-btn air-column-toggle" aria-label="Buka navigasi subbab" aria-controls="air-column" aria-expanded="false">
+        <span class="icon" data-lucide="list-tree"></span>
+      </button>
+      <button type="button" id="theme-toggle" class="icon-btn" aria-label="Alihkan tema terang/gelap" aria-pressed="false">
+        <span class="icon" data-lucide="sun"></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="air-column" id="air-column" aria-label="Navigasi subbab">
+    <div class="air-column-head">
+      <strong>Lapisan materi</strong>
+      <span>Dari London 1952 hingga mini riset lokal.</span>
+    </div>
+    <nav class="toc" id="toc" aria-label="Navigasi subbab Bab 10">
+      <button type="button" class="chip" data-scroll="#london">10.1 London</button>
+      <button type="button" class="chip" data-scroll="#la">10.2 Los Angeles</button>
+      <button type="button" class="chip" data-scroll="#china">10.3 Beijing</button>
+      <button type="button" class="chip" data-scroll="#karhutla">10.4 Karhutla</button>
+      <button type="button" class="chip" data-scroll="#jakarta">10.5 Jakarta</button>
+      <button type="button" class="chip" data-scroll="#industri">10.6 Industri</button>
+      <button type="button" class="chip" data-scroll="#transportasi">10.7 Transportasi</button>
+      <button type="button" class="chip" data-scroll="#delhi">10.8 Delhi</button>
+      <button type="button" class="chip" data-scroll="#mikroplastik">10.9 Mikroplastik</button>
+      <button type="button" class="chip" data-scroll="#miniriset">10.10 Mini riset</button>
+      <button type="button" class="chip" data-scroll="#rangkuman">Rangkuman</button>
+      <button type="button" class="chip" data-scroll="#quiz">Kuis</button>
+      <button type="button" class="chip" data-scroll="#diskusi">Diskusi</button>
+      <button type="button" class="chip" data-scroll="#latihan">Latihan</button>
+      <button type="button" class="chip" data-scroll="#pustaka">Pustaka</button>
+    </nav>
+  </aside>
+  <button type="button" class="air-column-backdrop" id="air-column-backdrop" aria-label="Tutup navigasi subbab" hidden></button>
+
+  <main id="top" class="content">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Modul Ajar · Pencemaran Udara</p>
+          <h1 id="hero-title">Studi Kasus Pencemaran Udara<span class="tone">: menguji teori pada kasus nyata</span></h1>
+        </div>
+        <figure class="hero-fig" id="hero-fig">
+          <svg id="hero-svg" viewBox="0 0 480 300" role="img" aria-label="Ilustrasi studi kasus: kabut London, kemacetan kota, dan kebakaran lahan">
+            <path d="M0 236 C90 218 152 248 236 230 S390 216 480 236 V300 H0 Z" fill="var(--svg-soil)"/>
+            <rect x="34" y="150" width="52" height="66" fill="var(--svg-waste)" rx="6"/><rect x="92" y="172" width="44" height="44" fill="var(--svg-waste2)" rx="4"/>
+            <rect x="52" y="112" width="10" height="38" fill="var(--svg-liner)"/><rect x="104" y="122" width="10" height="50" fill="var(--svg-liner)"/>
+            <path d="M57 112 C57 94 40 90 52 74 C64 58 48 50 62 36" fill="none" stroke="var(--svg-gas)" stroke-width="7" stroke-linecap="round" opacity=".6"/>
+            <path d="M109 122 C109 106 124 102 112 88 C100 74 116 64 104 52" fill="none" stroke="var(--svg-pipe)" stroke-width="6" stroke-linecap="round" opacity=".6"/>
+            <circle cx="392" cy="70" r="26" fill="var(--svg-gas)" opacity=".45"/>
+            <g fill="none" stroke="var(--svg-monitor)" stroke-width="2" stroke-linecap="round"><path d="M300 150 H382"/><path d="M374 142 L382 150 L374 158"/></g>
+            <g font-family="'IBM Plex Mono', monospace" font-size="9" fill="var(--svg-label)"><text x="18" y="96">smog →</text><text x="306" y="140">rantai sebab</text></g>
+          </svg>
+          <figcaption><strong>Gbr. pengantar</strong> — setiap episode besar adalah produk bersama emisi, meteorologi stagnan, dan lama paparan — bukan satu penyebab tunggal.</figcaption>
+        </figure>
+      </div>
+      <div class="wrap stat-strip" aria-label="Angka kunci">
+        <div class="stat"><span class="stat-num">±12.000</span><span class="stat-lbl">kematian berlebih London 1952 (revisi epidemiologis vs resmi ±4.000)</span></div>
+        <div class="stat"><span class="stat-num">PM2.5 −34%</span><span class="stat-lbl">Beijing 2013→2017 (88→58 µg/m³; SO₂ −68%)</span></div>
+        <div class="stat"><span class="stat-num">1,16 vs 2,13</span><span class="stat-lbl">juta ha karhutla 2023: KLHK vs independen</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="objectives" aria-labelledby="obj-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Tujuan pembelajaran</p>
+        <h2 class="h2" id="obj-title">Setelah mempelajari bab ini, mahasiswa mampu…</h2>
+        <ul class="objective-list" id="objectives-list"></ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-kw" id="kata-kunci" aria-labelledby="kw-title">
+      <div class="wrap">
+        <p class="eyebrow center-eyebrow">Kata kunci</p>
+        <h2 class="h2 sr-only" id="kw-title">Kata kunci Bab 10</h2>
+        <div class="kw-cloud" id="kw-cloud" aria-label="Daftar kata kunci"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="london" aria-labelledby="london-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.1 · London 1952</p>
+          <h2 class="h2" id="london-title">Anatomi bencana dan lahirnya Clean Air Act</h2>
+          <p class="sec-desc">Lima hari yang mengubah hukum udara dunia.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Pada 5–9 Desember 1952, London dilanda <span class="term" data-gloss="smog-sulfur">smog sulfur</span> selama lima hari. Batu bara berkadar sulfur tinggi dari rumah tangga dan industri bertemu dengan antisiklon, <em>inversi temperatur</em> (Bab 6.5), serta udara yang hampir tenang. Kondisi ini membuat <em>mixing height</em> sangat rendah sehingga asap hangat dari cerobong terperangkap. Partikel tar memberi kabut warna kuning kehijauan yang dikenal sebagai <em>pea-souper</em>. Ketiadaan angin mencegah dispersi dan menghasilkan akumulasi yang luar biasa tinggi.</p>
+          <p class="tbl-title">Tabel 10.1 — Angka kematian: resmi vs revisi</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Kematian London 1952">
+            <thead><tr><th scope="col">Sumber</th><th scope="col">Estimasi</th><th scope="col">Status</th></tr></thead>
+            <tbody>
+              <tr><td>Registrar General (masa kejadian)</td><td>±4.000 berlebih</td><td>Estimasi awal</td></tr>
+              <tr><td>+ pekan/bulan berikut</td><td>±8.000 lanjutan</td><td>Estimasi lanjutan</td></tr>
+              <tr><td>Bell et al. (revisi)</td><td>±12.000 (Des 1952–Feb 1953)</td><td>Estimasi epidemiologis</td></tr>
+            </tbody>
+          </table></div>
+          <p>Angka kematian merupakan estimasi karena pencemaran jarang dicatat sebagai penyebab kematian dalam sertifikat. Empat tahun kemudian, Parlemen mengesahkan <span class="term" data-gloss="clean-air-act">Clean Air Act 1956</span> pada 5 Juli 1956. Undang-undang ini melarang asap hitam, mendorong penggunaan tungku bebas asap, membentuk <em>Smoke Control Area</em>, dan mengendalikan grit serta debu. Undang-undang ini <strong>tidak menetapkan baku mutu ambien</strong>. Pengendalian dilakukan pada sumber tertentu melalui pelarangan dan insentif substitusi bahan bakar. Setelah penerapannya, angka kematian pria menurut kelompok usia di Greater London turun hampir separuh.</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="lightbulb"></span><p><strong>Pelajaran desain:</strong> koreksi sumber, bukan sekadar dispersi — cerobong tinggi 1960-an hanya memindah ke deposisi asam regional (Bab 5.5). Parahnya dampak baru disadari setelah data Registrar General terbit berminggu-minggu — argumen sistem pemantauan <em>near-real-time</em> (Bab 8.5).</p></div>
+          <figure class="viz">
+            <div class="mermaid-box" id="b10-rantai" role="img" aria-label="Diagram rantai sebab episode pencemaran"></div>
+            <figcaption><strong>Gbr. 10.1</strong> — rantai emisi → meteorologi → konsentrasi → dampak → respons; pemodelan memvalidasi setiap mata rantai.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="la" aria-labelledby="la-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.2 · Los Angeles</p>
+          <h2 class="h2" id="la-title">Smog fotokimia dan pengendalian bertahap</h2>
+          <p class="sec-desc">Kisah sukses inkremental berdurasi dekade.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Smog Los Angeles, yang menonjol pada 1940-an dan dikenali pada 1943, bersifat <span class="term" data-gloss="smog-fotokimia">fotokimia-oksidatif</span>. Hidrokarbon dari bensin, NOₓ, dan sinar matahari membentuk ozon permukaan berwarna cokelat keabuan. Arie Jan Haagen-Smit dari Caltech, yang meneliti sejak 1948, merumuskan mekanisme tersebut pada 1952. Temuan ini melahirkan konsep <strong>pencemar sekunder</strong> (Bab 2.2 dan 2.5). Industri otomotif sempat menolaknya, tetapi bukti ilmiah membuatnya diterima luas pada pertengahan 1950-an.</p>
+          <p class="tbl-title">Tabel 10.2 — Kronologi pengendalian California (CARB; SCAQMD)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Kronologi LA">
+            <thead><tr><th scope="col">Tahun</th><th scope="col">Instrumen</th></tr></thead>
+            <tbody>
+              <tr><td>1947</td><td>Program pengendalian udara pertama AS (LA County)</td></tr>
+              <tr><td>1961</td><td>PCV — kendali emisi kendaraan pertama (buah riset Haagen-Smit)</td></tr>
+              <tr><td>1966 / 1971</td><td>Standar tailpipe HC–CO / standar NOₓ pertama</td></tr>
+              <tr><td>1967</td><td><span class="term" data-gloss="carb">CARB</span> dibentuk</td></tr>
+              <tr><td>1975</td><td>Konverter katalitik wajib (bensin tanpa timbel)</td></tr>
+              <tr><td>1982 / 1988 / 1990</td><td>Standar PM diesel / OBD / regulasi ZEV</td></tr>
+            </tbody>
+          </table></div>
+          <p>Evolusi berlanjut LEV I→II→III→IV (difase-in 2026–2030) dan <em>Low NOₓ Omnibus</em> (target −90% pada 2031, netral-teknologi SCR/DPF). Kebijakan emisi on-road adalah elemen tunggal terpenting perbaikan udara California Selatan lima dasawarsa — walau kendaraan dan aktivitas tumbuh.</p>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Batas pendekatan knalpot:</strong> saat karbon knalpot turun, <strong>non-knalpot (aus rem–ban)</strong> makin dominan terhadap toksisitas PM2.5 (MDPI Toxics, 2025) — standar harus berevolusi ke agenda non-talas Euro baru (Bab 9.7) dan mikroplastik (10.9).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="china" aria-labelledby="china-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.3 · Beijing</p>
+          <h2 class="h2" id="china-title">"War on Pollution": PM2.5 turun sepertiga dalam empat tahun</h2>
+          <p class="sec-desc">Target kuantitatif + koordinasi regional + substitusi bahan bakar.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><span class="term" data-gloss="action-plan">Action Plan 2013–2017</span> Dewan Negara (±US$270 miliar): PM10 prefektur −10% dari 2012; PM2.5 −25% (Beijing–Tianjin–Hebei), −20% (Yangtze), −15% (Pearl River); Beijing tahunan ±60 µg/m³. Instrumen: hapus boiler batu bara kecil, "coal to gas/electricity" (±25 juta rumah tangga berhenti <em>loose coal</em>), restrukturisasi industri, mutu BBM + tarik kendaraan tua, koordinasi lintas provinsi, dan revisi <em>Air Pollution Control Law</em>.</p>
+          <p class="tbl-title">Tabel 10.3 — Beijing 2013→2017 (12 stasiun nasional; Cheng et al., ACP 2019)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Beijing 2013 2017">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">2013</th><th scope="col">2017</th><th scope="col">Perubahan</th></tr></thead>
+            <tbody>
+              <tr><td>PM2.5 tahunan</td><td>88 µg/m³</td><td>58 µg/m³</td><td>−34%</td></tr>
+              <tr><td>PM10 tahunan</td><td>110 µg/m³</td><td>89 µg/m³</td><td>−19%</td></tr>
+              <tr><td>SO₂ tahunan</td><td>23 µg/m³</td><td>8 µg/m³</td><td>−68%</td></tr>
+              <tr><td>NO₂ tahunan</td><td>54 µg/m³</td><td>45 µg/m³</td><td>−16%</td></tr>
+              <tr><td>CO tahunan</td><td>1,4 mg/m³</td><td>0,9 mg/m³</td><td>−33%</td></tr>
+            </tbody>
+          </table></div>
+          <div class="formula" data-tex="\Delta\%=\frac{C_{2013}-C_{2017}}{C_{2013}}\times100\%">Δ% = (C2013 − C2017) / C2013 × 100%</div>
+          <p class="note">Keterangan: Δ% = persen penurunan; C = konsentrasi tahunan (µg/m³, CO dalam mg/m³); contoh PM2.5: (88−58)/88 × 100% ≈ 34%.</p>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-beijing" aria-label="Batang Beijing 2013 versus 2017" role="img"></canvas></div>
+            <figcaption id="cap-beijing"></figcaption>
+          </figure>
+          <p>Skala nasional: PM2.5 rata-rata Tiongkok 72→36 µg/m³ (2013→2019, −50%); Beijing 56→35 (2017→2021) dengan rebound kecil NO₂ (+3,6%) dan tantangan O₃. Penurunan terutama dari pengurangan batu bara — setelah koreksi meteorologi agar bukan sekadar tahun bercuaca baik.</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="lightbulb"></span><p><strong>Transferabilitas:</strong> yang mudah ditransfer — target kuantitatif publik, koordinasi antar-daerah, substitusi bahan bakar padat; yang sulit — fiskal US$270 miliar dan penegakan terpusat. Indonesia: padatkan menjadi BME PLTU (Bab 9.9) + mutu BBM.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="karhutla" aria-labelledby="karhutla-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.4 · Karhutla</p>
+          <h2 class="h2" id="karhutla-title">El Niño, gambut, dan diplomasi AATHP</h2>
+          <p class="sec-desc">Pengendalian pra-api, bukan pemadaman reaktif.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Karhutla besar berulang pada El Niño kuat (Bab 6.11): kemarau panjang mengeringkan gambut terdegradasi drainase (didorong sawit) hingga terbakar dalam (<em>smouldering</em>) sulit padam; gambut melepas karbon ribuan tahun secara permanen. Pada 2015 porsi gambut ±29% total terbakar.</p>
+          <p class="tbl-title">Tabel 10.4 — Tiga episode (KLHK indikatif citra satelit)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Episode karhutla">
+            <thead><tr><th scope="col">Tahun</th><th scope="col">Luas</th><th scope="col">Gambut</th><th scope="col">Emisi / biaya</th></tr></thead>
+            <tbody>
+              <tr><td>2015</td><td>2,6 juta ha (4,5× Bali)</td><td>~29%*</td><td>±1.750 Mt CO₂e (GFED4, model); ±US$16,1 mld (±1,9% PDB)</td></tr>
+              <tr><td>2019</td><td>±1,65 juta ha</td><td>±0,5 juta ha</td><td>±708 Mt CO₂ (s.d. Nov); ±US$5,2 mld</td></tr>
+              <tr><td>2023</td><td>±1,16 juta ha (KLHK)</td><td>±182.789 ha</td><td>El Niño kuat; Greenpeace ≥2,13 juta ha</td></tr>
+            </tbody>
+          </table></div>
+          <p>*Gambut 2015 ~29% mengikuti koreksi jurnal UII mengutip KLHK (MD baru); naskah lama ±33% tidak dipakai.</p>
+          <div class="formula" data-tex="R=\frac{A_{\text{independen}}}{A_{\text{KLHK}}}">R = A_independen / A_KLHK</div>
+          <p class="note">Keterangan: R = rasio audit luas terbakar; A = luas indikatif (juta ha); contoh 2023: R ≈ 2,13 / 1,16 ≈ 1,8 — selisih metode, bukan vonis benar–salah.</p>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-karhutla" aria-label="Batang luas karhutla 2015 2023" role="img"></canvas></div>
+            <figcaption id="cap-karhutla"></figcaption>
+          </figure>
+          <p>Kabut 2015 menjangkau Singapura–Malaysia; Indonesia sempat menolak <em>joint emergency response</em> <span class="term" data-gloss="aathp">AATHP</span> (UU No. 26/2014). TWG AATHP ke-27 (Juli 2026) meninjau implementasi di tengah risiko iklim; Kalbar 2024 turun ke ±24 ribu ha. <strong>Interpretasi:</strong> restorasi hidrologi gambut adalah leverage — 2,49 juta ha direstorasi sebelum 2015 dapat memangkas ±37% luas dan −24% PM2.5 (9,45→7,27 Tg). Penurunan di tahun La Niña basah sebagian adalah anugerah cuaca.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b10-karhutla" role="img" aria-label="Diagram rantai karhutla menuju restorasi gambut"></div>
+            <figcaption><strong>Gbr. 10.2</strong> — dari pemicu iklim ke pengendalian pra-api.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="jakarta" aria-labelledby="jakarta-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.5 · Jakarta 2023</p>
+          <h2 class="h2" id="jakarta-title">Puncak ISPU, respons kebijakan, dan evaluasinya</h2>
+          <p class="sec-desc">Antara respons reaktif dan kebijakan struktural.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Sejak Mei 2023 Jakarta konsisten 10 kota tercemar dunia; 31 Agustus 2023 Kelapa Gading–Lubang Buaya <span class="term" data-gloss="ispu">ISPU</span> 103–108 (Tidak Sehat), GBK–HI 52–99 (Sedang). Jaringan nafas (25 Agu 2023) mencatat PM2.5 ±58× pedoman tahunan WHO pada puncak — <strong>audit metodologis:</strong> jam-jaman vs pedoman tahunan 5 µg/m³ itu dramatis tetapi menyesatkan; bandingkan dengan baku jam/24-jam. AQI-156 (IQAir) ≠ <span class="term" data-gloss="ispu">ISPU</span> (Bab 8.5). Konteks 2024: Jabodetabek 30–55 µg/m³ (6–11× WHO).</p>
+          <p class="tbl-title">Tabel 10.5 — Respons Agustus–September 2023</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Respons Jakarta 2023">
+            <thead><tr><th scope="col">Instrumen</th><th scope="col">Isi</th></tr></thead>
+            <tbody>
+              <tr><td>WFH ASN 50%</td><td>21 Agu–21 Okt 2023, ±60.000 PNS DKI</td></tr>
+              <tr><td>Uji emisi + tilang</td><td>Razia 1 Sep 2023 (3 bulan; Polda, POM TNI, Satpol PP); wacana larangan lintas Jabodetabek</td></tr>
+              <tr><td>Disinsentif parkir</td><td>Rp7.500/jam (dari Rp5.000) bagi tak lulus uji</td></tr>
+              <tr><td>Simptomatik</td><td>Penyiraman jalan; langit biru buatan (resuspensi)</td></tr>
+            </tbody>
+          </table></div>
+          <p>Seminggu WFH belum memperbaiki <span class="term" data-gloss="ispu">ISPU</span> — konsisten Barcelona (WFH 2–4 hari hanya −4–10% NOₓ). <strong>Evaluasi:</strong> struktural berjangka sedang (uji emisi + parkir, Bab 9.7) vs simptomatik hitungan jam vs reduksi aktivitas berefek kecil di armada besar — meski berguna melindungi kelompok rentan (Bab 5.4). Tanpa inventarisasi (Bab 3.6) dan apportionment (Bab 7.7), kebijakan jadi reaktif — argumen basis atribusi SPPU DKI (Bab 8.8). Konteks hukum: dua tahun setelah <em>citizen lawsuit</em> 2021 yang dikuatkan 2022 (Bab 8.10).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="industri" aria-labelledby="industri-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.6 · Industri</p>
+          <h2 class="h2" id="industri-title">AERMOD dan Gaussian pada sumber Indonesia</h2>
+          <p class="sec-desc">Ilustratif-metodologis: angka spesifik-lokasi, jangan generalisasi.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>PLTD Ampenan, Mataram (Lalu, 2026).</strong> <span class="term" data-gloss="aermod">AERMOD</span> + 3 titik ukur: model NO₂ 1-jam maks 515,19 µg/m³ (2,6× baku 200) dan 24-jam 82,83 (vs 65), puncak di permukiman Griya Pesona Alam searah angin musim hujan (barat laut→tenggara), signifikan hingga 6–10 km — tetapi ukur lapangan hanya 13,1–15,1 (6–7,5% baku).</p>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Discordance sebagai bahan ajar:</strong> skenario konservatif (beban penuh kontinyu) vs pengukuran sesaat yang bisa luput dari jam puncak + risiko salah konversi NOₓ→NO₂. Studi membandingkan tahunan model 33,14 dengan ambang 30 — padahal PP 22/2021 menetapkan NO₂ tahunan <strong>50 µg/m³</strong> (WHO: 10): dengan acuan nasional memenuhi, dengan WHO tidak.</p></div>
+          <p><strong>Ubud, Gianyar (POLIMDO, 2025).</strong> Konstruksi di 3 lokasi (SO₂, CO, NO₂, PM2.5; SNI 19-7119; beban CORINAIR/EMEP; plume Gaussian Bab 7.3): maksimum pada 25 m masih jauh di bawah PP 22/2021 — <em>screening</em> sah untuk sumber area kecil.</p>
+          <p><strong>Bontang & Pontianak.</strong> Insinerator RS Pupuk Kaltim (Sarwono dkk., 2025): <span class="term" data-gloss="aermod">AERMOD</span>+AERMET radius 10 km, cerobong 14 m, gas 22,95 m/s; emisi SO₂ 14,15, NO₂ 95,79, CO 67,08 µg/Nm³ — <span class="term" data-gloss="audit-data">audit satuan:</span> artikel kemungkinan keliru skala (umumnya mg/Nm³); ambien model SO₂ 1,33, NO₂ 8,83, CO 21,5 dengan anomali elevasi; validasi 2 titik (hanya NO₂ reseptor 1 akurat baik). Pontianak (Wandasundari dkk., 2024): SCREEN3 RSUD Alkadrie memenuhi P.70/2016 dan PP 22/2021; arah dominan bergeser antar-tahun — variabilitas angin tropis (Bab 6.11) mengubah exposure pada emisi sama. Regulasi berlapis: P.70/2016 (termal) dan Permen 6/2021 (B3); FPLT Medan di bawah keduanya.</p>
+          <div class="b2-tool-card" id="b10-audit"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="transportasi" aria-labelledby="transportasi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.7 · Transportasi</p>
+          <h2 class="h2" id="transportasi-title">NO₂ koridor jalan: volume vs meteorologi</h2>
+          <p class="sec-desc">Emisi menentukan pembilang; cuaca menentukan penyebut.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>Mataram, Jl. Majapahit (19 Mei 2025).</strong> NO₂ Griess–Saltzman (SNI 7119): Titik 2 tertinggi 78, Titik 3 (3.966 kend/jam terpadat) 62, Titik 1 terendah 25 µg/Nm³; rata-rata 55. Pola: makin padat makin tinggi — NO₂ sebagai primer transportasi. Namun variasinya tak hanya volume: <strong>C tepi jalan ≈ (emisi per panjang × modulasi waktu) / kapasitas pengenceran meteorologi</strong> — jam sibuk menjelaskan pola, angin–stabilitas menjelaskan penyimpangan (mis. sore tinggi meski volume serupa = <em>mixing height</em> turun, Bab 6.7).</p>
+          <p>Bukti pendukung: Cikunir–Bekasi (IPB, 2018; vegetasi vs tanpa); Puuruy–Morosi Kendari (85,90/70,30/106,20 mengikuti jam sibuk–dispersi; 3.258 kend pagi); Kedung Cowek Surabaya (2022; CO pagi–sore &gt; siang; suhu–arah–kecepatan angin); <span class="term" data-gloss="caline">CALINE4</span> Busway Trans-Jakarta (2012); AERMOD Kotagede (WRPLOT + AERMET). <strong>Metodologi:</strong> korelasi lalu lintas–meteorologi (jam sibuk ≈ angin tenang pagi) mudah menyesatkan — perlu regresi jam-per-jam atau model sumber garis.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="delhi" aria-labelledby="delhi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.8 · Delhi</p>
+          <h2 class="h2" id="delhi-title">Jerami, GRAP, dan tata kelola lintas provinsi</h2>
+          <p class="sec-desc">Jangan salahkan semata penyebab musiman yang tampak.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Musim dingin AQI Delhi 300–500+ (transport, industri, debu, sampah, Diwali, jerami Punjab–Haryana + inversi Bab 6.5; PM2.5 &gt;500 = &gt;30× WHO). Namun apportionment (30 sensor CUPI-G + trajektori + CTM): jerami hanya <strong>±14%</strong> Okt–Nov 2022; titik api −50% (2015–2023) tetapi PM2.5 stabil — <strong>sumber lokal perkotaan mendominasi</strong>.</p>
+          <p class="tbl-title">Tabel 10.6 — GRAP (CAQM; keputusan Nov 2025)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Tahap GRAP">
+            <thead><tr><th scope="col">Tahap</th><th scope="col">Kategori</th><th scope="col">AQI</th><th scope="col">Tindakan utama</th></tr></thead>
+            <tbody>
+              <tr><td>I</td><td>Poor</td><td>201–300</td><td>Siram jalan, debu, norma kendaraan</td></tr>
+              <tr><td>II</td><td>Very Poor</td><td>301–400</td><td>Larang genset diesel, parkir naik</td></tr>
+              <tr><td>III</td><td>Severe</td><td>401–450</td><td>Larang konstruksi, batasi BS-III/IV</td></tr>
+              <tr><td>IV</td><td>Severe+</td><td>&gt;450</td><td>Tutup sekolah, WFH 50%, larang truk, ganjil-genap</td></tr>
+            </tbody>
+          </table></div>
+          <div class="b2-tool-card" id="b10-grap"></div>
+          <p>Evaluasi 2018: AQI turun tiap arahan (tutup industri, batasi konstruksi) + tarik kendaraan &gt;15 th + batasi kembang api — tetapi hanya <strong>kelegaan jangka pendek yang bergantung meteorologi</strong>; PM2.5 naik 220–310% selama GRAP karena puncak musim dingin. <span class="term" data-gloss="grap">GRAP</span> reaktif: Tahap IV datang setelah toksik berhari-hari. NCR melintasi 4 yurisdiksi — <span class="term" data-gloss="caqm">CAQM</span> (2021) adalah respons atas kegagalan koordinasi: pelajaran bagi Jabodetabek (Bab 8.8) dan kabut lintas batas (10.4) bahwa krisis regional butuh otoritas bermandat sumber daya, bukan koordinasi sukarela.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="mikroplastik" aria-labelledby="mikroplastik-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.9 · Emerging</p>
+          <h2 class="h2" id="mikroplastik-title">Mikroplastik atmosferik di kota besar</h2>
+          <p class="sec-desc">Dari non-pembakaran: ban, tekstil, sampah lapuk.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Morfologi serat–fragmen menandakan sumber <strong>non-pembakaran</strong>: tekstil sintetik, <strong>aus ban</strong> (gaya geser tapak–jalan; ⅓–½ mikroplastik tak-sengaja; 2–5% menjadi <em>airborne</em>, sebagian studi hingga 10%), dan sampah lapuk. Kuantitatif: ±90% mikroplastik udara perkotaan AS barat dari kendaraan (Brahney, via PMC 2024); aus ban ±10% PM10 perkotaan; Leipzig: ±⅔ dari ban, inhalasi ±2,1 µg plastik/hari (risiko +9% kardiovaskular, +13% kanker paru — <strong>satu studi, belum konsensus</strong>); EV: non-knalpot hingga 90% PM kendaraan di sebagian konteks, korelatif dengan densitas lalin.</p>
+          <p><strong>Metode:</strong> aktif (pompa/filter, HVS, cascade impactor — konsentrasi, paparan pendek) vs pasif/deposisi (plat baja, corong gelas, Petri — laju deposisi jangka panjang). Satuan keluaran berbeda adalah alasan antar-studi sulit dibandingkan — prinsip harmonisasi Bab 4.6.</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="lightbulb"></span><p><strong>Agenda Indonesia:</strong> armada motor besar, tekstil domestik, dan pembakaran sampah terbuka (Bab 3.4) adalah lanskap sumber hipotetis yang kaya — tetapi <span class="term" data-gloss="mikroplastik">pemantauan ambien nasional belum tersedia</span>; butuh riset DLH–kampus berprotokol aktif/pasif. Topik mini riset yang layak (10.10).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="miniriset" aria-labelledby="miniriset-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">10.10 · Mini riset</p>
+          <h2 class="h2" id="miniriset-title">Tugas akhir integratif satu semester</h2>
+          <p class="sec-desc">Replikasi metodologi 10.6–10.7 dalam skala kampus.</p>
+        </div>
+        <div class="sec-body prose">
+          <ol>
+            <li><strong>Pengukuran (Bab 4.6):</strong> satu kriteria (NO₂ Griess–Saltzman/SNI 7119 atau PM2.5 sensor terkalibrasi) di koridor/sumber kampus — mis. rata-rata Mataram 55 µg/m³ pada 3 titik; catat volume lalin + suhu–angin (±5–10 hari, harian + jam sibuk; sekunder BMKG).</li>
+            <li><strong>Pemodelan (Bab 7):</strong> kotak (rata-rata kawasan), Gaussian plume/puff (titik/garis + Pasquill dari meteo permukaan — dipilih karena radiosonde hanya di bandara besar), atau regresi NO₂/CO vs lalin + meteo; alternatif <span class="term" data-gloss="aermod">AERMOD</span> + WRPLOT/AERMET ala Kotagede–Bontang.</li>
+            <li><strong>Kebijakan (Bab 8):</strong> bandingkan dengan PP 22/2021 (SO₂ 150/75/45; NO₂ 200/65/50; PM2.5 55/15) <strong>dan</strong> WHO 2021 (PM2.5 15/5) — tampilkan bedanya; diskusikan uji emisi, SPPU, jalur hijau.</li>
+          </ol>
+          <p class="tbl-title">Tabel 10.7 — Rubrik penilaian</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Rubrik mini riset">
+            <thead><tr><th scope="col">Komponen</th><th scope="col">Bobot</th><th scope="col">Indikator</th></tr></thead>
+            <tbody>
+              <tr><td>Desain sampling & kalibrasi</td><td>25%</td><td>SNI benar; durasi/waktu rata-rata konsisten</td></tr>
+              <tr><td>Pengolahan data</td><td>20%</td><td>Satuan, konversi, kondisi standar eksplisit</td></tr>
+              <tr><td>Pemodelan & evaluasi</td><td>25%</td><td>Asumsi tertulis; model vs ukur (Bab 7.9)</td></tr>
+              <tr><td>Analisis kebijakan</td><td>20%</td><td>Baku mutu/ISPU acuan cocok; intervensi berbasis atribusi</td></tr>
+              <tr><td>Pelaporan ilmiah</td><td>10%</td><td>Pisah fakta–regulasi–asumsi–interpretasi; sitasi primer</td></tr>
+            </tbody>
+          </table></div>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Checklist anti-keliru:</strong> audit satuan (µg vs mg/Nm³); cocokkan waktu rata-rata sebelum klaim melampaui; bedakan skenario konservatif vs tervalidasi; jangan bandingkan harian dengan pedoman tahunan; pisahkan nominasi dari atribusi sumber (<span class="term" data-gloss="pmf">PMF</span>/<span class="term" data-gloss="audit-data">audit</span>).</p></div>
+          <figure class="viz">
+            <div class="mermaid-box" id="b10-miniriset" role="img" aria-label="Diagram alur mini riset"></div>
+            <figcaption><strong>Gbr. 10.3</strong> — ukur → modelkan → bandingkan ganda → usulkan → laporkan audit.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="rangkuman" aria-labelledby="rangkuman-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Rangkuman</p>
+        <h2 class="h2" id="rangkuman-title">Pokok pembelajaran</h2>
+        <ul class="objective-list">
+          <li>London 1952 (±4.000 vs ±12.000): serang sumber lewat CAA 1956 + Smoke Control Area — dispersi hanya memindah masalah.</li>
+          <li>LA: mekanisme Haagen-Smit + CARB + katalis menurunkan polutan lima dasawarsa; non-knalpot kini frontier baru.</li>
+          <li>Beijing: PM2.5 −34% dalam empat tahun lewat target kuantitatif + koordinasi + substitusi batu bara.</li>
+          <li>Karhutla: El Niño pemicu, gambut + penegakan penentu; KLHK 1,16 vs ≥2,13 — tampilkan keduanya + metode.</li>
+          <li>Jakarta 2023: WFH–penyiraman berefek kecil; uji emisi + disinsentif struktural; kebijakan butuh inventarisasi + apportionment.</li>
+          <li>AERMOD/Gaussian lokal (Ampenan, Ubud, Bontang–Pontianak): matang tetapi rawan satuan, acuan waktu, dan pembanding baku mutu yang keliru.</li>
+          <li>Delhi: jerami ±14% — atribusi dulu sebelum menyalahkan musim; GRAP reaktif butuh otoritas lintas-provinsi ala CAQM.</li>
+          <li>Mikroplastik (ban–tekstil) dan mini riset ber-rubrik menutup buku menuju agenda riset aktif.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-deep" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Checkpoint</p><h2 class="h2" id="quiz-title">Uji pemahaman</h2><p class="sec-desc">Enam soal tentang angka, kebijakan, atribusi, dan audit data.</p></div><div class="quiz card" id="quiz-box"><div id="quiz-root"></div></div></div>
+    </section>
+
+    <section class="sec" id="diskusi" aria-labelledby="diskusi-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Diskusi</p><h2 class="h2" id="diskusi-title">Pertanyaan diskusi</h2><p class="sec-desc">Buka petunjuk setiap pertanyaan untuk memulai pembahasan.</p></div><div class="acc" id="diskusi-list"></div></div>
+    </section>
+
+    <section class="sec sec-deep" id="latihan" aria-labelledby="latihan-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Latihan</p><h2 class="h2" id="latihan-title">Latihan mandiri</h2><p class="sec-desc">Enam tugas penerapan; progres tersimpan otomatis di perangkat ini.</p></div><div class="lat-progress" role="status" aria-live="polite"><div class="lat-bar"><div class="lat-bar-fill" id="lat-fill"></div></div><span class="lat-count" id="lat-count">0 / 6 selesai</span></div><ol class="lat-list" id="latihan-list"></ol></div>
+    </section>
+
+    <section class="sec" id="pustaka" aria-labelledby="pustaka-title">
+      <div class="wrap"><div class="panel"><p class="eyebrow">Referensi</p><h2 class="h2" id="pustaka-title">Daftar pustaka</h2><div id="pustaka-list"></div></div></div>
+    </section>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-dialog" role="document"><button type="button" class="modal-close" data-close-modal aria-label="Tutup dialog"><span class="icon" data-lucide="x"></span></button><p class="eyebrow" id="modal-eyebrow"></p><h3 class="h3" id="modal-title"></h3><div class="modal-body" id="modal-body"></div></div></div>
+    <span id="tooltip" class="tooltip" role="tooltip" hidden></span>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-09-23"></time></p>
+    </div>
+  </footer>
+
+  <button type="button" id="to-top" class="to-top" aria-label="Kembali ke atas" hidden><span class="icon" data-lucide="arrow-up"></span></button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+
+  <script src="assets/js/data-bab10.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/extras.js"></script>
+  <script src="assets/js/bab10.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>

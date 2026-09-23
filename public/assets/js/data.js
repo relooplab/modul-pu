@@ -261,11 +261,11 @@ APP_DATA.CHAPTERS = [
   { n: 3, title: "Sumber Pencemaran Udara", href: "bab-3.html" },
   { n: 4, title: "Parameter Pencemaran Udara dan Pemantauan", href: "bab-4.html" },
   { n: 5, title: "Dampak Pencemaran Udara", href: "bab-5.html" },
-  { n: 6, title: "Meteorologi dan Termodinamika Atmosfer", href: null },
-  { n: 7, title: "Pemodelan Pencemaran Udara", href: null },
-  { n: 8, title: "Peraturan dan Standar Pencemaran Udara", href: null },
-  { n: 9, title: "Teknologi Pengendalian Pencemaran Udara", href: null },
-  { n: 10, title: "Studi Kasus Pencemaran Udara", href: null }
+  { n: 6, title: "Meteorologi dan Termodinamika Atmosfer", href: "bab-6.html" },
+  { n: 7, title: "Pemodelan Pencemaran Udara", href: "bab-7.html" },
+  { n: 8, title: "Peraturan dan Standar Pencemaran Udara", href: "bab-8.html" },
+  { n: 9, title: "Teknologi Pengendalian Pencemaran Udara", href: "bab-9.html" },
+  { n: 10, title: "Studi Kasus Pencemaran Udara", href: "bab-10.html" }
 ];
 
 /* Kata kunci (chips yang scroll ke subbab terkait) */

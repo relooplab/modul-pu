@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bahan ajar interaktif Bab 8 — Peraturan dan Standar Pencemaran Udara: WHO AQG & interim target, NAAQS, EU 2024/2881, rezim CLRTAP/AATHP, PP 22/2021, BME PLTU, ISPU vs AQI, SPKU & CEMS/SISPEK, AMDAL/PROPER, LEZ Jakarta, pajak karbon, dan citizen lawsuit." />
+  <title>Modul Ajar · Peraturan dan Standar Pencemaran Udara (Bab 8)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="air-column-page">
+  <div id="progress-track" role="presentation" aria-hidden="true"><div id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Beranda Modul Pencemaran Udara">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Pencemaran <strong>Udara</strong></span>
+      </a>
+      <div class="chapter-nav" id="chapter-nav">
+        <button type="button" class="chapter-btn" id="chapter-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Pilih bab">
+          <span class="icon" data-lucide="book-open"></span>
+          <span class="chapter-btn-label" id="chapter-btn-label">Bab 8</span>
+          <span class="icon chev" data-lucide="chevron-down"></span>
+        </button>
+        <div class="chapter-menu" id="chapter-menu" role="menu" hidden></div>
+      </div>
+      <button type="button" id="air-column-toggle" class="icon-btn air-column-toggle" aria-label="Buka navigasi subbab" aria-controls="air-column" aria-expanded="false">
+        <span class="icon" data-lucide="list-tree"></span>
+      </button>
+      <button type="button" id="theme-toggle" class="icon-btn" aria-label="Alihkan tema terang/gelap" aria-pressed="false">
+        <span class="icon" data-lucide="sun"></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="air-column" id="air-column" aria-label="Navigasi subbab">
+    <div class="air-column-head">
+      <strong>Lapisan materi</strong>
+      <span>Dari WHO AQG hingga putusan pengadilan.</span>
+    </div>
+    <nav class="toc" id="toc" aria-label="Navigasi subbab Bab 8">
+      <button type="button" class="chip" data-scroll="#pengantar">8.0 Pengantar</button>
+      <button type="button" class="chip" data-scroll="#internasional">8.1 WHO & NAAQS & EU</button>
+      <button type="button" class="chip" data-scroll="#rezim">8.2 Rezim</button>
+      <button type="button" class="chip" data-scroll="#nasional">8.3 Nasional</button>
+      <button type="button" class="chip" data-scroll="#emisi">8.4 Emisi</button>
+      <button type="button" class="chip" data-scroll="#indeks">8.5 ISPU/AQI</button>
+      <button type="button" class="chip" data-scroll="#pemantauan">8.6 SPKU & CEMS</button>
+      <button type="button" class="chip" data-scroll="#instrumen">8.7 AMDAL</button>
+      <button type="button" class="chip" data-scroll="#daerah">8.8 Jakarta</button>
+      <button type="button" class="chip" data-scroll="#ekonomi">8.9 Ekonomi karbon</button>
+      <button type="button" class="chip" data-scroll="#terkini">8.10 Kesenjangan</button>
+      <button type="button" class="chip" data-scroll="#rangkuman">Rangkuman</button>
+      <button type="button" class="chip" data-scroll="#quiz">Kuis</button>
+      <button type="button" class="chip" data-scroll="#diskusi">Diskusi</button>
+      <button type="button" class="chip" data-scroll="#latihan">Latihan</button>
+      <button type="button" class="chip" data-scroll="#pustaka">Pustaka</button>
+    </nav>
+  </aside>
+  <button type="button" class="air-column-backdrop" id="air-column-backdrop" aria-label="Tutup navigasi subbab" hidden></button>
+
+  <main id="top" class="content">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Modul Ajar · Pencemaran Udara</p>
+          <h1 id="hero-title">Peraturan dan Standar Pencemaran Udara<span class="tone">: baku mutu yang mengikat vs pedoman yang tidak</span></h1>
+        </div>
+        <figure class="hero-fig" id="hero-fig">
+          <svg id="hero-svg" viewBox="0 0 480 300" role="img" aria-label="Islustrasi hierarki regulasi: konstitusi, UU, PP, permen, hingga indeks di lapangan">
+            <path d="M0 236 C90 218 152 248 236 230 S390 216 480 236 V300 H0 Z" fill="var(--svg-soil)"/>
+            <g fill="var(--svg-waste)" stroke="var(--svg-liner)" stroke-width="1.2">
+              <rect x="52" y="172" width="84" height="14" rx="3"/><rect x="72" y="148" width="84" height="14" rx="3"/><rect x="92" y="124" width="84" height="14" rx="3"/><rect x="112" y="100" width="84" height="14" rx="3"/>
+            </g>
+            <text x="56" y="182" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="7">Permen ISPU/CEMS</text>
+            <text x="76" y="158" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="7">PP 22/2021</text>
+            <text x="96" y="134" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="7">UU 32/2009 PPLH</text>
+            <text x="116" y="110" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="7">Konstitusi 28H</text>
+            <g fill="none" stroke="var(--svg-monitor)" stroke-width="2" stroke-linecap="round">
+              <path d="M280 98 H388"/><path d="M380 90 L388 98 L380 106"/>
+            </g>
+            <g fill="var(--ispu-baik)" opacity=".95"><rect x="294" y="118" width="22" height="22" rx="4"/></g>
+            <g fill="var(--ispu-sedang)" opacity=".95"><rect x="320" y="118" width="22" height="22" rx="4"/></g>
+            <g fill="var(--ispu-tidak)" opacity=".95"><rect x="346" y="118" width="22" height="22" rx="4"/></g>
+            <g fill="var(--ispu-sangat)" opacity=".95"><rect x="372" y="118" width="22" height="22" rx="4"/></g>
+            <g fill="var(--ispu-berbahaya)" opacity=".95"><rect x="398" y="118" width="22" height="22" rx="4"/></g>
+            <text x="294" y="158" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="7">ISPU 0→500</text>
+            <text x="302" y="88" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="8">WHO AQG (pedoman)</text>
+          </svg>
+          <figcaption><strong>Gbr. pengantar</strong> — baku mutu ambien (di udara yang dihirup) dan baku mutu emisi (di cerobong) adalah dua rezim berbeda; ISPU menerjemahkan keduanya ke publik.</figcaption>
+        </figure>
+      </div>
+      <div class="wrap stat-strip" aria-label="Angka kunci">
+        <div class="stat"><span class="stat-num">15 vs 5</span><span class="stat-lbl">PP 22 PM2.5 15 = IT-3 WHO (3× AQG 5 µg/m³)</span></div>
+        <div class="stat"><span class="stat-num">9,0 µg/m³</span><span class="stat-lbl">NAAQS PM2.5 tahunan 2024 (12,0→9,0)</span></div>
+        <div class="stat"><span class="stat-num">374/2560</span><span class="stat-lbl">PN Jakpus 16 Sep 2021 → MA 13 Nov 2023 inkracht</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="objectives" aria-labelledby="obj-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Tujuan pembelajaran</p>
+        <h2 class="h2" id="obj-title">Setelah mempelajari bab ini, mahasiswa mampu…</h2>
+        <ul class="objective-list" id="objectives-list"></ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-kw" id="kata-kunci" aria-labelledby="kw-title">
+      <div class="wrap">
+        <p class="eyebrow center-eyebrow">Kata kunci</p>
+        <h2 class="h2 sr-only" id="kw-title">Kata kunci Bab 8</h2>
+        <div class="kw-cloud" id="kw-cloud" aria-label="Daftar kata kunci"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="pengantar" aria-labelledby="pengantar-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.0 · Pengantar</p>
+          <h2 class="h2" id="pengantar-title">Mengapa standar diperlukan & dua rezim yang tak tertukar</h2>
+          <p class="sec-desc">Baku mutu ambien mengatur lingkungan yang ingin dicapai; baku mutu emisi mengatur yang boleh dibuang.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Tanpa standar, tidak ada dasar hukum untuk menetapkan apakah udara tercemar, menuntut pihak yang bertanggung jawab, atau menentukan langkah perlindungan diri. Empat lapis informasi harus dibedakan: <strong>fakta empiris</strong> berupa hasil pengukuran; <strong>ketentuan regulasi</strong> berupa angka yang mengikat; <strong>pedoman</strong>, seperti rekomendasi WHO AQG; dan <strong>interpretasi</strong> berupa analisis atas informasi tersebut. Inti bab ini adalah perbedaan antara <span class="term" data-gloss="baku-mutu-ambien">BMUA</span> pada udara bebas yang dihirup dan <span class="term" data-gloss="baku-mutu-emisi">BME</span> pada cerobong. Keduanya saling terkait, tetapi tidak dapat dipertukarkan karena kondisi acuannya berbeda: udara ambien menggunakan 25 °C dan 1 atm, sedangkan emisi menggunakan Nm³ kering dengan koreksi O₂.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="internasional" aria-labelledby="internasional-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.1 · Internasional</p>
+          <h2 class="h2" id="internasional-title">WHO AQG 2021, NAAQS, dan EU 2024/2881</h2>
+          <p class="sec-desc">Pedoman tidak mengikat vs standar mengikat — dengan tangga interim yang sama.</p>
+        </div>
+        <div class="sec-body prose">
+          <h3>WHO AQG 2021 & tangga IT</h3>
+          <p><span class="term" data-gloss="who-aqg">WHO AQG 2021</span> (22 Sep 2021) mengetatkan 2005 karena bukti tanpa ambang aman (Bab 5.9). Fitur kunci: <span class="term" data-gloss="interim-target">interim target</span> PM2.5 tahunan 35→25→15→10→5 dengan indeks mortalitas 124→100 — turun 20% dari IT-1 ke AQG.</p>
+          <p class="tbl-title">Tabel 8.1 — WHO AQG + IT (µg/m³) untuk PM2.5 & PM10</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="WHO IT">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">IT-1</th><th scope="col">IT-2</th><th scope="col">IT-3</th><th scope="col">IT-4</th><th scope="col">AQG</th></tr></thead>
+            <tbody>
+              <tr><td>PM2.5 tahunan</td><td>35</td><td>25</td><td>15</td><td>10</td><td><strong>5</strong></td></tr>
+              <tr><td>PM2.5 24 jam (P99)</td><td>75</td><td>50</td><td>37,5</td><td>25</td><td><strong>15</strong></td></tr>
+              <tr><td>PM10 24 jam (P99)</td><td>150</td><td>100</td><td>75</td><td>50</td><td><strong>45</strong></td></tr>
+              <tr><td>O₃ musim puncak</td><td>100</td><td>70</td><td>–</td><td>–</td><td><strong>60</strong></td></tr>
+              <tr><td>O₃ 8 jam (P99)</td><td>160</td><td>120</td><td>–</td><td>–</td><td><strong>100</strong></td></tr>
+              <tr><td>NO₂ tahunan</td><td>40</td><td>30</td><td>20</td><td>–</td><td><strong>10</strong></td></tr>
+              <tr><td>NO₂ 24 jam (P99)</td><td>120</td><td>50</td><td>–</td><td>–</td><td><strong>25</strong></td></tr>
+              <tr><td>SO₂ 24 jam (P99)</td><td>125</td><td>50</td><td>–</td><td>–</td><td><strong>40</strong></td></tr>
+              <tr><td>CO 24 jam (P99)</td><td>7 mg/m³</td><td>–</td><td>–</td><td>–</td><td><strong>4 mg/m³</strong></td></tr>
+            </tbody>
+          </table></div>
+          <h3>NAAQS (7 Feb 2024) & EU (23 Okt 2024)</h3>
+          <p><span class="term" data-gloss="naaqs">NAAQS</span> PM2.5 tahunan 12,0→<strong>9,0</strong> (review ulang Mar 2025 diumumkan). <span class="term" data-gloss="eu-directive">EU 2024/2881</span> recast 2008/50/EC berlaku 2030: PM2.5 tahunan 25→10, 24 jam 25 (≤18×/th) + AEI 5 µg/m³ + hak kompensasi warga bila dilanggar — pembanding litigasi 8.10.</p>
+          <p class="tbl-title">Tabel 8.2 — Banding rezim PM2.5/NO2 (µg/m³)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Banding rezim">
+            <thead><tr><th scope="col">Rezim</th><th scope="col">PM2.5 thn</th><th scope="col">PM2.5 24j</th><th scope="col">NO2 thn</th><th scope="col">Sifat</th></tr></thead>
+            <tbody>
+              <tr><td>WHO AQG</td><td>5</td><td>15</td><td>10</td><td>Pedoman</td></tr>
+              <tr><td>PP 22/2021</td><td>15 (=IT-3)</td><td>55</td><td>50</td><td>Mengikat ID</td></tr>
+              <tr><td>NAAQS 2024</td><td>9,0</td><td>35</td><td>≈100 (53 ppb)</td><td>Mengikat AS</td></tr>
+              <tr><td>EU 2030</td><td>10</td><td>25 (≤18×)</td><td>20</td><td>Mengikat UE</td></tr>
+            </tbody>
+          </table></div>
+
+          <div class="b2-tool-card" id="b8-it"></div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="rezim" aria-labelledby="rezim-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.2 · Rezim internasional</p>
+          <h2 class="h2" id="rezim-title">Dari CLRTAP hingga AATHP Haze-Free 2030</h2>
+          <p class="sec-desc">Polusi lintas batas menuntut hukum lintas batas.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><span class="term" data-gloss="clrtap">CLRTAP</span> 1979 (UNECE + 8 protokol, Gothenburg) &amp; <strong>Stockholm POPs</strong> (UU 19/2009) &amp; <strong>Minamata Hg</strong> (UU 11/2017) adalah rujukan global. <span class="term" data-gloss="aathp">AATHP</span> 2002, berlaku 25 Nov 2003, diratifikasi RI <strong>UU 26/2014</strong> (terakhir ASEAN 2015). COP-18 Vientiane 23 Agu 2023 mengadopsi <strong>Second Roadmap ASEAN Haze-Free 2023–2030</strong>: visi Haze-Free 2030, 9 strategi, target PM2.5 menuju <span class="term" data-gloss="interim-target">WHO IT-3</span> (15 µg/m³) — jangkar pengetatan kawasan yang paralel dengan arah nasional.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b8-rezim" role="img" aria-label="Diagram rezim AATHP dan Haze-Free Roadmap"></div>
+            <figcaption><strong>Gbr. 8.1</strong> — global (CLRTAP/Stockholm/Minamata) + regional (AATHP) → nasional (UU 32/PP 22).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="nasional" aria-labelledby="nasional-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.3 · Nasional</p>
+          <h2 class="h2" id="nasional-title">UU 32/2009 & PP 22/2021 Lampiran VII</h2>
+          <p class="sec-desc">Payung → pelaksana: definisi pencemaran & BMUA nasional.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>UU 32/2009 PPLH</strong> definisikan pencemaran (zat/energi ke ambien hingga tak memenuhi fungsi), udara ambien (troposfer yurisdiksi RI), serta <span class="term" data-gloss="baku-mutu-ambien">BMUA</span> vs <span class="term" data-gloss="baku-mutu-emisi">BME</span> — plus instrumen AMDAL Pasal 22, audit Pasal 48, dan gugatan PMH Bab XV (jalur 8.10).</p>
+          <p class="tbl-title">Tabel 8.3 — BMUA nasional PP 22/2021 Lamp. VII (25 °C, 1 atm)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="BMUA PP22">
+            <thead><tr><th scope="col">Parameter</th><th scope="col">1j</th><th scope="col">3j</th><th scope="col">8j</th><th scope="col">24j</th><th scope="col">thn</th></tr></thead>
+            <tbody>
+              <tr><td>SO₂</td><td>150</td><td>–</td><td>–</td><td>75</td><td>45</td></tr>
+              <tr><td>CO</td><td>10.000</td><td>–</td><td>4.000</td><td>–</td><td>–</td></tr>
+              <tr><td>NO₂</td><td>200</td><td>–</td><td>–</td><td>65</td><td>50</td></tr>
+              <tr><td>O₃</td><td>150</td><td>–</td><td>100</td><td>–</td><td>35</td></tr>
+              <tr><td>NMHC</td><td>–</td><td>160</td><td>–</td><td>–</td><td>–</td></tr>
+              <tr><td>TSP</td><td>–</td><td>–</td><td>–</td><td>230</td><td>90</td></tr>
+              <tr><td>PM10</td><td>–</td><td>–</td><td>–</td><td>75</td><td>40</td></tr>
+              <tr><td>PM2.5</td><td>–</td><td>–</td><td>–</td><td>55</td><td>15</td></tr>
+              <tr><td>Pb</td><td>–</td><td>–</td><td>–</td><td>2</td><td>–</td></tr>
+            </tbody>
+          </table></div>
+          <p class="note">Masuknya PM2.5 (15/55) dan pengetatan PM10 150→75 adalah dua kemajuan PP 22 vs PP 41/1999; PM2.5 15 baru IT-3 (3× AQG) — banding harus samakan waktu rata-rata, metode SNI 7119, dan kondisi acuan (25 °C vs 0 °C Nm³ Jerman/Eropa). Sumber tabel: TSP tahunan 90 mengikuti draf Bab_08 (rujukan ringkas hanya 24 jam 230); Pb tahunan belum dicantumkan di kedua MD (ringkas: 2/0,5) — verifikasi teks Lampiran VII.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b8-hierarki" role="img" aria-label="Hierarki UU 32 hingga permen ISPU/CEMS"></div>
+            <figcaption><strong>Gbr. 8.2</strong> — konstitusi → UU → PP → permen → instrumen lapangan.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="emisi" aria-labelledby="emisi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.4 · Emisi</p>
+          <h2 class="h2" id="emisi-title">BME sumber tidak & bergerak</h2>
+          <p class="sec-desc">Di cerobong vs di kenalpot — kedua rezim BME.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>Tidak bergerak — Permen P.15/2019</strong> (5 Apr 2019) cakup PLTU/G/U, PLTD/MG, PLTP, PLTBm, PLTSa, campuran — ganti 21/2008 & P.70/2016. PLTU batu bara unit baru SO₂/NOx 550, PM 100 mg/Nm³ (<strong>kering, O₂ koreksi</strong>, kondisi normal 0 °C) + wajib <span class="term" data-gloss="cems-sispek">CEMS</span> → SISPEK (Sub-bab 8.6); Hg/CO₂ 3 tahun. Kritik: 550 ≈3–15× longgar vs CN/JP/KR.</p>
+          <p><strong>Catatan tentang basis pengukuran.</strong> Rujukan ringkas menyatakan emisi dalam Nm³ pada 0 °C, sedangkan draf Bab 8 menyebut 25 °C. Sebelum membandingkan angka dari berbagai sumber, samakan dahulu suhu acuan, basis kering atau basah, dan koreksi O₂ yang digunakan.</p>
+          <p><strong>Bergerak — Euro 4 & uji emisi:</strong> PP 22 Lamp. IV + Permen P.15 konteks BME, adapun kendaraan tipe baru Euro 4 (bensin Apr 2022, solar ≤50 ppm) + uji berkala UU 22/2009 LLAJ Pasal 206 & Kemenhub. Tanpa BBM sulfur rendah, katalis tiga arah/DPF (Bab 9.7) tak efektif — prinsip bahan bakar–teknologi–standar.</p>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Tak tertukar:</strong> BME mg/Nm³ (kering, O₂) vs BMUA µg/m³ (25 °C) — bandingkan setelah koreksi basis, bukan angka mentah.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="indeks" aria-labelledby="indeks-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.5 · Indeks</p>
+          <h2 class="h2" id="indeks-title">ISPU vs AQI: konsentrasi sama, kategori berbeda</h2>
+          <p class="sec-desc">Indeks bukan fisika absolut — ia adalah jangkar kebijakan.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><span class="term" data-gloss="ispu">ISPU</span> Permen P.14/2020: 7 parameter (PM10, PM2.5, NO₂, SO₂, O₃, CO, HC) → 5 kategori 0–50 Baik s.d. &gt;300 Berbahaya; &gt;100 wajib info/jam + pengendalian (Sub-bab 8.10). Catatan versi: draf Bab_08 mencatat HC hanya dipantau, bukan penentu — verifikasi teks Permen yang berlaku.</p>
+          <div class="formula" data-tex="I = \frac{I_{hi}-I_{lo}}{C_{hi}-C_{lo}}\,(C-C_{lo})+I_{lo}">I = (I_hi−I_lo)/(C_hi−C_lo)·(C−C_lo)+I_lo</div>
+          <p class="note">Keterangan: I = sub-indeks; C = konsentrasi terukur (µg/m³); hi/lo = batas atas/bawah breakpoint kategori. ISPU = maksimum sub-indeks 7 parameter; butuh kelengkapan ≥75% periode.</p>
+          <p class="tbl-title">Tabel 8.4 — Perbandingan kategori (PM2.5 sebagai contoh breakpoint)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="ISPU vs AQI">
+            <thead><tr><th scope="col">Rentang</th><th scope="col">ISPU kategori</th><th scope="col">AQI kategori</th></tr></thead>
+            <tbody>
+              <tr><td>0–50</td><td>Baik</td><td>Good</td></tr>
+              <tr><td>51–100</td><td>Sedang</td><td>Moderate</td></tr>
+              <tr><td>101–150</td><td rowspan="2">Tidak Sehat (101–200)</td><td>Unhealthy for Sensitive Groups</td></tr>
+              <tr><td>151–200</td><td>Unhealthy</td></tr>
+              <tr><td>201–300</td><td>Sangat Tidak Sehat</td><td>Very Unhealthy</td></tr>
+              <tr><td>&gt;300</td><td>Berbahaya</td><td>Hazardous</td></tr>
+            </tbody>
+          </table></div>
+          <p>Titik batas PM2.5 pada indeks 100 berbeda: ISPU menggunakan 55,4 µg/m³, sedangkan AQI menggunakan 35,4 µg/m³ dan 9,0 µg/m³ setelah pembaruan 2024. Karena itu, PM2.5 sebesar 30 µg/m³ dapat menghasilkan ISPU sekitar 73 (Sedang), tetapi AQI sekitar 89 (<em>Moderate</em>). Perbedaan metode ini membantu menjelaskan perbedaan persepsi pada krisis udara Jakarta 2023.</p>
+
+          <div class="b2-tool-card" id="b8-ispu-aqi"></div>
+
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-break" aria-label="Garis breakpoint ISPU vs AQI" role="img"></canvas></div>
+            <figcaption id="cap-break"></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="pemantauan" aria-labelledby="pemantauan-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.6 · Pemantauan</p>
+          <h2 class="h2" id="pemantauan-title">SPKU ambien & CEMS→SISPEK emisi</h2>
+          <p class="sec-desc">Dari lokasi pemantauan hingga integrasi data kontinu.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>SPKU KLHK</strong> (ambien) di kota besar → dasar ISPU (Permen 14/2020) + SPKU daerah + sensor murah Bab 4.7. Kesenjangan: terkonsentrasi kota besar, sementara sekitar PLTU sering hanya lewat pemodelan Bab 7 atau satelit — beri label [MODEL]. Kriteria lokasi pemantauan terbaru (Permen LH/BPLH 2026) & frekuensi manual aktif 24 data harian/tahun (2×/bulan, 24 jam).</p>
+          <p><strong><span class="term" data-gloss="cems-sispek">CEMS → SISPEK</span> (Permen P.13/2021 + P.15/2019):</strong> PLTU wajib pasang CEMS (SO₂, NOx, PM, flow, O₂), integrasi ke KLHK — geser dari sampling tahunan ke pengawasan berkelanjutan; agregasi beban ton/tahun antar-PLTU kini mungkin (dulu kelemahan inventarisasi Bab 3.6).</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b8-spku" role="img" aria-label="Alur SPKU dan CEMS ke ISPU dan izin"></div>
+            <figcaption><strong>Gbr. 8.3</strong> — ambien & emisi bertemu di satu atap pelaporan: ISPU + perizinan.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="instrumen" aria-labelledby="instrumen-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.7 · Instrumen pengelolaan</p>
+          <h2 class="h2" id="instrumen-title">AMDAL hingga PROPER</h2>
+          <p class="sec-desc">Sebelum dan sesudah izin: persetujuan + pengawasan.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><span class="term" data-gloss="amdal">AMDAL</span> (Pasal 22 UU 32/2009) untuk berdampak penting — pemodelan dispersi Bab 7 sebagai prakiraan; <strong>UKL-UPL</strong> bila tidak wajib. Pasca UU Cipta Kerja: izin lingkungan → <strong>persetujuan lingkungan</strong> (PP 5/2021, perizinan berusaha berbasis risiko) + <strong>persetujuan teknis</strong> emisi. <span class="term" data-gloss="proper">PROPER</span> Emas–Hijau–Biru–Merah–Hitam + <strong>audit lingkungan</strong> Pasal 48 (wajib/sukarela). Perubahan ini memindahkan beban ke pasca-izin — pengawasan CEMS/PROPER jadi penentu, diperkuat Permen LH/BPLH 6/2026 Sanksi Administratif.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="daerah" aria-labelledby="daerah-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.8 · Daerah</p>
+          <h2 class="h2" id="daerah-title">Jakarta sebagai laboratorium</h2>
+          <p class="sec-desc">Kebijakan perkotaan yang diuji pengadilan.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>Perda 2/2005</strong> + <strong>Pergub 210/2017</strong> uji emisi + sanksi parkir/STNK, <strong>Ingub 66/2019</strong> percepatan publik, <strong>Kepgub 576/2023 SPPU & <span class="term" data-gloss="jakarta-lez">LEZ Kota Tua</span></strong> (kajian LEZ, penetapan kawasan bebas kendaraan permanen; LEZ permanen belum teregulasi) + MRT/LRT/TransJakarta terintegrasi — struktural di hulu vs respons episodik penyiraman/WFH 2023 (dibahas Bab 10).</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="lightbulb"></span><p><strong>Ilustratif, bukan nasional:</strong> kebijakan Jakarta tidak dapat digeneralisasi tanpa data daerah lain; evaluasi efektivitas 2023 di Bab 10.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="ekonomi" aria-labelledby="ekonomi-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.9 · Instrumen ekonomi</p>
+          <h2 class="h2" id="ekonomi-title">Pajak karbon & NEK: iklim vs udara</h2>
+          <p class="sec-desc">CO₂ (iklim) dan SO₂/PM (udara) rezim berbeda, tetapi co-benefit nyata.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><span class="term" data-gloss="pajak-karbon">UU 7/2021 Pasal 13</span> ≥ harga pasar; bila lebih rendah: <strong>Rp30/kg = Rp30.000/ton</strong> (≈2,1 USD/ton) awal PLTU <em>cap-and-tax</em>; ikut perdagangan dapat dikurangi. <strong>Perpres 98/2021 NEK</strong> (+ P.21/2022): perdagangan (cap-and-trade PLTU batu bara, IDXCarbon Feb 2023), pembayaran kinerja, pungutan, dan lain-lain. <strong>EV</strong>: fiskal & pengadaan pemerintah — verifikasi peraturan terbaru karena skema berubah.</p>
+          <div class="formula" data-tex="Biaya_{pajak}=\max(Emisi-Cap,0)\times Rp30">Biaya_pajak = max(Emisi − Cap, 0) × Rp30</div>
+          <p class="note">Keterangan: Emisi & Cap dalam kg CO₂e; Rp30/kg = tarif UU 7/2021 bila pasar lebih murah. Rumus ini ilustrasi arithmetika dari tarif (bukan bunyi pasal). BECO₂ ≠ BSO₂/PM: perdagangan CO₂ tidak langsung turunkan SO₂/PM, tetapi menekan PLTU boros (korelatif high-SO₂).</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="terkini" aria-labelledby="terkini-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">8.10 · Terkini</p>
+          <h2 class="h2" id="terkini-title">Kesenjangan 15 vs 5 dan dari putusan ke kebijakan</h2>
+          <p class="sec-desc">Tangga IT yang sama menautkan WHO, AATHP, dan ruang sidang.</p>
+        </div>
+        <div class="sec-body prose">
+          <p class="tbl-title">Tabel 8.5 — Sela BMUA tahunan vs pedoman & standar mengikat</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Sela BMUA">
+            <thead><tr><th scope="col">Parameter thn</th><th scope="col">PP 22/2021</th><th scope="col">WHO AQG</th><th scope="col">Posisi IT</th></tr></thead>
+            <tbody>
+              <tr><td>PM2.5</td><td>15 (=IT-3, 3× AQG)</td><td>5</td><td>IT-3 (arah IT-4 10 → AQG 5)</td></tr>
+              <tr><td>PM10</td><td>40</td><td>15</td><td>Antara IT-2/IT-3</td></tr>
+              <tr><td>NO₂</td><td>50</td><td>10</td><td>Melampaui IT-1 40</td></tr>
+            </tbody>
+          </table></div>
+          <p>Arah pengetatan mengikuti interim target: 15→10→5 dengan instrumen 8.4–8.9 sebagai tuas — sejalan AATHP Haze-Free Roadmap ke IT-3.</p>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-gap" aria-label="Batang kesenjangan BMUA" role="img"></canvas></div>
+            <figcaption id="cap-gap"></figcaption>
+          </figure>
+          <h3>Citizen lawsuit Jakarta 2019→2023 inkracht</h3>
+          <p>Sebanyak 32 warga yang tergabung dalam Koalisi IBUKOTA menggugat tujuh tergugat. Dalam <span class="term" data-gloss="citizen-lawsuit">Putusan PN Jakarta Pusat No. 374/Pdt.G-LH/2019</span> pada 16 September 2021, lima tergugat dinyatakan melakukan perbuatan melawan hukum berdasarkan UU 32/2009. Putusan tersebut memuat sembilan amar, antara lain kewajiban menyediakan BMUA yang cukup melindungi, supervisi gubernur, kawasan penyangga, dan inventarisasi emisi lintas batas secara berkala. Putusan ini dikuatkan oleh PT DKI pada 17 Oktober 2022 dan kasasinya ditolak Mahkamah Agung pada 13 November 2023. Dengan demikian, BMUA menjadi isu yang dapat diuji di pengadilan. Hingga 2025, pelaksanaan supervisi dan inventarisasi lintas batas Jabodetabek masih terus didorong.</p>
+          <div class="callout callout-ok"><span class="icon" data-lucide="scale"></span><p><strong>Preseden:</strong> kewajiban negara atas mutu ambien dapat diuji sebagai PMH — jembatan hukum dari sains (IT) ke regulasi (PP).</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="rangkuman" aria-labelledby="rangkuman-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Rangkuman</p>
+        <h2 class="h2" id="rangkuman-title">Pokok pembelajaran</h2>
+        <ul class="objective-list">
+          <li>Standar berlapis: AQG (pedoman) vs BMUA/BME (mengikat); BMUA PM2.5 15 = IT-3, 3× AQG, di atas NAAQS 9,0 & EU 2030 10.</li>
+          <li>Rezim global (CLRTAP, Stockholm, Minamata) & regional AATHP → Haze-Free Roadmap 2030 ke IT-3 menjangkar arah nasional.</li>
+          <li>Nasional: UU 32/2009 + PP 22/2021 Lamp. VII (9 parameter, 25 °C) — kemajuan PM2.5 15/55 vs PP 41/1999.</li>
+          <li>BME sektoral: P.15/2019 (550/100 + CEMS→SISPEK) vs Euro 4 + uji emisi berkala (bahan bakar–teknologi–standar).</li>
+          <li>ISPU (5 kategori) vs AQI (6: 101–150 khusus sensitif) — breakpoint 9,0 vs 55,4 menjelaskan beda persepsi 2023.</li>
+          <li>Baru (citizen lawsuit inkracht) menegaskan BMUA justisiabel dan mendorong pengetatan bertahap via tangga IT.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <section class="sec" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Checkpoint</p><h2 class="h2" id="quiz-title">Uji pemahaman</h2><p class="sec-desc">Enam soal tentang BMUA vs AQG, NAAQS/EU, AATHP, BME, ISPU/AQI, dan litigasi.</p></div><div class="quiz card" id="quiz-box"><div id="quiz-root"></div></div></div>
+    </section>
+
+    <section class="sec sec-deep" id="diskusi" aria-labelledby="diskusi-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Diskusi</p><h2 class="h2" id="diskusi-title">Pertanyaan diskusi</h2><p class="sec-desc">Buka petunjuk setiap pertanyaan untuk memulai pembahasan.</p></div><div class="acc" id="diskusi-list"></div></div>
+    </section>
+
+    <section class="sec sec-deep" id="latihan" aria-labelledby="latihan-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Latihan</p><h2 class="h2" id="latihan-title">Latihan mandiri</h2><p class="sec-desc">Enam tugas penerapan; progres tersimpan otomatis di perangkat ini.</p></div><div class="lat-progress" role="status" aria-live="polite"><div class="lat-bar"><div class="lat-bar-fill" id="lat-fill"></div></div><span class="lat-count" id="lat-count">0 / 6 selesai</span></div><ol class="lat-list" id="latihan-list"></ol></div>
+    </section>
+
+    <section class="sec" id="pustaka" aria-labelledby="pustaka-title">
+      <div class="wrap"><div class="panel"><p class="eyebrow">Referensi</p><h2 class="h2" id="pustaka-title">Daftar pustaka</h2><div id="pustaka-list"></div></div></div>
+    </section>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-dialog" role="document"><button type="button" class="modal-close" data-close-modal aria-label="Tutup dialog"><span class="icon" data-lucide="x"></span></button><p class="eyebrow" id="modal-eyebrow"></p><h3 class="h3" id="modal-title"></h3><div class="modal-body" id="modal-body"></div></div></div>
+    <span id="tooltip" class="tooltip" role="tooltip" hidden></span>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-09-23"></time></p>
+    </div>
+  </footer>
+
+  <button type="button" id="to-top" class="to-top" aria-label="Kembali ke atas" hidden><span class="icon" data-lucide="arrow-up"></span></button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+
+  <script src="assets/js/data-bab8.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/extras.js"></script>
+  <script src="assets/js/bab8.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>

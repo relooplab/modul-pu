@@ -125,7 +125,7 @@
           <p class="sec-desc">Besar dosis ditentukan ukuran aerodinamik dan ventilasi — dua orang pada C sama dapat menerima D berbeda.</p>
         </div>
         <div class="sec-body prose">
-          <p>Dampak kesehatan tidak ditentukan oleh emisi saja. Dampak terbentuk melalui suatu rangkaian: <strong>emisi → transport dan transformasi → konsentrasi ambien (C) → paparan dan ventilasi (VE×t) → dosis terdeposisi (DF) → klirens → respons</strong>. Karena laju ventilasi dan pola napas berbeda, dua orang di lokasi yang sama dapat menerima dosis yang berbeda.</p>
+          <p>Dampak kesehatan tidak ditentukan oleh emisi saja. Dampak terbentuk melalui suatu rangkaian: <strong>emisi → transport dan transformasi → konsentrasi ambien (C) → paparan dan ventilasi (VE×t) → <span class="term" data-gloss="dosis-terdeposisi">dosis terdeposisi</span> (DF) → klirens → respons</strong>. Karena laju ventilasi dan pola napas berbeda, dua orang di lokasi yang sama dapat menerima dosis yang berbeda.</p>
           <div class="formula" data-tex="D_{\text{region}} = C \times VE \times t \times DF_{\text{region}}(d_{ae})">D_region = C × VE × t × DF_region(d_ae)</div>
           <p class="note">Keterangan: D_region = dosis terdeposisi di kompartemen ET/TB/AI (µg); C = konsentrasi ambien (µg/m³); VE = laju ventilasi (m³/jam); t = durasi paparan (jam); DF_region = fraksi deposisi sebagai fungsi diameter aerodinamik d_ae (µm).</p>
           <p><strong>Arsitektur HRTM (ICRP 66):</strong> saluran 24 generasi (trakea 0 → alveoli 23) dengan luas ±100 m² alveolar. Tiga kompartemen: <span class="term" data-gloss="hrtm">ET</span> (hidung–larings, menyaring kasar, inhalability ≈60% pada 100 µm), <span class="term" data-gloss="hrtm">TB</span> (trakea–bronkiolus terminal, mukosilier), <span class="term" data-gloss="hrtm">AI</span> (respiratorius–alveoli, tanpa silia, klirens makrofaga minggu–bulan).</p>
@@ -137,6 +137,7 @@
             <tbody>
               <tr><td>&gt;10 µm</td><td>ET (hidung/faring)</td><td>Impaksi</td><td>Iritasi atas; tak capai alveoli</td></tr>
               <tr><td>5–10 µm</td><td>TB</td><td>Impaksi–sedimentasi</td><td>Bronkokonstriksi (asma)</td></tr>
+              <tr><td>2,5–5 µm</td><td>TB–alveolar</td><td>Sedimentasi</td><td>Peradangan saluran napas kecil</td></tr>
               <tr><td>0,1–2,5 µm</td><td>AI (maks 0,5–1 µm)</td><td>Sedimentasi</td><td>Inflamasi alveolar; PM2,5</td></tr>
               <tr><td>±0,3–0,5 µm</td><td>Minimum total</td><td>—</td><td>Sebagian terembus kembali</td></tr>
               <tr><td>&lt;0,1 µm (UFP)</td><td>AI + kepala</td><td>Difusi</td><td>Translokasi ke darah</td></tr>
@@ -195,10 +196,10 @@
           <p class="sec-desc">Bukan hitungan kasus, melainkan estimasi model comparative risk assessment — sitasi wajib tahun, polutan, dan metode.</p>
         </div>
         <div class="sec-body prose">
-          <p>WHO Maret 2014 (data 2012): ~7 juta (3,7 ambien + 4,3 rumah tangga, tumpang tindih) → WHO terbaru: <strong>6,7 juta</strong> (4,2 ambien + 3,2 rumah tangga; &gt;99% populasi di atas pedoman). Rujukan kini adalah <strong>GBD/SoGA 2025</strong> (tahun data 2023): <strong>7,9 juta</strong> teratribusi (lingkungan nomor 1; 86% NCD), dengan PM2,5 4,9 juta (8% beban penyakit global; 32% di Asia Selatan); 36% populasi di atas IT-1 35 µg/m³; 2,6 miliar masih memasak bahan bakar padat.</p>
+          <p>WHO pada Maret 2014, dengan data tahun 2012, memperkirakan sekitar 7 juta kematian dini akibat gabungan pencemaran udara ambien dan rumah tangga. Perkiraan WHO yang lebih baru adalah <strong>6,7 juta</strong> kematian, terdiri atas 4,2 juta terkait udara ambien dan 3,2 juta terkait polusi rumah tangga; kedua komponen ini dapat tumpang tindih. Rujukan yang lebih mutakhir ialah <strong><span class="term" data-gloss="gbd">GBD/SoGA 2025</span></strong>, berbasis data 2023, yang memperkirakan <strong>7,9 juta</strong> kematian teratribusi. Dari jumlah tersebut, PM2,5 berkontribusi sekitar 4,9 juta kematian. Perbedaan angka perlu dibaca bersama tahun data, cakupan, dan metode estimasinya.</p>
           <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Kotak metodologis.</strong> Angka berbeda karena tahun, cakupan (gabungan vs PM2,5 saja), kurva risiko (IER vs MR-BRT), dan kontrafaktual Tmrel 2,4–5,9 µg/m³ — bukan inkonsistensi bukti. Jangan menggabungkan angka lintas studi.</p></div>
           <h3>Indonesia &amp; Jakarta</h3>
-          <p>Hampir <strong>10% kematian nasional 2021</strong> teratribusi polusi udara (paparan 3,8× AQG). <strong>Jakarta</strong> GBD 2019: 5.054 kematian (54/100 ribu) + 168.000 <span class="term" data-gloss="daly">DALY</span>. Studi lokal 2018–2019 (Syuhada et al. 2023): &gt;10.000 kematian/tahun (±9.700 PM2,5 6 penyebab + ±310 O₃ PPOK), &gt;5.000 rawat inap, &gt;7.000 luaran anak (6.100 stunting, 330 kematian bayi, 700 adverse birth). Beda dengan GBD karena paparan &amp; cakupan berbeda; kota lain masih sangat terbatas.</p>
+          <p>Di Indonesia, hampir <strong>10% kematian nasional pada 2021</strong> diatribusikan pada polusi udara; rata-rata paparannya diperkirakan 3,8 kali pedoman AQG. Untuk Jakarta, GBD 2019 memperkirakan 5.054 kematian atau 54 per 100 ribu penduduk, serta 168.000 <span class="term" data-gloss="daly">DALY</span>. Studi lokal pada 2018–2019 (Syuhada et al., 2023) memperkirakan lebih dari 10.000 kematian per tahun, lebih dari 5.000 rawat inap, dan lebih dari 7.000 luaran kesehatan anak. Nilainya berbeda dari GBD karena paparan dan cakupan dampak yang dihitung tidak sama. Data untuk kota-kota lain masih terbatas.</p>
           <figure class="chart-card">
             <div class="chart-wrap"><canvas id="chart-beban" aria-label="Batang estimasi beban global" role="img"></canvas></div>
             <figcaption id="cap-beban"></figcaption>
@@ -275,7 +276,7 @@
               <tr><td>Black carbon</td><td>0,11 [−0,20–0,42]</td><td>Pemanasan</td><td>Turun dari AR5 0,4</td></tr>
             </tbody>
           </table></div>
-          <p>GRK → +1,0–2,0 °C; aerosol → 0,0–0,8 °C pendinginan sejak pra-industri.</p>
+          <p>Secara keseluruhan, gas rumah kaca meningkatkan suhu sekitar 1,0–2,0 °C. Sebaliknya, aerosol memberi efek pendinginan sekitar 0,0–0,8 °C sejak masa praindustri.</p>
           <p><strong>Paradoks:</strong> kurangi SO₂ untuk kesehatan → pendinginan hilang → pemanasan terbuka (<span class="term" data-gloss="unmasking">unmasking</span>) hingga ±1 W/m². Bukan alasan menahan SO₂, melainkan argumen percepat GRK. <strong><span class="term" data-gloss="slcp">Co-benefit</span>:</strong> kurangi BC/metana/O₃ → kesehatan + perlambatan pemanasan jangka pendek (CCAC, one atmosphere). Untuk Indonesia: karhutla (BC+GRK gambut), transisi PLTU batu bara, dan bersih memasak adalah co-benefit nyata.</p>
           <figure class="viz">
             <div class="mermaid-box" id="b5-iklim" role="img" aria-label="Diagram interaksi aerosol-iklim dan co-benefit"></div>
@@ -308,11 +309,11 @@
         </div>
         <div class="sec-body prose">
           <h3>PM2,5 tanpa ambang dan WHO AQG 2021</h3>
-          <p>Kurva PM2,5–mortalitas melandai tanpa ambang; kontrafaktual GBD 2,4–5,9 µg/m³. Dasar WHO AQG 22 Sep 2021: PM2,5 tahunan 10→<strong>5 µg/m³</strong> dan 24 jam 25→15; PM10 20→15; NO₂ 40→10; SO₂ 20→40* (*satu-satunya naik). PP 22/2021: 15 vs 5 (faktor 3) — kesenjangan yang diterima secara regulasi.</p>
+          <p>Kurva hubungan PM2,5 dan mortalitas melandai <span class="term" data-gloss="no-threshold">tanpa ambang</span> yang jelas. Dalam GBD, konsentrasi kontrafaktualnya berada pada kisaran 2,4–5,9 µg/m³. WHO AQG 2021 menurunkan pedoman PM2,5 tahunan dari 10 menjadi <strong>5 µg/m³</strong> dan pedoman 24 jam dari 25 menjadi 15 µg/m³. Pedoman tahunan PM10 dan NO₂ juga diturunkan, sedangkan pedoman SO₂ 24 jam naik dari 20 menjadi 40 µg/m³. Baku mutu PM2,5 tahunan dalam <span class="term" data-gloss="baku-mutu-vs-aqg">PP 22/2021 adalah 15 µg/m³</span>, tiga kali pedoman WHO. Kedua nilai ini memiliki fungsi regulatif yang berbeda.</p>
           <h3>Mikroplastik inhalasi</h3>
-          <p>Jenner et al. 2022 (Sci Total Environ): 39 MP pada 11/13 paru bedah (0,69/g; PP 23%, PET 18%); Vasse 2024 (ERS Rev): MNP &lt;2,5 µm respirabel, 2,5–100 µm inhalable. Per Agustus 2026: <span class="term" data-gloss="mikroplastik-inhalasi">belum ada kohort</span> kausal; kendala blanko, batas μFTIR ±3 µm (nano belum tertangkap).</p>
+          <p>Jenner et al. (2022) menemukan 39 partikel mikroplastik pada 11 dari 13 sampel paru hasil pembedahan, dengan rata-rata 0,69 partikel per gram jaringan. Polipropilena menyumbang 23% dan PET 18%. Tinjauan Vasse (2024) menunjukkan bahwa mikro- dan nanoplastik berukuran kurang dari 2,5 µm dapat mencapai fraksi respirabel, sedangkan ukuran 2,5–100 µm dapat terinhalasi. Hingga Agustus 2026, <span class="term" data-gloss="mikroplastik-inhalasi">belum tersedia studi kohort kausal</span>. Kontaminasi blanko dan batas deteksi µFTIR sekitar 3 µm masih menjadi kendala penting.</p>
           <h3>Asap karhutla Asia Tenggara</h3>
-          <p>2015: Koplitz (Harvard–Columbia, Environ Res Lett) 100.300 kematian prematur (26.300–174.300; ID 91.600) vs resmi 24 jiwa dan &gt;500 ribu ISPA serta &gt;43 juta terpapar; 2019: 919.516 ISPA 6 provinsi; 2015 kerugian ≥US$16,1 miliar (1,9% PDB). Reanalisis Nature 2024 (CAMS EAC4): 51.377 (2019) dan 75.014 (2015) di Sumatera–Kalimantan. 2026 (Kemenkes): kabut di 7 provinsi; Kalbar 165.747 ISPA (Jan–awal Agu). Pelajaran: bedakan pemantauan vs estimasi model vs penilaian; penolakan pemerintah atas 100.300 ilustrasi ketegangan sains–kebijakan.</p>
+          <p>2015: Koplitz (Harvard–Columbia, Environ Res Lett) <span class="term" data-gloss="karhutla-dampak">100.300 kematian prematur</span> (26.300–174.300; ID 91.600) vs resmi 24 jiwa (draf MD lain mencatat 19 kematian resmi — beda basis pelaporan, keduanya hitungan kasus) dan &gt;500 ribu ISPA serta &gt;43 juta terpapar; 2019: 919.516 ISPA 6 provinsi; 2015 kerugian ≥US$16,1 miliar (1,9% PDB). Reanalisis Nature 2024 (CAMS EAC4): 51.377 (2019) dan 75.014 (2015) di Sumatera–Kalimantan. 2026 (Kemenkes): kabut di 7 provinsi; Kalbar 165.747 ISPA (Jan–awal Agu). Pelajaran: bedakan pemantauan vs estimasi model vs penilaian; penolakan pemerintah atas 100.300 ilustrasi ketegangan sains–kebijakan.</p>
           <figure class="chart-card">
             <div class="chart-wrap"><canvas id="chart-karhutla-bab5" aria-label="Batang dampak karhutla" role="img"></canvas></div>
             <figcaption id="cap-karhutla-bab5"></figcaption>
@@ -329,7 +330,7 @@
           <p class="sec-desc">Antara emisi dan dosis berdiri atmosfer — yang menentukan perlu Bab 6–10.</p>
         </div>
         <div class="sec-body prose">
-          <p>Bab ini menegaskan: yang merugikan reseptor adalah konsentrasi dan dosis di titik papar. Karhutla dengan puluhan ribu kematian berlebih menunjukkan peran monsun, El Niño, dan stabilitas yang menentukan akumulasi di kawasan padat.</p>
+          <p>Bab ini menegaskan bahwa yang langsung merugikan reseptor adalah konsentrasi dan dosis di titik paparan, bukan emisi semata. Karhutla yang berkaitan dengan puluhan ribu kematian berlebih juga menunjukkan peran monsun, El Niño, dan stabilitas atmosfer dalam menentukan akumulasi polutan di kawasan padat penduduk.</p>
           <p>Karena itu, pengendalian efektif menuntut: (1) memahami atmosfer — stabilitas, inversi, PBL, angin (Bab 6); (2) memprediksi konsentrasi via pemodelan dispersi/kimia (Bab 7); (3) menerjemahkan bukti menjadi standar — baku mutu, ISPU, instrumen ekonomi (Bab 8); dan (4) merancang teknologi pengendali di sumber (Bab 9) — sebelum integrasi studi kasus (Bab 10).</p>
         </div>
       </div>
@@ -372,7 +373,7 @@
   <footer class="site-footer">
     <div class="wrap foot-inner">
       <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
-      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-09-04"></time></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-09-23"></time></p>
     </div>
   </footer>
 

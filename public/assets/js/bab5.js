@@ -101,16 +101,18 @@
   function initCurveU() {
     var root = $("#b5-curve");
     if (!root) return;
-    // Data approximate U curve: total DF vs dae (log scale) — illustrative, based on ICRP description
+    // Skematis pola-U kualitatif (ICRP HRTM): bentuk kurva ilustratif, BUKAN nilai ukur.
+    // MD hanya memberi pola: tinggi di ET untuk kasar & UFP, minimum ±0,3–0,5 µm, puncak AI 0,1–2,5 µm.
     var dae = [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 0.8, 1, 2, 5, 10, 20, 50, 100];
     var dfTotal = [0.95, 0.92, 0.85, 0.78, 0.65, 0.45, 0.35, 0.28, 0.22, 0.20, 0.25, 0.30, 0.45, 0.62, 0.78, 0.90, 0.97, 0.99];
     var dfAlv =   [0.45, 0.48, 0.42, 0.35, 0.28, 0.18, 0.13, 0.15, 0.18, 0.22, 0.25, 0.24, 0.18, 0.08, 0.03, 0.01, 0, 0];
+    function level(v) { return v >= 0.7 ? "Tinggi" : v >= 0.35 ? "Sedang" : "Rendah"; }
     // Use Chart.js line log X approximation via labels as categories with log spacing visual
     root.innerHTML =
-      '<div class="b2-tool-head"><div><p class="eyebrow">Kalkulator 5.2</p><h3 class="h3">Kurva U — DF vs diameter aerodinamik</h3><p class="sec-desc">Gerakkan diameter untuk melihat dominansi mekanisme (difusi/impaksi) dan kompartemen AI/ET.</p></div><div class="b2-formula-mini">ET ↑ besar & UFP · AI ↑ 0,1–2,5 µm</div></div>' +
+      '<div class="b2-tool-head"><div><p class="eyebrow">Kalkulator 5.2</p><h3 class="h3">Kurva U — DF vs diameter aerodinamik (skematis)</h3><p class="sec-desc">Gerakkan diameter untuk melihat dominansi mekanisme (difusi/impaksi) dan kompartemen AI/ET. Kurva skematis — nilai kualitatif, bukan hasil pengukuran.</p></div><div class="b2-formula-mini">ET ↑ besar & UFP · AI ↑ 0,1–2,5 µm</div></div>' +
       '<div class="b2-tool-grid"><div class="b2-tool-controls">' +
       '<div class="b2-range-row"><div class="b2-range-head"><label for="b5-dae">Diameter aerodinamik d_ae</label><span class="b2-range-value" id="b5-dae-out"></span></div><input class="range" type="range" id="b5-dae" min="0" max="' + (dae.length - 1) + '" step="1" value="9"><div class="b2-range-meta"><span>0,001 µm</span><span>100 µm</span></div><p class="note" id="b5-dae-desc" style="margin:.35rem 0 0;font-size:.78rem"></p></div>' +
-      '<div class="b2-metrics"><div><span>DF total</span><strong id="b5-df-total">—</strong></div><div><span>DF alveolar</span><strong id="b5-df-alv">—</strong></div><div><span>Mekanisme</span><strong id="b5-mech">—</strong></div></div>' +
+      '<div class="b2-metrics"><div><span>Deposisi total</span><strong id="b5-df-total">—</strong></div><div><span>Deposisi alveolar</span><strong id="b5-df-alv">—</strong></div><div><span>Mekanisme</span><strong id="b5-mech">—</strong></div></div>' +
       '<p class="note" id="b5-dae-note" style="margin-top:.6rem"></p>' +
       '</div><div class="b2-tool-output"><div class="chart-wrap" style="height:260px"><canvas id="b5-curve-chart" aria-label="Kurva U deposisi vs diameter" role="img"></canvas></div><p class="sim-hint">Kurva ilustratif berdasar ICRP HRTM (±0,3–0,5 µm minimum). PM2,5 ≈ puncak AI; masker N95 diuji pada 0,3 µm — ukuran tersulit.</p></div></div>';
     var inp = $("#b5-dae");
@@ -164,15 +166,15 @@
         data: {
           labels: dae.map(function (v) { return v < 0.1 ? v.toFixed(3) : v < 1 ? v.toFixed(1) : String(v); }),
           datasets: [
-            { label: "DF total", data: dfTotal, borderColor: c.terra, backgroundColor: "transparent", tension: 0.35, pointRadius: 0, borderWidth: 2.5 },
-            { label: "DF alveolar", data: dfAlv, borderColor: c.sage, backgroundColor: "transparent", tension: 0.35, pointRadius: 0, borderWidth: 2.5, borderDash: [6, 4] }
+            { label: "Total (skematis)", data: dfTotal, borderColor: c.terra, backgroundColor: "transparent", tension: 0.35, pointRadius: 0, borderWidth: 2.5 },
+            { label: "Alveolar (skematis)", data: dfAlv, borderColor: c.sage, backgroundColor: "transparent", tension: 0.35, pointRadius: 0, borderWidth: 2.5, borderDash: [6, 4] }
           ]
         },
         options: {
           maintainAspectRatio: false,
           interaction: { intersect: false, mode: "index" },
-          plugins: { legend: { position: "bottom", labels: { boxWidth: 12, usePointStyle: true } }, tooltip: { callbacks: { title: function (ctx) { return "d_ae " + dae[ctx[0].dataIndex] + " µm"; } } } },
-          scales: { y: { beginAtZero: true, max: 1, grid: { color: c.border }, title: { display: true, text: "Fraksi deposisi" } }, x: { grid: { display: false }, title: { display: true, text: "d_ae (µm, skala log ilustratif)" } } }
+          plugins: { legend: { position: "bottom", labels: { boxWidth: 12, usePointStyle: true } }, tooltip: { callbacks: { title: function (ctx) { return "d_ae " + dae[ctx[0].dataIndex] + " µm (skematis)"; }, label: function (ctx) { return " " + ctx.dataset.label + ": " + level(ctx.parsed.y); } } } },
+          scales: { y: { beginAtZero: true, max: 1, grid: { color: c.border }, ticks: { display: false }, title: { display: true, text: "Tingkat relatif (skematis)" } }, x: { grid: { display: false }, title: { display: true, text: "d_ae (µm, skala log ilustratif)" } } }
         },
         plugins: [verticalLinePlugin]
       });
@@ -181,11 +183,11 @@
       var idx = Number(inp.value);
       var d = dae[idx];
       $("#b5-dae-out").textContent = (d < 0.1 ? d.toFixed(3) : d < 10 ? d.toFixed(1) : String(Math.round(d))) + " µm";
-      $("#b5-df-total").textContent = (dfTotal[idx] * 100).toLocaleString("id-ID", { maximumFractionDigits: 0 }) + "%";
-      $("#b5-df-alv").textContent = (dfAlv[idx] * 100).toLocaleString("id-ID", { maximumFractionDigits: 0 }) + "%";
+      $("#b5-df-total").textContent = level(dfTotal[idx]);
+      $("#b5-df-alv").textContent = level(dfAlv[idx]);
       $("#b5-mech").textContent = mechFor(d);
       $("#b5-dae-desc").textContent = descFor(d);
-      $("#b5-dae-note").textContent = "Pada " + d + " µm: DF total " + Math.round(dfTotal[idx] * 100) + "%, AI " + Math.round(dfAlv[idx] * 100) + "% — " + mechFor(d) + " dominan.";
+      $("#b5-dae-note").textContent = "Pada " + d + " µm: deposisi total " + level(dfTotal[idx]).toLowerCase() + ", AI " + level(dfAlv[idx]).toLowerCase() + " — " + mechFor(d) + " dominan (kualitatif, bukan nilai ukur).";
       buildChart();
     }
     inp.addEventListener("input", render);
@@ -215,7 +217,7 @@
       var vals = APP_DATA.CHART_KARHUTLA.data;
       charts.karhutla = new Chart(elK, {
         type: "bar",
-        data: { labels: APP_DATA.CHART_KARHUTLA.labels, datasets: [{ label: "Ribu kematian (est.)", data: vals.map(function (v) { return v * 1000; }), backgroundColor: vals.map(function (v, i) { return i === 1 ? c.terra : c.sage; }), borderRadius: 7, maxBarThickness: 56 }] },
+        data: { labels: APP_DATA.CHART_KARHUTLA.labels, datasets: [{ label: "Ribu kematian (est. model)", data: vals.map(function (v) { return v * 1000; }), backgroundColor: vals.map(function (v, i) { return i === 0 ? c.terra : c.sage; }), borderRadius: 7, maxBarThickness: 56 }] },
         options: { maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { callbacks: { label: function (ctx) { return " " + ctx.parsed.y.toLocaleString("id-ID") + " kematian"; } } } }, scales: { y: { beginAtZero: true, grid: { color: c.border } }, x: { grid: { display: false } } } }
       });
       var cap2 = $("#cap-karhutla-bab5"); if (cap2) cap2.textContent = APP_DATA.CHART_KARHUTLA.caption;

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bahan ajar interaktif Bab 9 — Teknologi Pengendalian Pencemaran Udara: hirarki, kolektor PM, FGD, SCR, VOC, TWC/DPF, CEMS, BME PLTU & co-firing." />
+  <title>Modul Ajar · Teknologi Pengendalian Pencemaran Udara (Bab 9)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="air-column-page">
+  <div id="progress-track" role="presentation" aria-hidden="true"><div id="progress-bar"></div></div>
+
+  <header class="site-header" id="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Beranda Modul Pencemaran Udara">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">Pencemaran <strong>Udara</strong></span>
+      </a>
+      <div class="chapter-nav" id="chapter-nav">
+        <button type="button" class="chapter-btn" id="chapter-btn" aria-haspopup="menu" aria-expanded="false" aria-label="Pilih bab">
+          <span class="icon" data-lucide="book-open"></span>
+          <span class="chapter-btn-label" id="chapter-btn-label">Bab 9</span>
+          <span class="icon chev" data-lucide="chevron-down"></span>
+        </button>
+        <div class="chapter-menu" id="chapter-menu" role="menu" hidden></div>
+      </div>
+      <button type="button" id="air-column-toggle" class="icon-btn air-column-toggle" aria-label="Buka navigasi subbab" aria-controls="air-column" aria-expanded="false">
+        <span class="icon" data-lucide="list-tree"></span>
+      </button>
+      <button type="button" id="theme-toggle" class="icon-btn" aria-label="Alihkan tema terang/gelap" aria-pressed="false">
+        <span class="icon" data-lucide="sun"></span>
+      </button>
+    </div>
+  </header>
+
+  <aside class="air-column" id="air-column" aria-label="Navigasi subbab">
+    <div class="air-column-head">
+      <strong>Lapisan materi</strong>
+      <span>Dari hirarki hingga verifikasi CEMS.</span>
+    </div>
+    <nav class="toc" id="toc" aria-label="Navigasi subbab Bab 9">
+      <button type="button" class="chip" data-scroll="#hirarki">9.1 Hirarki</button>
+      <button type="button" class="chip" data-scroll="#dasar">9.1b Dasar</button>
+      <button type="button" class="chip" data-scroll="#sifat">9.2 Sifat PM</button>
+      <button type="button" class="chip" data-scroll="#partikulat">9.3 PM</button>
+      <button type="button" class="chip" data-scroll="#sox">9.4 SOx</button>
+      <button type="button" class="chip" data-scroll="#nox">9.5 NOx</button>
+      <button type="button" class="chip" data-scroll="#voc">9.6 VOC</button>
+      <button type="button" class="chip" data-scroll="#bergerak">9.7 Bergerak</button>
+      <button type="button" class="chip" data-scroll="#cems">9.8 CEMS</button>
+      <button type="button" class="chip" data-scroll="#terkini">9.9 Terkini</button>
+      <button type="button" class="chip" data-scroll="#rangkuman">Rangkuman</button>
+      <button type="button" class="chip" data-scroll="#quiz">Kuis</button>
+      <button type="button" class="chip" data-scroll="#diskusi">Diskusi</button>
+      <button type="button" class="chip" data-scroll="#latihan">Latihan</button>
+      <button type="button" class="chip" data-scroll="#pustaka">Pustaka</button>
+    </nav>
+  </aside>
+  <button type="button" class="air-column-backdrop" id="air-column-backdrop" aria-label="Tutup navigasi subbab" hidden></button>
+
+  <main id="top" class="content">
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Modul Ajar · Pencemaran Udara</p>
+          <h1 id="hero-title">Teknologi Pengendalian Pencemaran Udara<span class="tone">: mencegah sebelum menangkap</span></h1>
+        </div>
+        <figure class="hero-fig" id="hero-fig">
+          <svg id="hero-svg" viewBox="0 0 480 300" role="img" aria-label="Ilustrasi hirarki: pencegahan, ESP, FGD, dan CEMS">
+            <path d="M0 236 C90 218 152 248 236 230 S390 216 480 236 V300 H0 Z" fill="var(--svg-soil)"/>
+            <rect x="32" y="148" width="68" height="48" fill="var(--svg-waste)" rx="6"/><text x="38" y="164" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="7">ESP</text>
+            <rect x="168" y="132" width="56" height="64" fill="var(--svg-waste2)" rx="4"/><text x="172" y="148" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="7">FGD</text>
+            <rect x="308" y="118" width="44" height="78" fill="none" stroke="var(--svg-liner)" stroke-width="1.6" stroke-dasharray="5 4" rx="6"/><text x="312" y="112" fill="var(--svg-label)" font-family="'IBM Plex Mono', monospace" font-size="7">CEMS</text>
+            <path d="M70 148 C70 118 110 108 130 128" fill="none" stroke="var(--svg-gas)" stroke-width="5" stroke-linecap="round" opacity=".6"/>
+            <path d="M210 132 C240 118 278 128 308 138" fill="none" stroke="var(--svg-pipe)" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+            <g fill="none" stroke="var(--svg-monitor)" stroke-width="2" stroke-linecap="round"><path d="M36 88 H118"/><path d="M110 80 L118 88 L110 96"/></g>
+            <g font-family="'IBM Plex Mono', monospace" font-size="9" fill="var(--svg-label)"><text x="18" y="76">pencegahan →</text><text x="332" y="202">dispersi bukan kontrol</text></g>
+          </svg>
+          <figcaption><strong>Gbr. pengantar</strong> — cerobong tinggi mengencerkan, bukan mengurangi beban; puncak hirarki adalah tidak membentuknya.</figcaption>
+        </figure>
+      </div>
+      <div class="wrap stat-strip" aria-label="Angka kunci">
+        <div class="stat"><span class="stat-num">90 →99%</span><span class="stat-lbl">butuh 2× luas ESP (nines) — biaya naik eksponensial</span></div>
+        <div class="stat"><span class="stat-num">550 vs 50</span><span class="stat-lbl">PLTU Kat.1 vs Tiongkok SO₂ (mg/Nm³)</span></div>
+        <div class="stat"><span class="stat-num">1,67 jta MWh</span><span class="stat-lbl">co-firing 47 PLTU 2024 (1,86% bauran EBT)</span></div>
+      </div>
+    </section>
+
+    <section class="sec" id="objectives" aria-labelledby="obj-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Tujuan pembelajaran</p>
+        <h2 class="h2" id="obj-title">Setelah mempelajari bab ini, mahasiswa mampu…</h2>
+        <ul class="objective-list" id="objectives-list"></ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-kw" id="kata-kunci" aria-labelledby="kw-title">
+      <div class="wrap">
+        <p class="eyebrow center-eyebrow">Kata kunci</p>
+        <h2 class="h2 sr-only" id="kw-title">Kata kunci Bab 9</h2>
+        <div class="kw-cloud" id="kw-cloud" aria-label="Daftar kata kunci"></div>
+      </div>
+    </section>
+
+    <section class="sec" id="hirarki" aria-labelledby="hirarki-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.1 · Hirarki</p>
+          <h2 class="h2" id="hirarki-title">Pencegahan di hulu, dispersi di hilir paling akhir</h2>
+          <p class="sec-desc">Bukan langsung pasang filter; mulai dari tidak membentuk polutan.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Menurut hierarki de Nevers, pilihan pertama adalah <span class="term" data-gloss="hirarki">pencegahan</span>, misalnya menggunakan bahan bakar rendah sulfur, pelapis berbasis air, atau mengoptimalkan rasio udara dan bahan bakar. Pilihan kedua ialah <em>recovery</em>, seperti pemulihan gipsum dari FGD atau pelarut dari adsorpsi. Berikutnya adalah pengendalian <em>end-of-pipe</em>, misalnya ESP, baghouse, scrubber, dan SCR. Cerobong tinggi hanya meningkatkan <span class="term" data-gloss="hirarki">dispersi</span>; cara ini dapat menurunkan konsentrasi dekat permukaan, tetapi tidak mengurangi beban pencemaran regional. Karena itu, cerobong tinggi bukan pengendalian yang sesungguhnya.</p>
+          <p>Pilihan teknologi yang optimum mempertimbangkan laju dan jenis polutan, kondisi aliran gas, target mutu, keandalan, kebutuhan utilitas, residu yang dihasilkan seperti abu, <em>slurry</em>, atau katalis bekas, keselamatan, dan biaya siklus hidup. Efisiensi penangkapan tertinggi bukan satu-satunya dasar pemilihan.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b9-hirarki" role="img" aria-label="Diagram hirarki pengendalian"></div>
+            <figcaption><strong>Gbr. 9.1</strong> — mencegah lebih murah daripada menangkap; dispersi adalah pengencer.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="dasar" aria-labelledby="dasar-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.1b · Dasar</p>
+          <h2 class="h2" id="dasar-title"><span class="term" data-gloss="efisiensi">Efisiensi</span>, nines, <span class="term" data-gloss="o2-correction">koreksi O₂</span>, dan daya fan</h2>
+          <p class="sec-desc">Dua kekeliruan klasik: menjumlah efisiensi & lupa O₂.</p>
+        </div>
+        <div class="sec-body prose">
+          <div class="formula" data-tex="\eta = 1-\frac{C_{out}}{C_{in}},\quad P = 1-\eta = \frac{C_{out}}{C_{in}}">η = 1 − C_out/C_in,  P = 1 − η = C_out/C_in</div>
+          <p class="note">Keterangan: η = efisiensi fraksional; P = penetrasi (fraksi lolos). Rangkaian: P_total=P₁P₂…, η_total=1−P_total (90+90→99%, bukan 180%).</p>
+          <p>Istilah “<span class="term" data-gloss="nines">nines</span>” membantu membaca efisiensi pengendalian. Efisiensi 99% menyisakan 10⁻² dari massa awal, 99,9% menyisakan 10⁻³, dan 99,99% menyisakan 10⁻⁴. Setiap tambahan satu <em>nine</em> memangkas sisa emisi menjadi sepersepuluhnya.</p>
+          <div class="formula" data-tex="C_{ref}=C_{ukur}\left(\frac{20{,}9-O_{2,ref}}{20{,}9-O_{2,ukur}}\right)">C_ref = C_ukur·(20,9−O₂ref)/(20,9−O₂ukur)</div>
+          <p class="note">Keterangan: Koreksi O₂ pada basis kering konsisten; O₂ref mis. 7% padat /3% gas; cegah pengenceran tampak turun emisi.</p>
+          <div class="formula" data-tex="W_{fan}=\frac{Q\Delta P}{\eta_{fan}}">W_fan = Q ΔP / η_fan</div>
+          <p class="note">Keterangan: Q = laju aktual (m³/s) bukan Nm³; ΔP = pressure drop (Pa); W dalam W; ΔP tinggi = parasit besar tetapi ΔP terlalu rendah pada kontak gas–cair berarti perpindahan massa buruk.</p>
+          <p><strong>Q aktual vs normal:</strong> \(Q = A\bar v\); Q berubah dengan T,P,H₂O — bedakan aktual, normal/standar, kering/basah.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="sifat" aria-labelledby="sifat-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.2 · Sifat PM</p>
+          <h2 class="h2" id="sifat-title">Log-normal, <span class="term" data-gloss="stokes">Stokes</span>, dan diameter cut</h2>
+          <p class="sec-desc">Desain bermula dari distribusi ukuran — bukan konsentrasi.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Aerosol nyata polidispersi: diameter pada log scale mendekati <strong>log-normal</strong> dengan median geometrik \(d_g\) dan \(\sigma_g\); massa vs jumlah median berbeda; efisiensi total = bobot fraksional \(\eta(d_p)\).</p>
+          <div class="formula" data-tex="v_t = \frac{(\rho_p-\rho_g)gd_p^2C_c}{18\mu}">v_t = (ρ_p−ρ_g) g d_p² C_c / (18 μ)</div>
+          <p class="note">Keterangan: v_t = kecepatan endap terminal (Stokes, Re_p<1 sferis); ρ_p,ρ_g = densitas partikel/gas (kg/m³); d_p = diameter; C_c = slip Cunningham; μ = viskositas (Pa·s); V_t∝d².</p>
+          <p>Implikasi: setengah diameter → 1/4 V_t; gravity hanya >40–50 µm, halus perlu impaksi/difusi/elektrostatik. <span class="term" data-gloss="diameter-aerodinamik">Diameter aerodinamik</span> \(d_a≈d_p√(ρ_pχ/ρ_0)\) (ρ₀=1000) menyetarakan bentuk/densitas — dasar <span class="term" data-gloss="diameter-aerodinamik">PM10/PM2,5</span> dan \(D_{cut}\) (50% efisiensi) yang wajib disertai kondisi operasi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="partikulat" aria-labelledby="partikulat-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.3 · Partikulat</p>
+          <h2 class="h2" id="partikulat-title">Gravity, siklon, ESP, baghouse, dan scrubber</h2>
+          <p class="sec-desc">Dinding vs pembagi aliran — dua keluarga kolektor.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong>Gravity settler:</strong> \(η=1−exp(−V_t A/Q)\) (campur sempurna) — pra-pembersih >40 µm. <strong>Siklon:</strong> sentrifugal via vorteks tangensial; \(d_{cut}\) ~5–10 µm; pra-pembersih kokoh panas. <strong><span class="term" data-gloss="esp">ESP</span>:</strong> korona 30–70 kV → migrasi \(w\) → rapping; ΔP rendah; sensitif resistivitas.</p>
+          <div class="formula" data-tex="\eta = 1-\exp\left(-\frac{wA}{Q}\right)">η = 1 − exp(−wA/Q) — <span class="term" data-gloss="deutsch">Deutsch–Anderson</span></div>
+          <p class="note">Keterangan: w = kecepatan drift (m/s); A = luas pelat (m²); Q = debit (m³/s); untuk 90→99 butuh 2×A (ln0,01/ln0,1), 90→99,9 3×, 99,99 4×; k≈0,5 modifikasi untuk halus: P=exp[−(wA/Q)^k].</p>
+          <p><strong><span class="term" data-gloss="baghouse">Baghouse</span>:</strong> kain + dust cake (>99% submikron, tak sensitif resistivitas) tetapi terbatas suhu & ΔP tinggi. <strong><span class="term" data-gloss="venturi">Venturi</span>:</strong> impaksi droplet, ΔP sangat tinggi (boros) tetapi tangani gas panas/lengket + asam & hasil slurry.</p>
+          <p class="tbl-title">Tabel 9.1 — Pemilihan kolektor (ringkas)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="Pemilihan kolektor">
+            <thead><tr><th scope="col">Alat</th><th scope="col">Kekuatan</th><th scope="col">Batasan dominan</th><th scope="col">Posisi umum</th></tr></thead>
+            <tbody>
+              <tr><td>Settler</td><td>Kasar sangat, panas, murah</td><td>Halus</td><td>Prapengendali</td></tr>
+              <tr><td>Siklon</td><td>Kasar–menengah, abrasif</td><td>Halus</td><td>Prapengendali</td></tr>
+              <tr><td>ESP</td><td>Debit besar, ΔP rendah</td><td>Resistivitas, listrik HV</td><td>PLTU besar</td></tr>
+              <tr><td>Baghouse</td><td>Halus, ketat</td><td>Suhu, kelembapan</td><td>Semen, boiler</td></tr>
+              <tr><td>Venturi</td><td>PM+gas, panas</td><td>Slurry, energi</td><td>Basah/khusus</td></tr>
+            </tbody>
+          </table></div>
+
+          <div class="b2-tool-card" id="b9-eff"></div>
+
+          <figure class="viz">
+            <div class="mermaid-box" id="b9-pm" role="img" aria-label="Diagram keluarga kolektor"></div>
+            <figcaption><strong>Gbr. 9.2</strong> — dua keluarga: dinding (gravity/siklon/ESP) vs pembelah (baghouse/venturi).</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="sox" aria-labelledby="sox-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.4 · SOx</p>
+          <h2 class="h2" id="sox-title"><span class="term" data-gloss="fgd">FGD</span> basah batu kapur & alternatif pesisir</h2>
+          <p class="sec-desc">SO₂ tidak dibakar — ia dicuci.</p>
+        </div>
+        <div class="sec-body prose">
+          <div class="formula" data-tex="\mathrm{SO_2+CaCO_3+\tfrac12O_2+2H_2O\rightarrow CaSO_4\cdot2H_2O+CO_2}">SO₂+CaCO₃+½O₂+2H₂O→CaSO₄·2H₂O+CO₂ — gipsum</div>
+          <p class="note">Keterangan: Wet limestone FGD forced oxidation; >90% mungkin (CICA 50–98% desain); penentu: L/G, pH, Ca/S, oksidasi, beban; isu scaling/korosi/purge.</p>
+          <p><strong>Semi-kering SDA</strong> (slurry teratomisasi → kering ditangkap ESP/baghouse) & kering (sorbent padat) irit air tetapi kurang efisien — cocok S rendah–sedang. <strong><span class="term" data-gloss="seawater-fgd">Seawater FGD</span></strong> via alkalinitas laut pesisir: kasus Indonesia 36–43% aktual vs >90% potensi — perlu aerasi, pH, biofouling.</p>
+          <p>Alternatif pra-pembakaran: <strong>coal blending</strong> turunkan S masukan; ubah abu→slagging/fouling, resistivitas ESP → tak hanya kadar S.</p>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-bme" aria-label="Batang BME PLTU" role="img"></canvas></div>
+            <figcaption id="cap-bme"></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="nox" aria-labelledby="nox-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.5 · NOx</p>
+          <h2 class="h2" id="nox-title">Thermal vs fuel — primer vs sekunder</h2>
+          <p class="sec-desc">Thermal NOx ∝ exp(T) — dinginkan puncak api.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>NOx terbentuk melalui tiga jalur: <span class="term" data-gloss="lnb">thermal NOx</span> dari N₂ udara menurut mekanisme Zeldovich, <em>fuel NOx</em> dari nitrogen dalam bahan bakar, dan <em>prompt NOx</em>. Pengendalian primer meliputi <span class="term" data-gloss="lnb">low-NOx burner</span> (LNB), <em>staged</em> atau <em>over-fire air</em>, <span class="term" data-gloss="lnb">flue-gas recirculation</span> (FGR), dan optimasi udara berlebih. Metode ini relatif murah dan dapat mengurangi emisi hingga puluhan persen, tetapi kemampuannya terbatas. Udara berlebih yang terlalu tinggi dapat menaikkan NOx, sedangkan kondisi terlalu kaya bahan bakar dapat menaikkan CO dan <em>loss on ignition</em> (LOI).</p>
+          <div class="formula" data-tex="\mathrm{4NO+4NH_3+O_2\rightarrow4N_2+6H_2O}">4NO+4NH₃+O₂→4N₂+6H₂O — SCR</div>
+          <p class="note">Keterangan: <span class="term" data-gloss="scr">SCR</span> pada katalis 300–400°C, 80–90%+, perlu NH₃/urea & kontrol slip, fouling/poisoning; SNCR tanpa katalis 850–1100°C jendela sempit, lebih murah kurang efisien.</p>
+          <p>Praktik: LNB turunkan beban murah di hulu + SCR/SNCR untuk penuntasan — sesuai target baku mutu.</p>
+          <figure class="viz">
+            <div class="mermaid-box" id="b9-soxnox" role="img" aria-label="Diagram SOx dan NOx"></div>
+            <figcaption><strong>Gbr. 9.3</strong> — blanding vs FGD untuk SO₂; LNB vs SCR untuk NOx.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="voc" aria-labelledby="voc-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.6 · VOC</p>
+          <h2 class="h2" id="voc-title">Dari recovery hingga pemusnahan</h2>
+          <p class="sec-desc">Konsentrasi & nilai menentukan pulih atau musnah.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Pengendalian VOC mengikuti tiga tingkat. Pencegahan dapat dilakukan melalui substitusi pelarut, penggunaan cat berbasis air atau <em>high-solids</em>, serta LDAR untuk kebocoran fugitif. Pemulihan dapat memakai kondensasi dingin pada konsentrasi tinggi atau adsorpsi karbon aktif pada konsentrasi rendah hingga sedang yang memungkinkan regenerasi. Pemusnahan dapat menggunakan absorpsi, insinerasi termal pada 700–1.000 °C, oksidasi katalitik pada suhu lebih rendah, atau biofiltrasi untuk aliran berkonsentrasi rendah dan berbau. Konsentrasi VOC harus dibandingkan dengan LEL sebelum oksidator digunakan. Aliran terhalogenasi memerlukan <em>quench</em> atau scrubber asam.</p>
+          <p class="tbl-title">Tabel 9.2 — Memilih VOC (ringkas)</p>
+          <div class="tbl-wrap"><table class="tbl" aria-label="VOC">
+            <thead><tr><th scope="col">Teknologi</th><th scope="col">Kondisi sesuai</th><th scope="col">Batasan</th></tr></thead>
+            <tbody>
+              <tr><td>Kondensasi</td><td>Tinggi, bernilai</td><td>Tidak ekonomis sangat rendah</td></tr>
+              <tr><td>Adsorpsi karbon</td><td>Rendah–sedang</td><td>Breakthrough, kelembapan</td></tr>
+              <tr><td>Termal</td><td>Tidak bernilai, tinggi</td><td>Bahan bakar bantu, NOx</td></tr>
+              <tr><td>Katalitik</td><td>Tidak bernilai, sedang</td><td>Racun katalis (S, halogen)</td></tr>
+              <tr><td>Biofiltrasi</td><td>Rendah, biodegradabel</td><td>Kelembapan, beban</td></tr>
+            </tbody>
+          </table></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="bergerak" aria-labelledby="bergerak-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.7 · Sumber bergerak</p>
+          <h2 class="h2" id="bergerak-title">Katalis tiga arah & filter diesel</h2>
+          <p class="sec-desc">Rasio udara–bahan bakar menentukan teknologi.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><strong><span class="term" data-gloss="twc">TWC</span> bensin</strong> (Pt/Pd/Rh) pada stoikiometrik + sensor λ: oksidasi CO/HC & reduksi NOx simultan; butuh bebas Pb & sulfur rendah. <strong>Diesel lean</strong> → <span class="term" data-gloss="dpf">DOC + DPF</span> sarang tawon pori; regenerasi pasif NO₂ 300–400°C / aktif injeksi fuel; ~99% PM bila terawat. Tanpa sulfur ≤50 ppm, katalis teracuni — urgensi Euro 4 (P.20/2017: Okt 2018 bensin, Apr 2021 diesel RON91/CN51) + uji berkala P.8/2023. TWC bukan pengganti peremajaan armada & angkutan umum.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="cems" aria-labelledby="cems-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.8 · CEMS</p>
+          <h2 class="h2" id="cems-title">Dari sensor ke bukti kepatuhan</h2>
+          <p class="sec-desc">Sistem akuisisi + QA/QC, bukan sekadar analizer.</p>
+        </div>
+        <div class="sec-body prose">
+          <p><span class="term" data-gloss="cems">CEMS</span> kontinu untuk SO₂/NOx/partikulat/O₂ dsb. + \(T,P,H₂O, Q\) untuk beban g/s. <strong>Permen 13/2021 SISPEK</strong>: integrasi real-time per jam (5-menit) via JSON/API, registrasi-verifikasi-konektivitas + audit <span class="term" data-gloss="cems">CGA/RCA/RATA</span>; downtime harus flag, bukan nol.</p>
+
+          <div class="b2-tool-card" id="b9-o2fan"></div>
+
+          <p>Data layak pakai perlu zero/span, pemeriksaan sampel, dan rekonsiliasi dengan uji manual terakreditasi.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec-deep" id="terkini" aria-labelledby="terkini-title">
+      <div class="wrap grid-main">
+        <div class="sec-head">
+          <p class="eyebrow">9.9 · Terkini</p>
+          <h2 class="h2" id="terkini-title">PLTU, co-firing, dan merkuri</h2>
+          <p class="sec-desc">Teknologi matang; ketatnya baku mutu yang menantang.</p>
+        </div>
+        <div class="sec-body prose">
+          <p>Praktik PLTU Indonesia: <span class="term" data-gloss="esp">ESP</span> + <span class="term" data-gloss="lnb">LNB</span> + blending/low-S; PLN klaim ESP di semua PLTU, Suralaya PM &lt;60/100 (3.400 MW, 35 ribu ton/hari). Kritik BME Kat.1 550/100 vs Tiongkok 50/35/10: 3–15× (SO₂/NOx) & 5–20× (PM) — lihat Grafik 9.1 pada Subbab 9.4; baru 200/50/0,03. Mayoritas 75% di Kat.1 longgar; model 5.900 kematian/tahun dapat dihindari bila 100/10 (estimasi model Greenpeace/CREA, bukan pantauan) — fenomena “standar ganda” Korea pada Jawa 9&amp;10.</p>
+          <p><strong>Co-firing</strong> 47 PLTU (52 lok) 1,67 juta MWh 2024 (↑60%) 1,87 Mt CO₂ → target 52 PLTU 10,2 Mt biomassa; kontribusi 1,86% bauran EBT — debatable.</p>
+          <figure class="chart-card">
+            <div class="chart-wrap"><canvas id="chart-cofiring" aria-label="Batang co-firing" role="img"></canvas></div>
+            <figcaption id="cap-cofiring"></figcaption>
+          </figure>
+          <p><strong>CCS</strong> 15 proyek &lt;2030 (migas, Permen ESDM 2/2023, 4,85 Gt +572 Gt) bukan pengganti ESP/FGD/SCR — perlu SOx/NOx hulu untuk pelarut. <strong><span class="term" data-gloss="hg">Hg</span></strong> 0,03 (Minamata) — co-benefit ESP+FGD (+ ACI bila perlu).</p>
+          <div class="callout callout-warn"><span class="icon" data-lucide="triangle-alert"></span><p><strong>Audit Suralaya:</strong> 99,9% adalah kapabilitas tipikal ESP modern (de Nevers), bukan angka efisiensi terukur Suralaya (hanya C_out &lt;60 mg/Nm³ terverifikasi). Klaim per unit wajib inlet–outlet + basis.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="rangkuman" aria-labelledby="rangkuman-title">
+      <div class="wrap"><div class="panel">
+        <p class="eyebrow">Rangkuman</p>
+        <h2 class="h2" id="rangkuman-title">Pokok pembelajaran</h2>
+        <ul class="objective-list">
+          <li>Hirarki pencegahan→recovery→end-of-pipe→dispersi; nines memperlihatkan biaya eksponensial vs sisa emisi.</li>
+          <li>Sifat PM (log-normal, Stokes∝d², d_a/D_cut) menentukan kolektor; Deutsch–Anderson 1−exp(−wA/Q) dengan modifikasi k.</li>
+          <li>FGD basah→gipsum (>90% mungkin) vs seawater 36–43% & semi-kering; NOx LNB/FGR (puluhan %) vs SCR 80–90%.</li>
+          <li>VOC pilih pulih (kondensasi/adsorpsi) atau musnah (termal/katalitik/bio) berdasar konsentrasi/nilai; sumber bergerak TWC vs DPF + Euro 4 50 ppm S.</li>
+          <li>CEMS adalah rantai ukur + QA (CGA/RATA) + SISPEK real-time; O₂ & Q basis harus konsisten (C_ref & W_fan).</li>
+          <li>Di Indonesia, tantangan bukan teknologi (matur) melainkan BME: Kat.1 550 masih longgar 3–15× → PLTU cukup ESP+blending.</li>
+        </ul>
+      </div></div>
+    </section>
+
+    <section class="sec sec-deep" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Checkpoint</p><h2 class="h2" id="quiz-title">Uji pemahaman</h2><p class="sec-desc">Enam soal tentang hirarki, nines, Stokes, ESP, FGD/SCR, dan TWC/DPF.</p></div><div class="quiz card" id="quiz-box"><div id="quiz-root"></div></div></div>
+    </section>
+
+    <section class="sec" id="diskusi" aria-labelledby="diskusi-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Diskusi</p><h2 class="h2" id="diskusi-title">Pertanyaan diskusi</h2><p class="sec-desc">Buka petunjuk setiap pertanyaan untuk memulai pembahasan.</p></div><div class="acc" id="diskusi-list"></div></div>
+    </section>
+
+    <section class="sec sec-deep" id="latihan" aria-labelledby="latihan-title">
+      <div class="wrap"><div class="sec-head center"><p class="eyebrow">Latihan</p><h2 class="h2" id="latihan-title">Latihan mandiri</h2><p class="sec-desc">Enam tugas penerapan; progres tersimpan otomatis di perangkat ini.</p></div><div class="lat-progress" role="status" aria-live="polite"><div class="lat-bar"><div class="lat-bar-fill" id="lat-fill"></div></div><span class="lat-count" id="lat-count">0 / 6 selesai</span></div><ol class="lat-list" id="latihan-list"></ol></div>
+    </section>
+
+    <section class="sec" id="pustaka" aria-labelledby="pustaka-title">
+      <div class="wrap"><div class="panel"><p class="eyebrow">Referensi</p><h2 class="h2" id="pustaka-title">Daftar pustaka</h2><div id="pustaka-list"></div></div></div>
+    </section>
+
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden><div class="modal-backdrop" data-close-modal></div><div class="modal-dialog" role="document"><button type="button" class="modal-close" data-close-modal aria-label="Tutup dialog"><span class="icon" data-lucide="x"></span></button><p class="eyebrow" id="modal-eyebrow"></p><h3 class="h3" id="modal-title"></h3><div class="modal-body" id="modal-body"></div></div></div>
+    <span id="tooltip" class="tooltip" role="tooltip" hidden></span>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <p class="foot-copy">© <span data-current-year></span> <a href="https://khair.am" target="_blank" rel="noopener noreferrer">Hafizhul Khair</a></p>
+      <p class="foot-modified">Terakhir diperbarui: <time data-last-modified="2026-09-23"></time></p>
+    </div>
+  </footer>
+
+  <button type="button" id="to-top" class="to-top" aria-label="Kembali ke atas" hidden><span class="icon" data-lucide="arrow-up"></span></button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.min.js"></script>
+
+  <script src="assets/js/data-bab9.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/quiz.js"></script>
+  <script src="assets/js/extras.js"></script>
+  <script src="assets/js/bab9.js"></script>
+  <script src="assets/js/footer.js"></script>
+</body>
+</html>

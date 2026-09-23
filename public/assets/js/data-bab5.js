@@ -109,11 +109,11 @@ APP_DATA.CHAPTERS = [
   { n: 3, title: "Sumber Pencemaran Udara", href: "bab-3.html", current: false },
   { n: 4, title: "Parameter Pencemaran Udara dan Pemantauan", href: "bab-4.html", current: false },
   { n: 5, title: "Dampak Pencemaran Udara", href: "#top", current: true },
-  { n: 6, title: "Meteorologi dan Termodinamika Atmosfer", href: null },
-  { n: 7, title: "Pemodelan Pencemaran Udara", href: null },
-  { n: 8, title: "Peraturan dan Standar Pencemaran Udara", href: null },
-  { n: 9, title: "Teknologi Pengendalian Pencemaran Udara", href: null },
-  { n: 10, title: "Studi Kasus Pencemaran Udara", href: null }
+  { n: 6, title: "Meteorologi dan Termodinamika Atmosfer", href: "bab-6.html" },
+  { n: 7, title: "Pemodelan Pencemaran Udara", href: "bab-7.html" },
+  { n: 8, title: "Peraturan dan Standar Pencemaran Udara", href: "bab-8.html" },
+  { n: 9, title: "Teknologi Pengendalian Pencemaran Udara", href: "bab-9.html" },
+  { n: 10, title: "Studi Kasus Pencemaran Udara", href: "bab-10.html" }
 ];
 
 APP_DATA.KEYWORDS = [
@@ -148,18 +148,10 @@ APP_DATA.CHART_BEBAN = {
 };
 
 APP_DATA.CHART_KARHUTLA = {
-  labels: ["Resmi 2015 (24 jiwa)", "Koplitz 2015 (100.300)", "CAMS 2015 (75.014 S-K)", "CAMS 2019 (51.377 S-K)"],
-  data: [0.000024, 100.3, 75.014, 51.377],
+  labels: ["Koplitz 2015 (100.300)", "CAMS 2015 (75.014 S-K)", "CAMS 2019 (51.377 S-K)"],
+  data: [100.3, 75.014, 51.377],
   useThousand: true,
-  caption: "Grafik 5.2 — Dampak karhutla: laporan kasus (24) vs estimasi model epidemiologis (ribu). Koplitz 2016 (SE Asia 2015) dan Nature 2024 reanalisis CAMS EAC4 (Sumatera–Kalimantan) — estimasi, bukan hitungan."
-};
-
-APP_DATA.CHART_AQG_BAB5 = {
-  labels: ["PM2,5 thn PP 15", "WHO 5", "IT-1 35", "PM10 thn PP 40", "WHO 15"],
-  pp: [15, 15, 15, 40, 40],
-  who: [5, 5, 35, 15, 15],
-  isWHO: [false, true, false, false, true],
-  caption: "Grafik 5.3 — Kesenjangan baku mutu nasional vs WHO AQG 2021 (µg/m³). PM2,5 tahunan 15 vs 5 (3×); IT-1 35 adalah tangga interim pertama."
+  caption: "Grafik 5.2 — Estimasi model kematian prematur karhutla (ribu jiwa). Koplitz 2016 (SE Asia 2015) dan Nature 2024 reanalisis CAMS EAC4 (Sumatera–Kalimantan). Angka resmi 24 jiwa adalah hitungan kasus klinis — skala dan jenis data berbeda, tak diplot se-batang."
 };
 
 APP_DATA.QUIZ = [
